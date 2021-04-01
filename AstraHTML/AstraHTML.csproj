@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\Images\Time.png" />
+    <None Remove="Resources\Images\CSharp.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resources\Images\Time.png">
+    <Resource Include="Resources\Images\CSharp.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

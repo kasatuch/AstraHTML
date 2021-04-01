@@ -10,7 +10,8 @@
         WindowStyle="None"
         ResizeMode="NoResize"
         Background="#181735"
-        Height="500" Width="900">
+        Height="500" Width="900"
+        WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <cmd:CloseApplicationCommand x:Key="CloseApplicationCommand"/>
     </Window.Resources>
@@ -18,6 +19,7 @@
         <KeyBinding Modifiers="Ctrl" Key="Q" Command="{StaticResource CloseApplicationCommand}"/>
     </Window.InputBindings>
     <Grid>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
             <RowDefinition />
@@ -26,7 +28,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Grid Background="#0F0F2D" Grid.ColumnSpan="2">
+        <Grid Background="#0F0F2D" Grid.ColumnSpan="2" MouseDown="Grid_MouseDown">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -48,7 +50,7 @@
                        Grid.Column="1"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
-                       FontFamily="/Resources/Fonts/#Dosis"
+                       FontFamily="pack://application:,,,/Resources/Fonts/#Dosis"
                        FontWeight="Medium"/>
 
             <TextBlock Text="Menu"
@@ -56,13 +58,13 @@
                        Grid.Column="2"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
-                       FontFamily="/Resources/Fonts/#Dosis"/>
+                       FontFamily="pack://application:,,,/Resources/Fonts/#Dosis"/>
             <TextBlock Text="About me"
                        Foreground="LightGray"
                        Grid.Column="3"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
-                       FontFamily="/Resources/Fonts/#Dosis"/>
+                       FontFamily="pack://application:,,,/Resources/Fonts/#Dosis"/>
             <Button Content="Exit"
                         Foreground="White"
                         FontSize="10"
@@ -101,38 +103,70 @@
                 <StackPanel Orientation="Horizontal"
                             Margin="0,0,0,20">
                     <Image Width="50" Height="50"
-                       Source="pack://application:,,,/Resources/Images/Time.png"
+                       Source="pack://application:,,,/Resources/Images/CSharp.png"
                            RenderOptions.BitmapScalingMode="Fant"/>
-                    <TextBlock Text="AstraHTML"
-                           Foreground="White"
+                    <TextBlock 
                            FontSize="20"
                            FontWeight="Medium"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
-                           FontFamily="/Resources/Fonts/#Dosis"
-                               Margin="10,0,0,0"/>
+                           FontFamily="pack://application:,,,/Resources/Fonts/#Dosis"
+                               Margin="10,0,0,0">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="Text" Value="AstraHTML"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Foreground" Value="#7309AA"/>
+                                        <Setter Property="Text" Value="by Dmitry Nikulin ©"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
                 </StackPanel>
                 <TextBlock Text="Customize"
                        Foreground="White"
                        FontSize="25"
-                       FontFamily="/Resources/Fonts/#Dosis"
+                       FontFamily="pack://application:,,,/Resources/Fonts/#Dosis"
                        FontWeight="Medium"
                        />
                 <TextBlock Text="Your"
-                       Foreground="White"
                        FontSize="25"
-                       FontFamily="/Resources/Fonts/#Dosis"
+                       FontFamily="pack://application:,,,/Resources/Fonts/#Dosis"
                        FontWeight="Medium"
-                       />
+                       >
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Foreground" Value="White"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Foreground" Value="DarkBlue"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
                 <TextBlock Text="Expirience"
-                       Foreground="White"
                        FontSize="25"
-                       FontFamily="/Resources/Fonts/#Dosis"
+                       FontFamily="pack://application:,,,/Resources/Fonts/#Dosis"
                        FontWeight="Medium"
-                       />
+                       >
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Foreground" Value="White"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Foreground" Value="Red"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
                 <TextBlock Text="Diversify your development experience with AstraHTML"
                        FontSize="12"
-                       FontFamily="/Resources/Fonts/#Dosis"
+                       FontFamily="pack://application:,,,/Resources/Fonts/#Dosis"
                        FontWeight="Medium"
                        TextWrapping="Wrap"
                            Margin="0,10,0,0"
@@ -161,7 +195,7 @@
                         Margin="0,0,10,0">
                     <Button.Style>
                         <Style TargetType="Button">
-                            <Setter Property="TextElement.FontFamily" Value="/Resources/Fonts/#Dosis"/>
+                            <Setter Property="TextElement.FontFamily" Value="pack://application:,,,/Resources/Fonts/#Dosis"/>
                             <Setter Property="Background" Value="#FE6584"/>
                             <Setter Property="Cursor" Value="Hand"/>
                             <Style.Triggers>
@@ -188,7 +222,7 @@
                         >
                     <Button.Style>
                         <Style TargetType="Button">
-                            <Setter Property="TextElement.FontFamily" Value="/Resources/Fonts/#Dosis"/>
+                            <Setter Property="TextElement.FontFamily" Value="pack://application:,,,/Resources/Fonts/#Dosis"/>
                             <Setter Property="Background" Value="#39385D"/>
                             <Setter Property="Cursor" Value="Hand"/>
                             <Style.Triggers>

@@ -7,17 +7,6 @@ namespace AstraHTML.ViewModels
 {
     internal class MainWindowViewModel : ViewModel
     {
-        #region Картинка с будильником
-        private string _ImageSource = "/Resources/Images/Time.png";
-
-        public string ImageSource
-        {
-            get => _ImageSource;
-            set => Set(ref _ImageSource, value);
-
-        }
-        
-        #endregion
 
         #region Команды
 

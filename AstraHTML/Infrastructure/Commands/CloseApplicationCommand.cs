@@ -7,6 +7,9 @@ namespace AstraHTML.Infrastructure.Commands
     {
         public override bool CanExecute(object parameter) => true;
 
-        public override void Execute(object parameter) => Application.Current.Shutdown();
+        public override void Execute(object parameter)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }
