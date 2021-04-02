@@ -19,6 +19,14 @@
     <Window.DataContext>
         <vm:RegisterViewModel/>
     </Window.DataContext>
+
+    <Window.Resources>
+        <ResourceDictionary>
+                <ResourceDictionary.MergedDictionaries>
+                    <ResourceDictionary Source="pack://application:,,,/Resources/Themes/ModernButtonTheme.xaml"/>
+                </ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary>
+    </Window.Resources>
     <Grid>
         <Grid>
             <Grid.RowDefinitions>

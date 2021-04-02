@@ -1,26 +1,20 @@
-﻿<Window x:Class="AstraHTML.MainWindow"
+﻿<Window x:Class="AstraHTML.Views.Windows.WorkWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:cmd="clr-namespace:AstraHTML.Infrastructure.Commands"
-        xmlns:vm="clr-namespace:AstraHTML.ViewModels"
-        xmlns:l="clr-namespace:AstraHTML"
+        xmlns:local="clr-namespace:AstraHTML.Views.Windows"
         mc:Ignorable="d"
+        Title="WorkWindow"
         WindowStyle="None"
         ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
         Background="#181735"
-        Height="500" Width="900"
-        WindowStartupLocation="CenterScreen">
+        Height="500" Width="900">
     <Window.Resources>
-        <cmd:CloseApplicationCommand x:Key="CloseApplicationCommand"/>
+        
     </Window.Resources>
-    <Window.DataContext>
-        <vm:MainWindowViewModel/>
-    </Window.DataContext>
-    <Window.InputBindings>
-        <KeyBinding Modifiers="Ctrl" Key="Q" Command="{StaticResource CloseApplicationCommand}"/>
-    </Window.InputBindings>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
@@ -30,7 +24,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Grid Background="#0F0F2D" Grid.ColumnSpan="2" MouseDown="Grid_MouseDown">
+        <Grid Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -47,26 +41,16 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBlock Text="AstraHTML"
-                       Foreground="White"
-                       Grid.Column="1"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Center"
-                       FontFamily="pack://application:,,,/Resources/Fonts/#Dosis"
-                       FontWeight="Medium"/>
-
-            <TextBlock Text="Menu"
-                       Foreground="LightGray"
-                       Grid.Column="2"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Center"
-                       FontFamily="pack://application:,,,/Resources/Fonts/#Dosis"/>
-            <TextBlock Text="About me"
-                       Foreground="LightGray"
-                       Grid.Column="3"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Center"
-                       FontFamily="pack://application:,,,/Resources/Fonts/#Dosis"/>
+            <Menu Grid.Column="0" Grid.ColumnSpan="14" Background="#0F0F2D">
+                <MenuItem Header="Choose a role" Background="Transparent"
+                          Foreground="White"
+                          FontFamily="pack://application:,,,/Resources/Fonts/#Dosis"
+                          Height="25" BorderThickness="0.5" BorderBrush="Red" >
+                    <Button Content="Design"></Button>
+                    <Button Content="Developer"></Button>
+                    <Button Content="Test"></Button>
+                </MenuItem>
+            </Menu>
             <Button Content="Exit"
                         Foreground="White"
                         FontSize="10"
@@ -74,7 +58,7 @@
                         Margin="0,0,10,0"
                     Grid.Column="12"
                     Grid.ColumnSpan="2"
-                    Command="{StaticResource CloseApplicationCommand}">
+                    >
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="TextElement.FontFamily" Value="/Resources/Fonts/#Dosis"/>
@@ -101,200 +85,11 @@
         <StackPanel Grid.Row="1"
                     VerticalAlignment="Center"
                     Margin="60">
-            <StackPanel>
-                <StackPanel Orientation="Horizontal"
-                            Margin="0,0,0,20">
-                    <Image Width="50" Height="50"
-                       Source="pack://application:,,,/Resources/Images/CSharp.png"
-                           RenderOptions.BitmapScalingMode="Fant"/>
-                    <TextBlock 
-                           FontSize="20"
-                           FontWeight="Medium"
-                           VerticalAlignment="Center"
-                           HorizontalAlignment="Center"
-                           FontFamily="pack://application:,,,/Resources/Fonts/#Dosis"
-                               Margin="10,0,0,0">
-                        <TextBlock.Style>
-                            <Style TargetType="TextBlock">
-                                <Setter Property="Foreground" Value="White"/>
-                                <Setter Property="Text" Value="AstraHTML"/>
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Foreground" Value="#7309AA"/>
-                                        <Setter Property="Text" Value="by Dmitry Nikulin ©"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </TextBlock.Style>
-                    </TextBlock>
-                </StackPanel>
-                <TextBlock Text="Customize"
-                       Foreground="White"
-                       FontSize="25"
-                       FontFamily="pack://application:,,,/Resources/Fonts/#Dosis"
-                       FontWeight="Medium"
-                       />
-                <TextBlock Text="Your"
-                       FontSize="25"
-                       FontFamily="pack://application:,,,/Resources/Fonts/#Dosis"
-                       FontWeight="Medium"
-                       >
-                    <TextBlock.Style>
-                        <Style TargetType="TextBlock">
-                            <Setter Property="Foreground" Value="White"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Foreground" Value="DarkBlue"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </TextBlock.Style>
-                </TextBlock>
-                <TextBlock Text="Expirience"
-                       FontSize="25"
-                       FontFamily="pack://application:,,,/Resources/Fonts/#Dosis"
-                       FontWeight="Medium"
-                       >
-                    <TextBlock.Style>
-                        <Style TargetType="TextBlock">
-                            <Setter Property="Foreground" Value="White"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Foreground" Value="Red"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </TextBlock.Style>
-                </TextBlock>
-                <TextBlock Text="Diversify your development experience with AstraHTML"
-                       FontSize="12"
-                       FontFamily="pack://application:,,,/Resources/Fonts/#Dosis"
-                       FontWeight="Medium"
-                       TextWrapping="Wrap"
-                           Margin="0,10,0,0"
-                       >
-                    <TextBlock.Style>
-                        <Style TargetType="TextBlock">
-                            <Setter Property="Foreground" Value="White"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Foreground" Value="#FF9500"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </TextBlock.Style>
-                </TextBlock>
-               
-
-            </StackPanel>
 
             <StackPanel Orientation="Horizontal"
-                        Margin="0,15,0,0">
-                <Button Content="Start"
-                        Foreground="White"
-                        FontSize="14"
-                        FontWeight="Medium"
-                        Margin="0,0,10,0">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="TextElement.FontFamily" Value="pack://application:,,,/Resources/Fonts/#Dosis"/>
-                            <Setter Property="Background" Value="#FE6584"/>
-                            <Setter Property="Cursor" Value="Hand"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="#FF4C70"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border Width="100" Height="25"
-                                    CornerRadius="12"
-                                    Background="{TemplateBinding Background}">
-                                <ContentPresenter  VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                            </Border>
-                        </ControlTemplate>
-                    </Button.Template>
-                </Button>
-                <Button Content="Register"
-                        Foreground="White"
-                        FontSize="14"
-                        FontWeight="Medium"
-                        Command="{Binding Path=OpenRegForm}"
-                        >
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="TextElement.FontFamily" Value="pack://application:,,,/Resources/Fonts/#Dosis"/>
-                            <Setter Property="Background" Value="#39385D"/>
-                            <Setter Property="Cursor" Value="Hand"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="#3A3952"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border Width="100" Height="25"
-                                    CornerRadius="12"
-                                    Background="{TemplateBinding Background}">
-                                <ContentPresenter  VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                            </Border>
-                        </ControlTemplate>
-                    </Button.Template>
-                </Button>
-            </StackPanel>
+                        Margin="0,15,0,0"/>
         </StackPanel>
         <Grid Grid.Column="1" Grid.RowSpan="2">
-        </Grid>
-        <Grid Grid.Column="1"
-              Grid.RowSpan="2"
-              Margin="160,-365,-610,85"
-              Panel.ZIndex="-1">
-            <Grid.RenderTransform>
-                <RotateTransform Angle="50"/>
-            </Grid.RenderTransform>
-            <StackPanel Orientation="Horizontal"
-                        Margin="-350,250,-255,-250">
-                <StackPanel>
-                    <Border Width="700"
-                            Height="35"
-                            Background="#3DDDC2"
-                            Margin="150,0,0,0"
-                            CornerRadius="20"/>
-                    <Border Width="700"
-                            Height="35"
-                            Background="#FC6586"
-                            Margin="0,15,0,0"
-                            CornerRadius="20"/>
-                    <Border Width="700"
-                            Height="35"
-                            Background="#383660"
-                            Margin="75,15,0,0"
-                            CornerRadius="20"/>
-                </StackPanel>
-
-                <StackPanel>
-                    <Border Width="700"
-                            Height="35"
-                            Background="#3DDDC2"
-                            Margin="150,0,0,0"
-                            CornerRadius="20"/>
-                    <Border Width="700"
-                            Height="35"
-                            Background="#FC6586"
-                            Margin="0,15,0,0"
-                            CornerRadius="20"/>
-                    <Border Width="700"
-                            Height="35"
-                            Background="#383660"
-                            Margin="75,15,0,0"
-                            CornerRadius="20"/>
-                </StackPanel>
-            </StackPanel>
-            
         </Grid>
     </Grid>
 </Window>
