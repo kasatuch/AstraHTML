@@ -14,7 +14,8 @@
         AllowsTransparency="True"
         Background="Transparent"
         
-        Width="900">
+        Width="900"
+    xmlns:converter="clr-namespace:MahApps.Metro.IconPacks.Converter;assembly=MahApps.Metro.IconPacks.Core">
     <Window.Resources>
         
         <!--#region Button Visual Style-->
@@ -98,7 +99,7 @@
         <SolidColorBrush x:Key="Button.Disabled.Foreground1" Color="#FF838383"/>
         <!--#endregion-->
 
-        <!-- #region Profile Button Style-->
+        <!-- #region Edit DataBase Button Style-->
         <Style x:Key="ProfileBtnStyle" TargetType="{x:Type Button}">
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual1}"/>
             <Setter Property="Background" Value="{StaticResource Button.Static.Background1}"/>
@@ -156,7 +157,7 @@
         <SolidColorBrush x:Key="Button.Disabled.Foreground2" Color="#FF838383"/>
         <!--#endregion-->
 
-        <!-- #region Settings Button Style-->
+        <!-- #region PayDays Button Style-->
         <Style x:Key="SettingsBtnStyle" TargetType="{x:Type Button}">
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual2}"/>
             <Setter Property="Background" Value="{StaticResource Button.Static.Background2}"/>
@@ -214,6 +215,46 @@
         <SolidColorBrush x:Key="Button.Disabled.Foreground3" Color="#FF838383"/>
         <!--#endregion-->
         
+        <!--#region Edit Employee DB Style-->
+        <Style x:Key="EditEmployeeDBButStyle" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual3}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background3}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border3}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#3A6180"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#3A6180"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#3A6180"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#3A6180"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background3}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border3}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground3}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--#endregion-->
+
         <!--#region Close Button Style-->
         <Style x:Key="CloseBtnStyle" TargetType="{x:Type Button}">
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual3}"/>
@@ -252,8 +293,53 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <ControlTemplate x:Key="MahApps.Templates.PackIconMaterial" TargetType="{x:Type iconPacks:PackIconMaterial}">
+            <Grid>
+                <Border Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                <Grid x:Name="PART_InnerGrid" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding BorderThickness}" RenderTransformOrigin="0.5 0.5" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform x:Name="FlipTransform" ScaleX="{Binding Flip, Converter={converter:FlipToScaleXValueConverter}, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ScaleY="{Binding Flip, Converter={converter:FlipToScaleYValueConverter}, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <RotateTransform x:Name="RotationTransform" Angle="{Binding RotationAngle, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <RotateTransform x:Name="SpinTransform"/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                    <Viewbox Margin="{TemplateBinding Padding}">
+                        <Path Data="{Binding Data, Converter={converter:NullToUnsetValueConverter}, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="False" Stretch="Uniform" UseLayoutRounding="False"/>
+                    </Viewbox>
+                </Grid>
+            </Grid>
+        </ControlTemplate>
+        <Style x:Key="EditEmployeDBButStyle" TargetType="{x:Type iconPacks:PackIconMaterial}">
+            <Setter Property="Height" Value="16"/>
+            <Setter Property="Width" Value="16"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="FlowDirection" Value="LeftToRight"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="IsTabStop" Value="False"/>
+            <Setter Property="SnapsToDevicePixels" Value="False"/>
+            <Setter Property="UseLayoutRounding" Value="False"/>
+            <Setter Property="Template" Value="{StaticResource MahApps.Templates.PackIconMaterial}"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+        </Style>
+        <Style x:Key="FocusVisual4">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" SnapsToDevicePixels="true" StrokeThickness="1" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background4" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border4" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background4" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border4" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground4" Color="#FF838383"/>
         <!--#endregion-->
-        
+
     </Window.Resources>
     <Grid>
 
@@ -265,16 +351,40 @@
                                   Color="Gray">
                 </DropShadowEffect>
             </Grid.Effect>
-            <StackPanel Width="100"
+            <Grid Width="100"
                         HorizontalAlignment="Left"
                         Background="#383660">
-                <Button Style="{DynamicResource HomeBtnStyle}" x:Name="Home"
-                        Height="80"
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50*"/>
+                    <RowDefinition Height="90*"/>
+                    <RowDefinition Height="90*"/>
+                    <RowDefinition Height="90*"/>
+                    <RowDefinition Height="90*"/>
+                    <RowDefinition Height="50*"/>
+                </Grid.RowDefinitions>
+                <Button Style="{DynamicResource HomeBtnStyle}" Grid.Row="1" x:Name="Home"
+                        Height="90"
                         Background="Transparent"
                         BorderBrush="Transparent"
-                        Margin="0,60,0,20" MouseEnter="Home_MouseEnter" MouseLeave="Home_MouseLeave" 
+                        MouseEnter="Home_MouseEnter" MouseLeave="Home_MouseLeave" 
                         >
-                    <iconPacks:PackIconMaterial Kind="Home"                           
+                    <iconPacks:PackIconMaterial Kind="Database"                           
+                                 VerticalAlignment="Center"
+                                 HorizontalAlignment="Center"
+                                            Foreground="White"
+                                                Width="35"
+                                                Height="35"
+                                               >
+
+                    </iconPacks:PackIconMaterial>
+                </Button>
+                <Button Style="{DynamicResource ProfileBtnStyle}" x:Name="EditDBBut"
+                        Height="85"
+                        Grid.Row="2"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        Margin="0,0,0,10" MouseEnter="EditDBBut_MouseEnter" MouseLeave="EditDBBut_MouseLeave">
+                    <iconPacks:PackIconMaterial Kind="DatabaseEdit"                           
                                  VerticalAlignment="Center"
                                  HorizontalAlignment="Center"
                                             Foreground="White"
@@ -283,26 +393,13 @@
                                                >
                     </iconPacks:PackIconMaterial>
                 </Button>
-                <Button Style="{DynamicResource ProfileBtnStyle}" x:Name="Profile"
-                        Height="80"
+                <Button Style="{DynamicResource SettingsBtnStyle}" x:Name="PayDays"
+                        Height="85"
                         Background="Transparent"
                         BorderBrush="Transparent"
-                        Margin="0,0,0,10" MouseEnter="Profile_MouseEnter" MouseLeave="Profile_MouseLeave">
-                    <iconPacks:PackIconMaterial Kind="AccountBox"                           
-                                 VerticalAlignment="Center"
-                                 HorizontalAlignment="Center"
-                                            Foreground="White"
-                                                Width="35"
-                                                Height="35"
-                                               >
-                    </iconPacks:PackIconMaterial>
-                </Button>
-                <Button Style="{DynamicResource SettingsBtnStyle}" x:Name="Settings"
-                        Height="80"
-                        Background="Transparent"
-                        BorderBrush="Transparent"
+                        Grid.Row="3"
                         Margin="0,10,0,0" MouseEnter="Settings_MouseEnter" MouseLeave="Settings_MouseLeave">
-                    <iconPacks:PackIconMaterial Kind="AccountSettings"                           
+                    <iconPacks:PackIconMaterial Kind="CalendarMonth"                           
                                  VerticalAlignment="Center"
                                  HorizontalAlignment="Center"
                                             Foreground="White"
@@ -311,52 +408,102 @@
                                                >
                     </iconPacks:PackIconMaterial>
                 </Button>
-            </StackPanel>
+                <Button Style="{DynamicResource EditEmployeeDBButStyle}" x:Name="EmployeeDBBut"
+                        Height="85"
+                        Grid.Row="4"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        Margin="0,10,0,0" MouseEnter="EmployeeDBBut_MouseEnter" MouseLeave="EmployeeDBBut_MouseLeave"   >
+                    <iconPacks:PackIconMaterial Style="{DynamicResource EditEmployeDBButStyle}" Kind="AccountChild"                           
+                                 VerticalAlignment="Center"
+                                 HorizontalAlignment="Center"
+                                            Foreground="White"
+                                                Width="35"
+                                                Height="35"
+                                               >
+                    </iconPacks:PackIconMaterial>
+                </Button>
+            </Grid>
+            <Frame Background="White" Panel.ZIndex="-1">
+
+            </Frame>
             <Grid Height="50" MouseDown="Grid_MouseDown"
                   VerticalAlignment="Top"
                   Background="#0F0F2D"
                   >
+
                 <TextBlock Text="AstraHTML"
                            FontFamily="pack://application:,,,/Resources/Fonts/#Dosis"
                            FontSize="26"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
-                           Foreground="#E0FFFF"></TextBlock>
-                <TextBlock Text="UserName" Margin="15,0,0,0"
+                           RenderOptions.BitmapScalingMode="Fant"
+                           Foreground="White"></TextBlock>
+                <Image VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Height="40"
+                       Width="40"
+                       Margin="30,0,0,0"
+                       RenderOptions.BitmapScalingMode="Fant"
+                    Source="pack://application:,,,/Resources/Images/CSharp.png">
+                </Image>
+                <TextBlock Text="User Name" Margin="70,0,0,0"
                            FontFamily="pack://application:,,,/Resources/Fonts/#Dosis"
                            FontSize="20"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Left"
-                           Foreground="White"></TextBlock>
-                <Button Style="{DynamicResource CloseBtnStyle}" Height="40" Width="40"
-                        Background="Transparent"
-                        BorderThickness="0"
+                           Foreground="White"
+                           RenderOptions.BitmapScalingMode="Fant"></TextBlock>
+                <Button Content="Exit"
+                        Foreground="White"
+                        FontSize="10"
+                        FontWeight="Medium"
+                        Height="40"
+                        Width="80"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Right"
-                        Margin="0,0,20,0"
-                        >
-                    <iconPacks:PackIconMaterial Kind="ExitRun"                           
-                                 VerticalAlignment="Center"
-                                 HorizontalAlignment="Center"
-                                            Foreground="White"
-                                                Width="50"
-                                                Height="50"
-                                               >
-                    </iconPacks:PackIconMaterial>
+                        Margin="0,0,20,0">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="TextElement.FontFamily" Value="/Resources/Fonts/#Dosis"/>
+                            <Setter Property="Background" Value="#FE6584"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#FF4C70"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="75" Height="15"
+                                    CornerRadius="8"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
                 </Button>
             </Grid>
             <Grid Height="50"
                   VerticalAlignment="Bottom"
-                  Background="#0F0F2D"></Grid>
+                  Background="#0F0F2D">
+                <TextBlock Text="Form Name"
+                           FontFamily="pack://application:,,,/Resources/Fonts/#Dosis"
+                           FontSize="26"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Foreground="White"></TextBlock>
+            </Grid>
         </Grid>
         <Popup x:Name="popup_uc"
                AllowsTransparency="True"
                HorizontalOffset="10"
-               VerticalOffset="10">
+               VerticalOffset="0">
             <Grid>
-                <p:PopupUserControl x:Name="Header" Foreground="#0effff"/>
+                <p:PopupUserControl x:Name="Header" Foreground="White"/>
             </Grid>
-            
         </Popup>
     </Grid>
 </Window>

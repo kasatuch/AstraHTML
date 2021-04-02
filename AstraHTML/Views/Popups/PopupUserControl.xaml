@@ -27,10 +27,10 @@
               
               L10,10
               z
-              " Fill="#3A6180"
+              " Fill="#39385D"
               Height="65"
               Width="195"
-              Stroke="#3A6180"
+              Stroke="White"
               Stretch="Fill"
               Margin="10">
         </Path>

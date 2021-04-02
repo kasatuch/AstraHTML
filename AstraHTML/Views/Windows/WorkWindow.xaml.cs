@@ -26,59 +26,92 @@ namespace AstraHTML.Views.Windows
             InitializeComponent();
         }
 
-        #region Всплывающее окно на ToolBar
+        #region Интерактивное взаимодействие с формой
 
-        #region Всплывающее окна на Home
+        #region Боковая панель
+
+        #region Кнопка View DataBase
         private void Home_MouseEnter(object sender, MouseEventArgs e)
         {
+            #region Вызов Popups и передача параметров
             popup_uc.PlacementTarget = Home;
             popup_uc.Placement = PlacementMode.Right;
             popup_uc.IsOpen = true;
-            Header.PopupText.Text = "Home";
+            Header.PopupText.Text = "View DataBase";
+            #endregion
         }
 
         private void Home_MouseLeave(object sender, MouseEventArgs e)
         {
+            #region Скрытие Popups
             popup_uc.Visibility = Visibility.Collapsed;
             popup_uc.IsOpen = false;
+            #endregion
         }
 
         #endregion
 
-        #region Всплывающее окна на Profile
-        private void Profile_MouseEnter(object sender, MouseEventArgs e)
+        #region Кнопка EditDBBut
+        private void EditDBBut_MouseEnter(object sender, MouseEventArgs e)
         {
-            popup_uc.PlacementTarget = Profile;
+            #region Вызов Popups и передача параметров
+            popup_uc.PlacementTarget = EditDBBut;
             popup_uc.Placement = PlacementMode.Right;
             popup_uc.IsOpen = true;
-            Header.PopupText.Text = "Profile";
+            Header.PopupText.Text = "Edit DataBase";
+            #endregion
         }
 
-        private void Profile_MouseLeave(object sender, MouseEventArgs e)
+        private void EditDBBut_MouseLeave(object sender, MouseEventArgs e)
         {
+            #region Скрытие Popups
             popup_uc.Visibility = Visibility.Collapsed;
             popup_uc.IsOpen = false;
+            #endregion
         }
         #endregion
 
-        #region Всплывающее окна на Settings
+        #region Кнопка PayDays
         private void Settings_MouseEnter(object sender, MouseEventArgs e)
         {
-            popup_uc.PlacementTarget = Settings;
+            #region Вызов Popups и передача параметров
+            popup_uc.PlacementTarget = PayDays;
             popup_uc.Placement = PlacementMode.Right;
             popup_uc.IsOpen = true;
-            Header.PopupText.Text = "Settings";
+            Header.PopupText.Text = "PayDays";
+            #endregion
         }
 
         private void Settings_MouseLeave(object sender, MouseEventArgs e)
         {
+            #region Скрытие Popups
             popup_uc.Visibility = Visibility.Collapsed;
             popup_uc.IsOpen = false;
+            #endregion
+        }
+        #endregion
+
+        #region Кнопка EditDBBut
+        private void EmployeeDBBut_MouseEnter(object sender, MouseEventArgs e)
+        {
+            #region Вызов Popups и передача параметров
+            popup_uc.PlacementTarget = EmployeeDBBut;
+            popup_uc.Placement = PlacementMode.Right;
+            popup_uc.IsOpen = true;
+            Header.PopupText.Text = "Edit Employee DB";
+            #endregion
+        }
+
+        private void EmployeeDBBut_MouseLeave(object sender, MouseEventArgs e)
+        {
+            #region Скрытие Popups
+            popup_uc.Visibility = Visibility.Collapsed;
+            popup_uc.IsOpen = false;
+            #endregion
         }
         #endregion
 
         #endregion
-
 
         #region Служебные
 
@@ -93,5 +126,8 @@ namespace AstraHTML.Views.Windows
         #endregion
 
         #endregion
+
+        #endregion
+
     }
 }
