@@ -366,7 +366,8 @@
                         Height="90"
                         Background="Transparent"
                         BorderBrush="Transparent"
-                        MouseEnter="Home_MouseEnter" MouseLeave="Home_MouseLeave" 
+                        
+                        MouseEnter="Home_MouseEnter" MouseLeave="Home_MouseLeave" Click="Home_Click" 
                         >
                     <iconPacks:PackIconMaterial Kind="Database"                           
                                  VerticalAlignment="Center"
@@ -424,7 +425,7 @@
                     </iconPacks:PackIconMaterial>
                 </Button>
             </Grid>
-            <Frame Background="White" Panel.ZIndex="-1">
+            <Frame Background="Transparent" x:Name="MainFrame" Panel.ZIndex="-1">
 
             </Frame>
             <Grid Height="50" MouseDown="Grid_MouseDown"
@@ -434,7 +435,7 @@
 
                 <TextBlock Text="AstraHTML"
                            FontFamily="pack://application:,,,/Resources/Fonts/#Dosis"
-                           FontSize="26"
+                           FontSize="20"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
                            RenderOptions.BitmapScalingMode="Fant"
@@ -491,7 +492,7 @@
                   Background="#0F0F2D">
                 <TextBlock Text="Form Name"
                            FontFamily="pack://application:,,,/Resources/Fonts/#Dosis"
-                           FontSize="26"
+                           FontSize="20"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
                            Foreground="White"></TextBlock>

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Navigation;
 using System.Windows.Controls.Primitives;
+using AstraHTML.Views.Pages;
 
 namespace AstraHTML.Views.Windows
 {
@@ -24,6 +25,7 @@ namespace AstraHTML.Views.Windows
         public WorkWindow()
         {
             InitializeComponent();
+            MainFrame.NavigationService.Navigate(new EditDataBasePage());
         }
 
         #region Интерактивное взаимодействие с формой
@@ -129,5 +131,9 @@ namespace AstraHTML.Views.Windows
 
         #endregion
 
+        private void Home_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
