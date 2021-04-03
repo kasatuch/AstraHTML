@@ -9,6 +9,41 @@
       Title="EmployeeDataBasePage">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <!-- #region ToolBar Hide-->
+        <Grid Background="White"
+              Grid.Column="0"
+              Grid.Row="0"
+              Grid.RowSpan="3">
+        </Grid>
+        <!--#endregion-->
+        <!-- #region Header Hide-->
+        <Grid Background="Black"
+              Grid.Column="1"
+              Grid.Row="0">
+        </Grid>
+        <!--#endregion-->
+        <!--#region Footer Hide-->
+        <Grid Background="Red"
+              Grid.Column="1"
+              Grid.Row="2">
+
+        </Grid>
+        <!--#endregion-->
+        <!--#region Visible Form-->
+        <Grid Background="Blue"
+              Grid.Column="1"
+              Grid.Row="1">
+
+        </Grid>
+        <!--#endregion-->
     </Grid>
 </Page>

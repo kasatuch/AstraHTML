@@ -39,5 +39,12 @@
 
         </Grid>
         <!--#endregion-->
+        <!--#region Visible Form-->
+        <Grid Background="Transparent"
+              Grid.Column="1"
+              Grid.Row="1">
+            
+        </Grid>
+        <!--#endregion-->
     </Grid>
 </Page>
