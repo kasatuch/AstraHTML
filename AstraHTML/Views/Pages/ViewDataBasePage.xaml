@@ -39,10 +39,12 @@
         </Grid>
         <!--#endregion-->
         <!--#region Visible Form-->
-        <Grid Background="Blue"
+        <Grid Background="Transparent"
               Grid.Column="1"
               Grid.Row="1">
-
+            <DataGrid x:Name="DataTable">
+                
+            </DataGrid>
         </Grid>
         <!--#endregion-->
     </Grid>
