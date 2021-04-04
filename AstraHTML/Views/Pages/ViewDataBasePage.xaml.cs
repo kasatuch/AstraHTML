@@ -21,9 +21,12 @@ namespace AstraHTML.Views.Pages
     /// </summary>
     public partial class ViewDataBasePage : Page
     {
+        ApplicationContext db = new ApplicationContext();
         public ViewDataBasePage()
         {
             InitializeComponent();
+            List<Tasks> TasksTable = db.Tasks.ToList();
+            DataTable.ItemsSource = TasksTable;
         }
     }
 }

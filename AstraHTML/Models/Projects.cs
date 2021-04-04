@@ -1,4 +1,5 @@
-﻿
+﻿using System.Collections.Generic;
+
 namespace AstraHTML.Models
 {
     public class Projects
@@ -6,7 +7,7 @@ namespace AstraHTML.Models
         public int id { get; set; }
         public string Title { get; set; }
         public string Client { get; set; }
-
+        public List<Tasks> Tasks { get; set; }
 
     }
 }

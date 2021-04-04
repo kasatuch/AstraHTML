@@ -42,7 +42,11 @@
         <Grid Background="Transparent"
               Grid.Column="1"
               Grid.Row="1">
-            <DataGrid x:Name="DataTable">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <DataGrid x:Name="DataTable" Grid.Column="0" >
                 
             </DataGrid>
         </Grid>

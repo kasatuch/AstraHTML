@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AstraHTML.Models
 {
-    class Staff
+   public class Staff
     {
         public int id { get; set; }
         public string Name { get; set; }
@@ -14,7 +14,8 @@ namespace AstraHTML.Models
         public int Salary { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
-
+        public virtual Tasks Tasks { get; set; }
+        public int TasksId { get; set; }
 
     }
 }
