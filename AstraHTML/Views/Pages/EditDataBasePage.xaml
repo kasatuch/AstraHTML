@@ -43,7 +43,182 @@
         <Grid Background="Transparent"
               Grid.Column="1"
               Grid.Row="1">
-            
+            <Grid Background="Transparent"
+              Grid.Column="1"
+              Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <!--#region EditPanel-->
+                <Grid Grid.Column="1" Background="Transparent">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50*"/>
+                        <RowDefinition Height="10*"/>
+                        <RowDefinition Height="40*"/>
+
+                    </Grid.RowDefinitions>
+                    <!--#region EditTask Panel-->
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50*"/>
+                            <ColumnDefinition Width="100*"/>
+                            <ColumnDefinition Width="50*"/>
+                        </Grid.ColumnDefinitions>
+                        <!--#region  EditTask Panel Lables-->
+                        <Grid Grid.Column="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Label Content="Name" Foreground="White" Grid.Row="0"/>
+                            <Label Content="Description" Foreground="White" Grid.Row="1"/>
+                            <Label Content="Developer" Foreground="White" Grid.Row="2"/>
+                            <Label Content="Project" Foreground="White" Grid.Row="3"/>
+                            <Label Content="Priority" Foreground="White" Grid.Row="4"/>
+                        </Grid>
+                        <!--#endregion-->
+                        <!--#region  EditTask Panel Textboxs-->
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBox Grid.Row="0" Height="25"/>
+                            <TextBox Grid.Row="1" Height="25"/>
+                            <TextBox Grid.Row="2" Height="25"/>
+                            <TextBox Grid.Row="3" Height="25"/>
+                            <TextBox Grid.Row="4" Height="25"/>
+                        </Grid>
+                        <!--#endregion-->
+                        <!--#region EditTask Panel Button-->
+                        <Grid Grid.Column="3">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Button Content="+" Height="30" Width="30" Grid.Row="0"/>
+                            <Button Content="-" Height="30" Width="30" Grid.Row="1"/>
+                            <Button Content="edit" Height="30" Width="50" Grid.Row="2"/>
+                        </Grid>
+                        <!--#endregion-->
+                    </Grid>
+                    <!--#endregion-->
+                    <Grid Grid.Row="2">
+                        
+                    </Grid>
+                    <Border Width="250" Height="2" Background="White" Opacity="0.5" Grid.Row="1">
+                        
+                    </Border>
+                    <!--#region EditProjects Panel-->
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50*"/>
+                            <ColumnDefinition Width="100*"/>
+                            <ColumnDefinition Width="50*"/>
+                        </Grid.ColumnDefinitions>
+                        <!--#region EditProjects Panel Lables-->
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Label Content="Title" Foreground="White" Grid.Row="0"/>
+                            <Label Content="Client" Foreground="White" Grid.Row="1"/>
+                        </Grid>
+                        <!--#region IditProjects Panel Buttons-->
+                        <Grid Grid.Column="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Button Content="+" Grid.Row="0" Height="30" Width="30"/>
+                            <Button Content="-" Grid.Row="1" Height="30" Width="30"/>
+                            <Button Content="edit" Grid.Row="2" Height="30" Width="50"/>
+                        </Grid>
+                        <!--#endregion-->
+                        <!--#region EditProjects Panel TextBoxs-->
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBox Grid.Row="0" Height="25"/>
+                            <TextBox Grid.Row="1" Height="25"/>
+                        </Grid>
+                        <!--#endregion-->
+                    </Grid>
+                    <!--#endregion-->
+                </Grid>
+                <!--#endregion-->
+                    
+                <TabControl Background="Transparent" Grid.Column="0">
+                    <!--#region TaskTable-->
+                    <TabItem  Header="Tasks" Height="30" BorderThickness="0"
+                          BorderBrush="Transparent" Foreground="White"
+                          Background="Transparent">
+                        <ListView x:Name="TaskTable" Background="Transparent"
+                                  BorderThickness="0" BorderBrush="Transparent">
+                            <ListView.View>
+                                <GridView >
+                                    <GridViewColumn Header="id">
+                                        <GridViewColumn.HeaderContainerStyle>
+                                            <Style TargetType="GridViewColumnHeader">
+                                                <Setter Property="Background" Value="Aqua"/>
+                                                <Setter Property="BorderBrush" Value="Transparent"/>
+                                                <Setter Property="BorderThickness" Value="0"/>
+                                            </Style>
+                                        </GridViewColumn.HeaderContainerStyle>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="id" />
+                                    <GridViewColumn Header="Name" />
+                                    <GridViewColumn Header="Description" />
+                                    <GridViewColumn Header="Project" />
+                                    <GridViewColumn Header="Priority" />
+                                    <!--#region Header ListView -->
+                                    <GridView.ColumnHeaderContainerStyle>
+                                        <Style TargetType="GridViewColumnHeader">
+                                            <Setter Property="Foreground" Value="White"/>
+                                            <Setter Property="Background" Value="Transparent"/>
+                                        </Style>
+                                    </GridView.ColumnHeaderContainerStyle>
+                                    <!--#endregion-->
+                                    
+                                </GridView>
+
+                            </ListView.View>
+                        </ListView>
+                    </TabItem>
+                    <!--#endregion-->
+                    <!--#region ProjectTable-->
+                    <TabItem Header="Projects"
+                         Background="Transparent" BorderThickness="0"
+                          BorderBrush="Transparent" Foreground="White">
+                        <ListView x:Name="ProjectTable">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="id" />
+                                    <GridViewColumn Header="Title" />
+                                    <GridViewColumn Header="Desc" />
+                                    <GridViewColumn Header="Consumer" />
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </TabItem>
+                    <!--#endregion-->
+                </TabControl>
+            </Grid>
+            <!--#endregion-->
         </Grid>
         <!--#endregion-->
     </Grid>

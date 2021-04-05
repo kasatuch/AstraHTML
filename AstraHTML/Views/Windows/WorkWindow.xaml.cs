@@ -131,9 +131,15 @@ namespace AstraHTML.Views.Windows
 
         #endregion
 
-        private void Home_Click(object sender, RoutedEventArgs e)
+        private void ViewDB_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.NavigationService.Navigate(new ViewDataBasePage());
         }
+
+        private void EditDB_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.NavigationService.Navigate(new EditDataBasePage());
+        }
+
     }
 }

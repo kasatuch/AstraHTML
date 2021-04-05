@@ -366,8 +366,8 @@
                         Height="90"
                         Background="Transparent"
                         BorderBrush="Transparent"
-                        
-                        MouseEnter="Home_MouseEnter" MouseLeave="Home_MouseLeave" Click="Home_Click" 
+                        Click="ViewDB_Click"
+                        MouseEnter="Home_MouseEnter" MouseLeave="Home_MouseLeave" 
                         >
                     <iconPacks:PackIconMaterial Kind="Database"                           
                                  VerticalAlignment="Center"
@@ -383,7 +383,7 @@
                         Height="85"
                         Grid.Row="2"
                         Background="Transparent"
-                        BorderBrush="Transparent"
+                        BorderBrush="Transparent" Click="EditDB_Click" 
                         Margin="0,0,0,10" MouseEnter="EditDBBut_MouseEnter" MouseLeave="EditDBBut_MouseLeave">
                     <iconPacks:PackIconMaterial Kind="DatabaseEdit"                           
                                  VerticalAlignment="Center"
