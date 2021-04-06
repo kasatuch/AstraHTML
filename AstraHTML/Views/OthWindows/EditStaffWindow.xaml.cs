@@ -8,20 +8,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace AstraHTML.Views.Pages
+namespace AstraHTML.Views.OthWindows
 {
     /// <summary>
-    /// Логика взаимодействия для EditDataBasePage.xaml
+    /// Логика взаимодействия для EditStaffWindow.xaml
     /// </summary>
-    public partial class EditDataBasePage : Page
+    public partial class EditStaffWindow : Window
     {
-        public EditDataBasePage()
+        public EditStaffWindow()
         {
             InitializeComponent();
-            DataContext = new DataManageVM();
         }
     }
 }

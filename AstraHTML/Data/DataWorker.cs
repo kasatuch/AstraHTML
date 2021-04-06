@@ -6,8 +6,9 @@ namespace AstraHTML.Data
 {
     static class DataWorker
     {
+
         #region Create
-        public static string CreateStaff(string name, string surname, string speciality, string post, int salary) //todo
+        public static string CreateStaff(string name, string surname, string speciality, string post, int salary, string login, string password) //todo
         {
             string result = "Уже существует";
             using (ApplicationContext db = new ApplicationContext())
@@ -16,7 +17,7 @@ namespace AstraHTML.Data
                 bool checkIsIxist = db.Staff.Any(el => el.Name == name && el.Surname == surname);
                 if (!checkIsIxist)
                 {
-                    Staff newStaff = new Staff { Name = name, Surname = surname, Speciality = speciality, Post = post, Salary = salary };
+                    Staff newStaff = new Staff { Name = name, Surname = surname, Speciality = speciality, Post = post, Salary = salary, Login = login, Password = password};
                     db.Staff.Add(newStaff);
                     db.SaveChanges();
                     result = "Сделано!";
