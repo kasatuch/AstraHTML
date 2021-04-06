@@ -1,22 +1,21 @@
 ﻿using AstraHTML.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace AstraHTML.Data
 {
     static class DataWorker
     {
-        public static string CreateStaff(string login)
+        #region Create
+        public static string CreateStaff(string name, string surname, string speciality, string post, int salary) //todo
         {
             string result = "Уже существует";
             using (ApplicationContext db = new ApplicationContext())
             {
                 //Проверка на существование сотрудника
-                bool checkIsIxist = db.Staff.Any(el => el.Login == login);
+                bool checkIsIxist = db.Staff.Any(el => el.Name == name && el.Surname == surname);
                 if (!checkIsIxist)
                 {
-                    Staff newStaff = new Staff { Login = login };
+                    Staff newStaff = new Staff { Name = name, Surname = surname, Speciality = speciality, Post = post, Salary = salary };
                     db.Staff.Add(newStaff);
                     db.SaveChanges();
                     result = "Сделано!";
@@ -24,16 +23,15 @@ namespace AstraHTML.Data
                 return result;
             }
         }
-        public static string CreateTask(string name)
+        public static string CreateTask(string name, string description, Projects project)
         {
             string result = "Уже существует";
             using (ApplicationContext db = new ApplicationContext())
             {
-                //Проверка на существование сотрудника
-                bool checkIsIxist = db.Tasks.Any(el => el.Name == name);
+                bool checkIsIxist = db.Tasks.Any(el => el.Name == name && el.Project == project);
                 if (!checkIsIxist)
                 {
-                    Tasks newTask = new Tasks { Name = name };
+                    Tasks newTask = new Tasks { Name = name, Description = description, Projectid = project.id };
                     db.Tasks.Add(newTask);
                     db.SaveChanges();
                     result = "Сделано!";
@@ -41,22 +39,121 @@ namespace AstraHTML.Data
                 return result;
             }
         }
-        public static string CreateProject(string name)
+        public static string CreateProject(string title, string client)
         {
             string result = "Уже существует";
             using (ApplicationContext db = new ApplicationContext())
             {
-                //Проверка на существование сотрудника
-                bool checkIsIxist = db.Tasks.Any(el => el.Name == name);
+                bool checkIsIxist = db.Projects.Any(el => el.Title == title && el.Client == client);
                 if (!checkIsIxist)
                 {
-                    Tasks newTask = new Tasks { Name = name };
-                    db.Tasks.Add(newTask);
+                    Projects newProject = new Projects { Title = title, Client = client };
+                    db.Projects.Add(newProject);
                     db.SaveChanges();
                     result = "Сделано!";
                 }
                 return result;
             }
         }
+        #endregion
+
+        #region Delete
+        public static string DeleteStaff(Staff staff)
+        {
+            string result = "Такого сотрудника не существует";
+            using (ApplicationContext db = new ApplicationContext())
+            {
+                db.Staff.Remove(staff);
+                db.SaveChanges();
+                result = "Сделано! Сотрудник " + staff.Name + " " + staff.Surname + " удалён";
+            }
+            return result;
+        }
+
+        public static string DeleteTask(Tasks tasks)
+        {
+            string result = "Такой задачи не существует";
+            using (ApplicationContext db = new ApplicationContext())
+            {
+                db.Tasks.Remove(tasks);
+                db.SaveChanges();
+                result = "Сделано! Задача " + tasks.Name + " удалена";
+            }
+            return result;
+        }
+        public static string DeleteProject(Projects project)
+        {
+            string result = "Такого проекта не существует";
+            using (ApplicationContext db = new ApplicationContext())
+            {
+                db.Projects.Remove(project);
+                db.SaveChanges();
+                result = "Сделано! Проект " + project.Title + " заказчика " + project.Client + " удалён";
+            }
+            return result;
+        }
+        #endregion
+
+        #region Edit
+
+        public static string EditStaff(Staff oldStaff, string newName, string newSurname, string newSpeciality, string newPost, int newSalary)
+        {
+            string result = "Такого сотрудника не существует";
+            using (ApplicationContext db = new ApplicationContext())
+            {
+                Staff staff = db.Staff.FirstOrDefault(s => s.id == oldStaff.id);
+                if (staff != null)
+                {
+                    staff.Name = newName;
+                    staff.Surname = newSurname;
+                    staff.Speciality = newSpeciality;
+                    staff.Post = newPost;
+                    staff.Salary = newSalary;
+                    db.SaveChanges();
+                    result = "Сделано! Сотрудник " + staff.Name + " " + staff.Surname + " изменён";
+                }
+            }
+            return result;
+        }
+
+        public static string EditTask(Staff oldTask, string newName, string newDescription, Projects newProject)
+        {
+            string result = "Такой задачи не существует";
+            using (ApplicationContext db = new ApplicationContext())
+            {
+                Tasks task = db.Tasks.FirstOrDefault(s => s.id == oldTask.id);
+                if (task != null)
+                {
+                    task.Name = newName;
+                    task.Description = newDescription;
+                    task.Projectid = newProject.id;
+
+                    db.SaveChanges();
+                    result = "Сделано! Задача " + task.Name + " изменёна";
+                }
+            }
+            return result;
+        }
+
+        public static string EditProject(Projects oldProject, string newTitle, string newClient)
+        {
+            string result = "Такой задачи не существует";
+            using (ApplicationContext db = new ApplicationContext())
+            {
+                Projects project = db.Projects.FirstOrDefault(s => s.id == oldProject.id);
+                if (project != null)
+                {
+                    project.Title = newTitle;
+                    project.Client = newClient;
+
+                    db.SaveChanges();
+                    result = "Сделано! Проект " + project.Title + " заказчика " + project.Client + " изменён";
+                }
+            }
+            return result;
+        }
+
+
+        #endregion
     }
 }

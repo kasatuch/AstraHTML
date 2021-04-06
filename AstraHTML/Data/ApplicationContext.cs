@@ -13,12 +13,11 @@ namespace AstraHTML.Data
         public ApplicationContext()
         {
             Database.EnsureCreated();
-
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=AstraHTMLDBlocal2;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=AstraHTMLDBlocal;Trusted_Connection=True;");
         }
 
     }
