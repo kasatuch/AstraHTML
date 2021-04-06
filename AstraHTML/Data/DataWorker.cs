@@ -98,7 +98,7 @@ namespace AstraHTML.Data
 
         #region Edit
 
-        public static string EditStaff(Staff oldStaff, string newName, string newSurname, string newSpeciality, string newPost, int newSalary)
+        public static string EditStaff(Staff oldStaff, string newName, string newSurname, string newSpeciality, string newPost, int newSalary, string newLogin, string newPassword)
         {
             string result = "Такого сотрудника не существует";
             using (ApplicationContext db = new ApplicationContext())
@@ -111,6 +111,8 @@ namespace AstraHTML.Data
                     staff.Speciality = newSpeciality;
                     staff.Post = newPost;
                     staff.Salary = newSalary;
+                    staff.Login = newLogin;
+                    staff.Password = newPassword;
                     db.SaveChanges();
                     result = "Сделано! Сотрудник " + staff.Name + " " + staff.Surname + " изменён";
                 }

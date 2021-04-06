@@ -5,8 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AstraHTML.Views.OthWindows"
         mc:Ignorable="d"
-        Title="EditStaffWindow" Height="450" Width="800">
+        Title="EditStaffWindow" Height="400" Width="300">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Vertical" Width="200"
+                    HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Name"/>
+            <TextBox Text=""/>
+            <TextBlock Text="Surname"/>
+            <TextBox Text=""/>
+            <TextBlock Text="Speciality"/>
+            <ComboBox Text=""/>
+            <TextBlock Text="Post"/>
+            <TextBox Text=""/>
+            <TextBlock Text="Salary"/>
+            <TextBox Text=""/>
+            <TextBlock Text="Login"/>
+            <TextBox Text=""/>
+            <TextBlock Text="Password"/>
+            <TextBox Text=""/>
+        </StackPanel>
+        <Button Grid.Row="1" Content="Add"/>
     </Grid>
 </Window>

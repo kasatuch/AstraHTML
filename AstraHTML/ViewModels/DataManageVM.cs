@@ -88,6 +88,7 @@ namespace AstraHTML.Views
         #endregion
 
         #region Open Project Command
+
         private LambdaCommand openAddNewProjectWindow;
 
         public LambdaCommand OpenAddNewProjectWindow
@@ -97,6 +98,46 @@ namespace AstraHTML.Views
                 return openAddNewProjectWindow ?? new LambdaCommand(obj =>
                 {
                     OpenAddProjectWindowMethod();
+                }
+                    );
+            }
+        }
+
+        #endregion
+
+        #endregion
+
+        #region Edit Commands
+
+        #region Edit Tasks
+
+        private LambdaCommand openEditNewTaskWindow;
+
+        public LambdaCommand OpenEditNewTaskWindow
+        {
+            get
+            {
+                return openEditNewTaskWindow ?? new LambdaCommand(obj =>
+                {
+                    OpenEditTaskWindowMethod();
+                }
+                    );
+            }
+        }
+
+        #endregion
+
+        #region Project Edit
+
+        private LambdaCommand openEditNewProjectWindow;
+
+        public LambdaCommand OpenEditNewProjectWindow
+        {
+            get
+            {
+                return openEditNewProjectWindow ?? new LambdaCommand(obj =>
+                {
+                    OpenEditProjectWindowMethod();
                 }
                     );
             }
