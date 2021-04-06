@@ -1,4 +1,5 @@
 ﻿using AstraHTML.Models;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace AstraHTML.Data
@@ -153,6 +154,37 @@ namespace AstraHTML.Data
             return result;
         }
 
+
+        #endregion
+
+        #region GetAll
+
+        public static List<Staff> GetAllStaffs()
+        {
+            using(ApplicationContext db = new ApplicationContext())
+            {
+                var result = db.Staff.ToList();
+                return result;
+            }
+        }
+
+        public static List<Tasks> GetAllTasks()
+        {
+            using (ApplicationContext db = new ApplicationContext())
+            {
+                var result = db.Tasks.ToList();
+                return result;
+            }
+        }
+
+        public static List<Projects> GetAllProjects()
+        {
+            using (ApplicationContext db = new ApplicationContext())
+            {
+                var result = db.Projects.ToList();
+                return result;
+            }
+        }
 
         #endregion
     }
