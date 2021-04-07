@@ -24,7 +24,7 @@
             <TextBlock Text="Developer"/>
             <ComboBox x:Name="StaffBlock" ItemsSource="{Binding AllStaffs}" DisplayMemberPath="Name" SelectedItem="{Binding TaskStaff}"/>
             <TextBlock Text="Priority"/>
-            <ComboBox x:Name="PriorityBlock" SelectedItem="{Binding TaskPriority}" Text="">
+            <ComboBox x:Name="PriorityBlock"  SelectedItem="{Binding TaskPriority}" >
                 <ComboBoxItem Content="Hight"/>
                 <ComboBoxItem Content="Medium"/>
                 <ComboBoxItem Content="Low"/>

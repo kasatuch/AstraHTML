@@ -25,7 +25,7 @@ namespace AstraHTML.Data
                 return result;
             }
         }
-        public static string CreateTask(string name, string description, Projects project, Staff staff)
+        public static string CreateTask(string name, string description, Projects project, Staff staff, string priority)
         {
             string result = "Уже существует";
             using (ApplicationContext db = new ApplicationContext())
@@ -33,7 +33,7 @@ namespace AstraHTML.Data
                 bool checkIsIxist = db.Tasks.Any(el => el.Name == name && el.Project == project);
                 if (!checkIsIxist)
                 {
-                    Tasks newTask = new Tasks { Name = name, Description = description, Projectid = project.id, Staffid = staff.id};
+                    Tasks newTask = new Tasks { Name = name, Description = description, Projectid = project.id, Staffid = staff.id, Priority = priority};
                     db.Tasks.Add(newTask);
                     db.SaveChanges();
                     result = "Сделано!";

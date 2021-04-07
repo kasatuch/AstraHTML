@@ -168,7 +168,8 @@ namespace AstraHTML.Views
                     }
                     else
                     {
-                        resultStr = DataWorker.CreateTask(TaskName, TaskDescription, TaskProject, TaskStaff);
+                        //Костыль
+                        resultStr = DataWorker.CreateTask(TaskName, TaskDescription, TaskProject, TaskStaff, TaskPriority.Replace("System.Windows.Controls.ComboBoxItem: ", ""));
                         ShowMessageToUser(resultStr);
                         UpdateAllDataView();
                         SetNullValuesToProperties();
@@ -293,6 +294,7 @@ namespace AstraHTML.Views
             TaskDescription = null;
             TaskProject = null;
             TaskStaff = null;
+            TaskPriority = null;
 
             #endregion
 
