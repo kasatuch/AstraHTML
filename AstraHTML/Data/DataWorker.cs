@@ -8,7 +8,7 @@ namespace AstraHTML.Data
     {
 
         #region Create
-        public static string CreateStaff(string name, string surname, string speciality, string post, int salary, string login, string password) //todo
+        public static string CreateStaff(string name, string surname, string speciality, string post, int salary, string login, string password)
         {
             string result = "Уже существует";
             using (ApplicationContext db = new ApplicationContext())
@@ -25,7 +25,7 @@ namespace AstraHTML.Data
                 return result;
             }
         }
-        public static string CreateTask(string name, string description, Projects project)
+        public static string CreateTask(string name, string description, Projects project, Staff staff)
         {
             string result = "Уже существует";
             using (ApplicationContext db = new ApplicationContext())
@@ -33,7 +33,7 @@ namespace AstraHTML.Data
                 bool checkIsIxist = db.Tasks.Any(el => el.Name == name && el.Project == project);
                 if (!checkIsIxist)
                 {
-                    Tasks newTask = new Tasks { Name = name, Description = description, Projectid = project.id };
+                    Tasks newTask = new Tasks { Name = name, Description = description, Projectid = project.id, Staffid = staff.id};
                     db.Tasks.Add(newTask);
                     db.SaveChanges();
                     result = "Сделано!";
@@ -120,7 +120,7 @@ namespace AstraHTML.Data
             return result;
         }
 
-        public static string EditTask(Staff oldTask, string newName, string newDescription, Projects newProject)
+        public static string EditTask(Staff oldTask, string newName, string newDescription, Projects newProject, Staff newStaff)
         {
             string result = "Такой задачи не существует";
             using (ApplicationContext db = new ApplicationContext())
@@ -131,6 +131,7 @@ namespace AstraHTML.Data
                     task.Name = newName;
                     task.Description = newDescription;
                     task.Projectid = newProject.id;
+                    task.Staffid = newStaff.id;
 
                     db.SaveChanges();
                     result = "Сделано! Задача " + task.Name + " изменёна";

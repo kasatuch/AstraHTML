@@ -25,8 +25,6 @@ namespace AstraHTML.Views.Pages
         public ViewDataBasePage()
         {
             InitializeComponent();
-            List<Tasks> TasksTable = db.Tasks.ToList();
-            TaskTable.ItemsSource = TasksTable;
         }
     }
 }

@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AstraHTML.Views.OthWindows"
         mc:Ignorable="d"
-        Title="AddNewTaskWindow" Height="300" Width="300">
+        Title="AddNewTaskWindow" Height="300" Width="300"
+        Name="AddNewTaskWnd">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -14,16 +15,22 @@
         <StackPanel Grid.Row="0" Orientation="Vertical" Width="200"
                     HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="Name"/>
-            <TextBox Text=""/>
+            <TextBox x:Name="NameBlock" Text="{Binding TaskName}"/>
             <TextBlock Text="Description"/>
-            <TextBox Text=""/>
+            <TextBox x:Name="DescriptionBlock" Text="{Binding TaskDescription}"/>
             <TextBlock Text="Project"/>
-            <ComboBox/>
+            <ComboBox x:Name="ProjectBlock" ItemsSource="{Binding AllProjects}" DisplayMemberPath="Title" SelectedItem="{Binding TaskProject}"
+                      />
             <TextBlock Text="Developer"/>
-            <ComboBox/>
+            <ComboBox x:Name="StaffBlock" ItemsSource="{Binding AllStaffs}" DisplayMemberPath="Name" SelectedItem="{Binding TaskStaff}"/>
             <TextBlock Text="Priority"/>
-            <ComboBox/>
+            <ComboBox x:Name="PriorityBlock" SelectedItem="{Binding TaskPriority}" Text="">
+                <ComboBoxItem Content="Hight"/>
+                <ComboBoxItem Content="Medium"/>
+                <ComboBoxItem Content="Low"/>
+            </ComboBox>
         </StackPanel>
-        <Button Grid.Row="1" Content="Add"/>
+        <Button Grid.Row="1" Content="Add" Command="{Binding AddNewTask}"
+                CommandParameter="{Binding ElementName=AddNewTaskWnd}"/>
     </Grid>
 </Window>

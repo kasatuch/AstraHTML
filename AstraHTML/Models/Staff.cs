@@ -14,8 +14,6 @@ namespace AstraHTML.Models
         public int Salary { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
-        public virtual Tasks Tasks { get; set; }
-        public int TasksId { get; set; }
 
     }
 }

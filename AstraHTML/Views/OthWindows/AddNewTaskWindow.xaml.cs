@@ -20,6 +20,7 @@ namespace AstraHTML.Views.OthWindows
         public AddNewTaskWindow()
         {
             InitializeComponent();
+            DataContext = new DataManageVM();
         }
     }
 }

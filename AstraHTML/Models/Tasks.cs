@@ -9,7 +9,8 @@ namespace AstraHTML.Models
         public int id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public List<Staff> Developers { get; set; }
+        public List<Staff> Staff { get; set; }
+        public int Staffid { get; set; }
         public virtual Projects Project { get; set; }
         public int Projectid { get; set; }
         public string Priority { get; set; }

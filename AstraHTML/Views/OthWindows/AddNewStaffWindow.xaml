@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AstraHTML.Views.OthWindows"
         mc:Ignorable="d"
-        Title="AddNewStaffWindow" Height="400" Width="300">
+        Title="AddNewStaffWindow" Height="400" Width="300"
+        Name="AddNewStaffWnd">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -14,20 +15,21 @@
         <StackPanel Grid.Row="0" Orientation="Vertical" Width="200"
                     HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="Name"/>
-            <TextBox Text=""/>
+            <TextBox x:Name="NameBlock" Text="{Binding StaffName}"/>
             <TextBlock Text="Surname"/>
-            <TextBox Text=""/>
+            <TextBox x:Name="SurnameBlock" Text="{Binding StaffSurname}"/>
             <TextBlock Text="Speciality"/>
-            <ComboBox Text=""/>
+            <TextBox Name="SpecialityBlock" Text="{Binding StaffSpeciality}"/>
             <TextBlock Text="Post"/>
-            <TextBox Text=""/>
+            <TextBox x:Name="PostBlock" Text="{Binding StaffPost}"/>
             <TextBlock Text="Salary"/>
-            <TextBox Text=""/>
+            <TextBox x:Name="SalaryBlock" Text="{Binding StaffSalary}"/>
             <TextBlock Text="Login"/>
-            <TextBox Text=""/>
+            <TextBox x:Name="LoginBlock" Text="{Binding StaffLogin}"/>
             <TextBlock Text="Password"/>
-            <TextBox Text=""/>
+            <TextBox x:Name="PasswordBlock" Text="{Binding StaffPassword}"/>
         </StackPanel>
-        <Button Grid.Row="1" Content="Add"/>
+        <Button Grid.Row="1" Content="Add" Command="{Binding AddNewStaff}"
+                CommandParameter="{Binding ElementName=AddNewStaffWnd}"/>
     </Grid>
 </Window>

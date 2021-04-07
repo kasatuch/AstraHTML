@@ -56,7 +56,6 @@
                         <RowDefinition Height="50*"/>
                         <RowDefinition Height="10*"/>
                         <RowDefinition Height="40*"/>
-
                     </Grid.RowDefinitions>
                     <!--#region EditTask Panel-->
                     <Grid Grid.Row="0">
@@ -65,38 +64,6 @@
                             <ColumnDefinition Width="100*"/>
                             <ColumnDefinition Width="50*"/>
                         </Grid.ColumnDefinitions>
-                        <!--#region  EditTask Panel Lables-->
-                        <Grid Grid.Column="0">
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
-                            <Label Content="Name" Foreground="White" Grid.Row="0"/>
-                            <Label Content="Description" Foreground="White" Grid.Row="1"/>
-                            <Label Content="Developer" Foreground="White" Grid.Row="2"/>
-                            <Label Content="Project" Foreground="White" Grid.Row="3"/>
-                            <Label Content="Priority" Foreground="White" Grid.Row="4"/>
-                        </Grid>
-                        <!--#endregion-->
-                        <!--#region  EditTask Panel Textboxs-->
-                        <Grid Grid.Column="1">
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
-                            <TextBox Grid.Row="0" Height="25"/>
-                            <TextBox Grid.Row="1" Height="25"/>
-                            <TextBox Grid.Row="2" Height="25"/>
-                            <TextBox Grid.Row="3" Height="25"/>
-                            <TextBox Grid.Row="4" Height="25"/>
-                        </Grid>
-                        <!--#endregion-->
                         <!--#region EditTask Panel Button-->
                         <Grid Grid.Column="3">
                             <Grid.RowDefinitions>
@@ -124,16 +91,9 @@
                             <ColumnDefinition Width="100*"/>
                             <ColumnDefinition Width="50*"/>
                         </Grid.ColumnDefinitions>
-                        <!--#region EditProjects Panel Lables-->
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
-                            <Label Content="Title" Foreground="White" Grid.Row="0"/>
-                            <Label Content="Client" Foreground="White" Grid.Row="1"/>
-                        </Grid>
+                        <Button Content="add Staff" Grid.Column="0" Grid.Row="0" Height="30" Width="50" Command="{Binding OpenAddNewStaffWindow}"/>
+                        <Button Content="edit Staff" Grid.Column="0" Margin="0,70,0,0" Grid.Row="0" Height="30" Width="50" Command="{Binding OpenEditNewStaffWindow}"/>
+                        <Button Content="kill Staff" Grid.Column="0" Margin="0,-70,0,0" Grid.Row="0" Height="30" Width="50"/>
                         <!--#region IditProjects Panel Buttons-->
                         <Grid Grid.Column="2">
                             <Grid.RowDefinitions>
@@ -144,17 +104,7 @@
                             <Button Content="+" Grid.Row="0" Height="30" Width="30" Command="{Binding OpenAddNewProjectWindow}"/>
                             <Button Content="-" Grid.Row="1" Height="30" Width="30"/>
                             <Button Content="edit" Grid.Row="2" Height="30" Width="50" Command="{Binding OpenEditNewProjectWindow}"/>
-                        </Grid>
-                        <!--#endregion-->
-                        <!--#region EditProjects Panel TextBoxs-->
-                        <Grid Grid.Column="1">
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
-                            <TextBox Grid.Row="0" Height="25"/>
-                            <TextBox Grid.Row="1" Height="25"/>
+                            
                         </Grid>
                         <!--#endregion-->
                     </Grid>
@@ -167,25 +117,16 @@
                     <TabItem  Header="Tasks" Height="30" BorderThickness="0"
                           BorderBrush="Transparent" Foreground="White"
                           Background="Transparent">
-                        <ListView x:Name="TaskTable" Background="Transparent"
+                        <ListView x:Name="ViewAllTasks" Background="Transparent"
                                   BorderThickness="0" BorderBrush="Transparent"
                                   ItemsSource="{Binding AllTasks}">
                             <ListView.View>
                                 <GridView >
-                                    <GridViewColumn Header="id">
-                                        <GridViewColumn.HeaderContainerStyle>
-                                            <Style TargetType="GridViewColumnHeader">
-                                                <Setter Property="Background" Value="Aqua"/>
-                                                <Setter Property="BorderBrush" Value="Transparent"/>
-                                                <Setter Property="BorderThickness" Value="0"/>
-                                            </Style>
-                                        </GridViewColumn.HeaderContainerStyle>
-                                    </GridViewColumn>
-                                    <GridViewColumn Header="id" />
-                                    <GridViewColumn Header="Name" />
-                                    <GridViewColumn Header="Description" />
-                                    <GridViewColumn Header="Project" />
-                                    <GridViewColumn Header="Priority" />
+                                    <GridViewColumn Header="id" DisplayMemberBinding="{Binding Path = id}" />
+                                    <GridViewColumn Header="Name"  DisplayMemberBinding="{Binding Path = Name}"/>
+                                    <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Path= Description}"/>
+                                    <GridViewColumn Header="Project" DisplayMemberBinding="{Binding Path= Project}"/>
+                                    <GridViewColumn Header="Priority" DisplayMemberBinding="{Binding Path= Priority}"/>
                                     <!--#region Header ListView -->
                                     <GridView.ColumnHeaderContainerStyle>
                                         <Style TargetType="GridViewColumnHeader">
@@ -201,18 +142,40 @@
                         </ListView>
                     </TabItem>
                     <!--#endregion-->
+
+                    <!--#region StaffTable-->
+                    <TabItem Header="Staff"
+                         Background="Transparent" BorderThickness="0"
+                          BorderBrush="Transparent" Foreground="White">
+                        <ListView x:Name="ViewAllStaffs"
+                                  ItemsSource ="{Binding AllStaffs}">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="id" DisplayMemberBinding="{Binding Path=id}"/>
+                                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Path=Name}"/>
+                                    <GridViewColumn Header="Surname" DisplayMemberBinding="{Binding Path=Surname}"/>
+                                    <GridViewColumn Header="Speciality" DisplayMemberBinding="{Binding Path=Speciality}" />
+                                    <GridViewColumn Header="Post" DisplayMemberBinding="{Binding Path=Post}"/>
+                                    <GridViewColumn Header="Salary" DisplayMemberBinding="{Binding Path=Salary}"/>
+                                    <GridViewColumn Header="Login" DisplayMemberBinding="{Binding Path=Login}"/>
+                                    <GridViewColumn Header="Password" DisplayMemberBinding="{Binding Path=Password}"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </TabItem>
+                    <!--#endregion-->
                     <!--#region ProjectTable-->
                     <TabItem Header="Projects"
                          Background="Transparent" BorderThickness="0"
                           BorderBrush="Transparent" Foreground="White">
-                        <ListView x:Name="ProjectTable"
+                        <ListView x:Name="ViewAllProjects"
                                   ItemsSource ="{Binding AllProjects}">
                             <ListView.View>
                                 <GridView>
-                                    <GridViewColumn Header="id" />
-                                    <GridViewColumn Header="Title" />
-                                    <GridViewColumn Header="Desc" />
-                                    <GridViewColumn Header="Consumer" />
+                                    <GridViewColumn Header="id" DisplayMemberBinding="{Binding Path=id}"/>
+                                    <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Path=Title}"/>
+                                    <GridViewColumn Header="Desc" DisplayMemberBinding="{Binding Path=Discription}"/>
+                                    <GridViewColumn Header="Consumer" DisplayMemberBinding="{Binding Path=Client}" />
                                 </GridView>
                             </ListView.View>
                         </ListView>

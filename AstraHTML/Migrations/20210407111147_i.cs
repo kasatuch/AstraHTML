@@ -2,7 +2,7 @@
 
 namespace AstraHTML.Migrations
 {
-    public partial class Ini : Migration
+    public partial class i : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -28,6 +28,7 @@ namespace AstraHTML.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Staffid = table.Column<int>(type: "int", nullable: false),
                     Projectid = table.Column<int>(type: "int", nullable: false),
                     Priority = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -55,23 +56,23 @@ namespace AstraHTML.Migrations
                     Salary = table.Column<int>(type: "int", nullable: false),
                     Login = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    TasksId = table.Column<int>(type: "int", nullable: false)
+                    Tasksid = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Staff", x => x.id);
                     table.ForeignKey(
-                        name: "FK_Staff_Tasks_TasksId",
-                        column: x => x.TasksId,
+                        name: "FK_Staff_Tasks_Tasksid",
+                        column: x => x.Tasksid,
                         principalTable: "Tasks",
                         principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Staff_TasksId",
+                name: "IX_Staff_Tasksid",
                 table: "Staff",
-                column: "TasksId");
+                column: "Tasksid");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Tasks_Projectid",

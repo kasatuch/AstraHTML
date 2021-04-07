@@ -18,10 +18,16 @@ namespace AstraHTML.Views.Pages
     /// </summary>
     public partial class EditDataBasePage : Page
     {
+        public static ListView AllStaffsView;
+        public static ListView AllTasksView;
+        public static ListView AllProjectsView;
         public EditDataBasePage()
         {
             InitializeComponent();
             DataContext = new DataManageVM();
+            AllStaffsView = ViewAllStaffs;
+            AllTasksView = ViewAllTasks;
+            AllProjectsView = ViewAllProjects;
         }
     }
 }
