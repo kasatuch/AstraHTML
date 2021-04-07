@@ -187,6 +187,7 @@ namespace AstraHTML.Views
 
         public string ProjectTitle { get; set; }
         public string ProjectClient { get; set; }
+        public string ProjectDescription { get; set; }
 
         private LambdaCommand addNewProject;
         public LambdaCommand AddNewProject
@@ -207,9 +208,13 @@ namespace AstraHTML.Views
                     {
                         SetRedBlockControl(wnd, "ClientBlock");
                     }
+                    if (ProjectDescription == null || ProjectDescription.Replace(" ", "").Length == 0)
+                    {
+                        SetRedBlockControl(wnd, "DescriptionBlock");
+                    }
                     else
                     {
-                        resultStr = DataWorker.CreateProject(ProjectTitle, ProjectClient);
+                        resultStr = DataWorker.CreateProject(ProjectTitle, ProjectClient, ProjectDescription);
                         ShowMessageToUser(resultStr);
                         UpdateAllDataView();
                         SetNullValuesToProperties();
@@ -302,6 +307,7 @@ namespace AstraHTML.Views
 
             ProjectTitle = null;
             ProjectClient = null;
+            ProjectDescription = null;
 
             #endregion
         }

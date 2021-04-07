@@ -125,7 +125,7 @@
                                     <GridViewColumn Header="id" DisplayMemberBinding="{Binding Path = id}" />
                                     <GridViewColumn Header="Name"  DisplayMemberBinding="{Binding Path = Name}"/>
                                     <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Path= Description}"/>
-                                    <GridViewColumn Header="Project" DisplayMemberBinding="{Binding Path = Project}"/>
+                                    <GridViewColumn Header="Project" DisplayMemberBinding="{Binding Path = Projectid}"/>
                                     <GridViewColumn Header="Priority" DisplayMemberBinding="{Binding Path = Priority}"/>
                                     <!--#region Header ListView -->
                                     <GridView.ColumnHeaderContainerStyle>
@@ -174,7 +174,7 @@
                                 <GridView>
                                     <GridViewColumn Header="id" DisplayMemberBinding="{Binding Path=id}"/>
                                     <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Path=Title}"/>
-                                    <GridViewColumn Header="Desc" DisplayMemberBinding="{Binding Path=Discription}"/>
+                                    <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Path=Description}"/>
                                     <GridViewColumn Header="Consumer" DisplayMemberBinding="{Binding Path=Client}" />
                                 </GridView>
                             </ListView.View>

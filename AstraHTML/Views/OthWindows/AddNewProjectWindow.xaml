@@ -18,6 +18,8 @@
             <TextBox x:Name="TitleBlock" Text="{Binding ProjectTitle}"/>
             <TextBlock Text="Client"/>
             <TextBox x:Name="ClientBlock" Text="{Binding ProjectClient}"/>
+            <TextBlock Text="Description"/>
+            <TextBox x:Name="DescriptionBlock" Text="{Binding ProjectDescription}"/>
         </StackPanel>
         <Button Grid.Row="1" Content="Add" Command="{Binding AddNewProject}"
                 CommandParameter="{Binding ElementName=AddNewProjectWnd}"/>

@@ -7,6 +7,7 @@ namespace AstraHTML.Models
         public int id { get; set; }
         public string Title { get; set; }
         public string Client { get; set; }
+        public string Description { get; set; }
         public List<Tasks> Tasks { get; set; }
 
     }

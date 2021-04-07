@@ -41,7 +41,7 @@ namespace AstraHTML.Data
                 return result;
             }
         }
-        public static string CreateProject(string title, string client)
+        public static string CreateProject(string title, string client, string description)
         {
             string result = "Уже существует";
             using (ApplicationContext db = new ApplicationContext())
@@ -49,7 +49,7 @@ namespace AstraHTML.Data
                 bool checkIsIxist = db.Projects.Any(el => el.Title == title && el.Client == client);
                 if (!checkIsIxist)
                 {
-                    Projects newProject = new Projects { Title = title, Client = client };
+                    Projects newProject = new Projects { Title = title, Client = client, Description = description };
                     db.Projects.Add(newProject);
                     db.SaveChanges();
                     result = "Сделано!";
