@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -21,6 +22,12 @@ namespace AstraHTML.Views.OthWindows
         {
             InitializeComponent();
             DataContext = new DataManageVM();
+        }
+
+        private void PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

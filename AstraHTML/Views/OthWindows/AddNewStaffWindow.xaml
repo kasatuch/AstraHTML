@@ -23,7 +23,7 @@
             <TextBlock Text="Post"/>
             <TextBox x:Name="PostBlock" Text="{Binding StaffPost}"/>
             <TextBlock Text="Salary"/>
-            <TextBox x:Name="SalaryBlock" Text="{Binding StaffSalary}"/>
+            <TextBox x:Name="SalaryBlock" PreviewTextInput="PreviewTextInput" Text="{Binding StaffSalary}"/>
             <TextBlock Text="Login"/>
             <TextBox x:Name="LoginBlock" Text="{Binding StaffLogin}"/>
             <TextBlock Text="Password"/>
