@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AstraHTML.Views.OthWindows"
-        mc:Ignorable="d"
+        mc:Ignorable="d" Name="EditTaskWnd"
         Title="EditTaskWindow" Height="300" Width="300">
     <Grid>
         <Grid.RowDefinitions>
@@ -14,16 +14,25 @@
         <StackPanel Grid.Row="0" Orientation="Vertical" Width="200"
                     HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="Name"/>
-            <TextBox Text=""/>
+            <TextBox Text="{Binding TaskName}"/>
             <TextBlock Text="Description"/>
-            <TextBox Text=""/>
+            <TextBox Text="{Binding TaskDescription}"/>
             <TextBlock Text="Project"/>
-            <ComboBox/>
+            <ComboBox  ItemsSource="{Binding AllProjects}"
+                       DisplayMemberPath="Title"
+                       SelectedItem="{Binding TaskProject}"/>
             <TextBlock Text="Developer"/>
-            <ComboBox/>
+            <ComboBox   ItemsSource="{Binding AllStaffs}"
+                        DisplayMemberPath="FullNameStaff"
+                        SelectedItem="{Binding TaskStaff}"/>
             <TextBlock Text="Priority"/>
-            <ComboBox/>
+            <ComboBox SelectedItem="{Binding TaskPriority}">
+                <ComboBoxItem Content="Hight"/>
+                <ComboBoxItem Content="Medium"/>
+                <ComboBoxItem Content="Low"/>
+            </ComboBox>
         </StackPanel>
-        <Button Grid.Row="1" Content="Add"/>
+        <Button Grid.Row="1" Content="Add" Command="{Binding EditTask}"
+                CommandParameter="{Binding ElementName=EditTaskWnd}"/>
     </Grid>
 </Window>

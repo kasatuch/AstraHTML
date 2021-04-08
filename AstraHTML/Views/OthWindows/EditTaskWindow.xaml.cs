@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AstraHTML.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -17,9 +18,14 @@ namespace AstraHTML.Views.OthWindows
     /// </summary>
     public partial class EditTaskWindow : Window
     {
-        public EditTaskWindow()
+        public EditTaskWindow(Tasks taskToEdit)
         {
             InitializeComponent();
+            DataContext = new DataManageVM();
+            DataManageVM.SelectedTask = taskToEdit;
+            DataManageVM.TaskName = taskToEdit.Name;
+            DataManageVM.TaskDescription = taskToEdit.Description;
+            DataManageVM.TaskPriority = taskToEdit.Priority;
         }
     }
 }

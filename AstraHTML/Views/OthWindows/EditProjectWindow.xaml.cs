@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AstraHTML.Data;
+using AstraHTML.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -17,9 +19,14 @@ namespace AstraHTML.Views.OthWindows
     /// </summary>
     public partial class EditProjectWindow : Window
     {
-        public EditProjectWindow()
+        public EditProjectWindow(Projects projectToEdit)
         {
             InitializeComponent();
+            DataContext = new DataManageVM();
+            DataManageVM.SelectedProject = projectToEdit;
+            DataManageVM.ProjectTitle = projectToEdit.Title;
+            DataManageVM.ProjectClient = projectToEdit.Client;
+            DataManageVM.ProjectDescription = projectToEdit.Description;
         }
     }
 }

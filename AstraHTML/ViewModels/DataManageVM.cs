@@ -57,13 +57,13 @@ namespace AstraHTML.Views
 
 
         #region Add Staff
-        public string StaffName { get; set; }
-        public string StaffSurname { get; set; }
-        public string StaffSpeciality { get; set; }
-        public string StaffPost { get; set; }
-        public int StaffSalary { get; set; }
-        public string StaffLogin { get; set; }
-        public string StaffPassword { get; set; }
+        public static string StaffName { get; set; }
+        public static string StaffSurname { get; set; }
+        public static string StaffSpeciality { get; set; }
+        public static string StaffPost { get; set; }
+        public static int StaffSalary { get; set; }
+        public static string StaffLogin { get; set; }
+        public static string StaffPassword { get; set; }
 
         private LambdaCommand addNewStaff;
         public LambdaCommand AddNewStaff
@@ -128,13 +128,13 @@ namespace AstraHTML.Views
 
         #region Add Task
 
-        public string TaskName { get; set; }
-        public string TaskDescription { get; set; }
+        public static string TaskName { get; set; }
+        public static string TaskDescription { get; set; }
 
-        public Staff TaskStaff { get; set; }
-        public Projects TaskProject { get; set; }
+        public static Staff TaskStaff { get; set; }
+        public static Projects TaskProject { get; set; }
 
-        public string TaskPriority { get; set; }
+        public static string TaskPriority { get; set; }
 
         //Todo
 
@@ -186,9 +186,9 @@ namespace AstraHTML.Views
 
         #region Add Project
 
-        public string ProjectTitle { get; set; }
-        public string ProjectClient { get; set; }
-        public string ProjectDescription { get; set; }
+        public static string ProjectTitle { get; set; }
+        public static string ProjectClient { get; set; }
+        public static string ProjectDescription { get; set; }
 
         private LambdaCommand addNewProject;
         public LambdaCommand AddNewProject
@@ -253,7 +253,7 @@ namespace AstraHTML.Views
             UpdateAllTasks();
             UpdateAllProjects();
         }
-        //не работает
+        
         private void UpdateAllStaffs()
         {
             AllStaffs = DataWorker.GetAllStaffs();
@@ -323,11 +323,11 @@ namespace AstraHTML.Views
 
         public TabItem SelectedTabItem { get; set; }
 
-        public Tasks SelectedTask { get; set; }
+        public static Tasks SelectedTask { get; set; }
 
-        public Staff SelectedStaff { get; set; }
+        public static Staff SelectedStaff { get; set; }
 
-        public Projects SelectedProject { get; set; }
+        public static Projects SelectedProject { get; set; }
 
         #endregion
 
@@ -367,7 +367,7 @@ namespace AstraHTML.Views
                         UpdateAllDataView();
                     }
 
-                    //Update
+                    
 
                     SetNullValuesToProperties();
                     ShowMessageToUser(resultStr);
@@ -381,6 +381,136 @@ namespace AstraHTML.Views
         #region Commands to show windows
 
         #region Open Commands
+
+        private LambdaCommand openEditItem;
+        public LambdaCommand OpenEditItem
+        {
+            get
+            {
+                return openEditItem ?? new LambdaCommand(obj =>
+                {
+                    string resultStr = "Ничего не выбрано";
+
+                    //If Staff
+
+                    if (SelectedTabItem.Name == "StaffTab" && SelectedStaff != null)
+                    {
+                        OpenEditStaffWindowMethod(SelectedStaff);
+                    }
+
+                    //If Task
+
+                    if (SelectedTabItem.Name == "TaskTab" && SelectedTask != null)
+                    {
+                        OpenEditTaskWindowMethod(SelectedTask);
+                    }
+
+                    //If Project
+
+                    if (SelectedTabItem.Name == "ProjectTab" && SelectedProject != null)
+                    {
+                        OpenEditProjectWindowMethod(SelectedProject);
+                    }
+
+                });
+            }
+        }
+
+
+        #region Edit
+
+        private LambdaCommand editStaff;
+        public LambdaCommand EditStaff
+        {
+            get
+            {
+                return editStaff ?? new LambdaCommand(obj =>
+                {
+                    Window window = obj as Window;
+                    string resultStr = "Не выбран сотрудник";
+                    if(SelectedStaff != null)
+                    {
+                        resultStr = DataWorker.EditStaff(SelectedStaff, StaffName, StaffSurname, StaffSpeciality, StaffPost, StaffSalary, StaffLogin, StaffPassword);
+                        UpdateAllDataView();
+                        SetNullValuesToProperties();
+                        ShowMessageToUser(resultStr);
+                        window.Close();
+                    }
+                    else
+                    {
+                        ShowMessageToUser(resultStr);
+                    }
+                });
+            }
+        }
+
+        private LambdaCommand editTask;
+        public LambdaCommand EditTask
+        {
+            get
+            {
+                return editStaff ?? new LambdaCommand(obj =>
+                {
+                    Window window = obj as Window;
+                    string resultStr = "Не выбрана задача";
+                    string noStaffStr = "Не выбран сотрудник";
+                    string noProjectStr = "Не выбран проект";
+                    if (SelectedTask != null)
+                    {
+                        if (TaskProject != null) 
+                        {
+                            if (TaskStaff != null)
+                            {
+                                resultStr = DataWorker.EditTask(SelectedTask, TaskName, TaskDescription, TaskProject, TaskStaff, TaskPriority);
+                                UpdateAllDataView();
+                                SetNullValuesToProperties();
+                                ShowMessageToUser(resultStr);
+                                window.Close();
+                            }
+                            else
+                            {
+                                ShowMessageToUser(noStaffStr);
+                            }
+                        }
+                        else
+                        {
+                            ShowMessageToUser(noProjectStr);
+                        }
+                    }
+                    else
+                    {
+                        ShowMessageToUser(resultStr);
+                    }
+                });
+            }
+        }
+
+        private LambdaCommand editProject;
+        public LambdaCommand EditProject
+        {
+            get
+            {
+                return editProject ?? new LambdaCommand(obj =>
+                {
+                    Window window = obj as Window;
+                    string resultStr = "Не выбран проект";
+                    if (SelectedProject != null)
+                    {
+                        resultStr = DataWorker.EditProject(SelectedProject, ProjectTitle, ProjectClient,ProjectDescription);
+                        UpdateAllDataView();
+                        SetNullValuesToProperties();
+                        ShowMessageToUser(resultStr);
+                        window.Close();
+                    }
+                    else
+                    {
+                        ShowMessageToUser(resultStr);
+                    }
+                });
+            }
+        }
+
+        #endregion
 
         #region Open Staff Command
 
@@ -398,6 +528,7 @@ namespace AstraHTML.Views
             }
         }
 
+
         #endregion
 
         #region Open Task Command
@@ -414,6 +545,7 @@ namespace AstraHTML.Views
                     );
             }
         }
+
 
         #endregion
 
@@ -437,43 +569,7 @@ namespace AstraHTML.Views
 
         #endregion
 
-        #region Edit Commands
 
-        #region Edit Tasks
-
-        private LambdaCommand openEditNewTaskWindow;
-
-        public LambdaCommand OpenEditNewTaskWindow
-        {
-            get
-            {
-                return openEditNewTaskWindow ?? new LambdaCommand(obj =>
-                {
-                    OpenEditTaskWindowMethod();
-                }
-                    );
-            }
-        }
-
-        #endregion
-
-        #region Project Edit
-
-        private LambdaCommand openEditNewProjectWindow;
-
-        public LambdaCommand OpenEditNewProjectWindow
-        {
-            get
-            {
-                return openEditNewProjectWindow ?? new LambdaCommand(obj =>
-                {
-                    OpenEditProjectWindowMethod();
-                }
-                    );
-            }
-        }
-
-        #endregion
 
         #endregion
 
@@ -505,21 +601,21 @@ namespace AstraHTML.Views
 
         #region Edit
 
-        private void OpenEditStaffWindowMethod()
+        private void OpenEditStaffWindowMethod(Staff staff)
         {
-            EditStaffWindow editStaffWindow = new EditStaffWindow();
+            EditStaffWindow editStaffWindow = new EditStaffWindow(staff);
             SetCenterPositionAndOpen(editStaffWindow);
         }
 
-        private void OpenEditTaskWindowMethod()
+        private void OpenEditTaskWindowMethod(Tasks task)
         {
-            EditTaskWindow editTaskWindow = new EditTaskWindow();
+            EditTaskWindow editTaskWindow = new EditTaskWindow(task);
             SetCenterPositionAndOpen(editTaskWindow);
         }
 
-        private void OpenEditProjectWindowMethod()
+        private void OpenEditProjectWindowMethod(Projects project)
         {
-            EditProjectWindow editProjectWindow = new EditProjectWindow();
+            EditProjectWindow editProjectWindow = new EditProjectWindow(project);
             SetCenterPositionAndOpen(editProjectWindow);
         }
 
@@ -538,7 +634,6 @@ namespace AstraHTML.Views
 
         #endregion
 
-        #endregion
 
         #region Служебные
         public event PropertyChangedEventHandler PropertyChanged;

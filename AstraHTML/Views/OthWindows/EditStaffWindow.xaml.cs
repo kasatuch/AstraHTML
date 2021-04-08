@@ -1,6 +1,8 @@
-﻿using System;
+﻿using AstraHTML.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -17,9 +19,22 @@ namespace AstraHTML.Views.OthWindows
     /// </summary>
     public partial class EditStaffWindow : Window
     {
-        public EditStaffWindow()
+        public EditStaffWindow(Staff staffToEdit)
         {
             InitializeComponent();
+            DataContext = new DataManageVM();
+            DataManageVM.SelectedStaff = staffToEdit;
+            DataManageVM.StaffName = staffToEdit.Name;
+            DataManageVM.StaffSurname = staffToEdit.Surname;
+            DataManageVM.StaffSpeciality = staffToEdit.Speciality;
+            DataManageVM.StaffPost = staffToEdit.Post;
+            DataManageVM.StaffLogin = staffToEdit.Login;
+            DataManageVM.StaffPassword = staffToEdit.Password;
+        }
+        private void PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

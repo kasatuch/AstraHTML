@@ -120,7 +120,7 @@ namespace AstraHTML.Data
             return result;
         }
 
-        public static string EditTask(Staff oldTask, string newName, string newDescription, Projects newProject, Staff newStaff)
+        public static string EditTask(Tasks oldTask, string newName, string newDescription, Projects newProject, Staff newStaff, string newPriority)
         {
             string result = "Такой задачи не существует";
             using (ApplicationContext db = new ApplicationContext())
@@ -132,7 +132,7 @@ namespace AstraHTML.Data
                     task.Description = newDescription;
                     task.Projectid = newProject.id;
                     task.Staffid = newStaff.id;
-
+                    task.Priority = newPriority;
                     db.SaveChanges();
                     result = "Сделано! Задача " + task.Name + " изменёна";
                 }
@@ -140,7 +140,7 @@ namespace AstraHTML.Data
             return result;
         }
 
-        public static string EditProject(Projects oldProject, string newTitle, string newClient)
+        public static string EditProject(Projects oldProject, string newTitle, string newClient, string newDescription)
         {
             string result = "Такой задачи не существует";
             using (ApplicationContext db = new ApplicationContext())
@@ -150,6 +150,7 @@ namespace AstraHTML.Data
                 {
                     project.Title = newTitle;
                     project.Client = newClient;
+                    project.Description = newDescription;
 
                     db.SaveChanges();
                     result = "Сделано! Проект " + project.Title + " заказчика " + project.Client + " изменён";

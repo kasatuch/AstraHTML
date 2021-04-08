@@ -119,7 +119,7 @@
                           Background="Transparent">
                         <TabItem.ContextMenu>
                             <ContextMenu>
-                                <MenuItem Header="Edit"/>
+                                <MenuItem Header="Edit" Command="{Binding OpenEditItem}"/>
                                 <MenuItem Header="Delete" Command="{Binding DeleteItem}"/>
                             </ContextMenu>
                         </TabItem.ContextMenu>
@@ -157,7 +157,7 @@
                           BorderBrush="Transparent" Foreground="White">
                         <TabItem.ContextMenu>
                             <ContextMenu>
-                                <MenuItem Header="Edit"/>
+                                <MenuItem Header="Edit" Command="{Binding OpenEditItem}"/>
                                 <MenuItem Header="Delete" Command="{Binding DeleteItem}"/>
                             </ContextMenu>
                         </TabItem.ContextMenu>
@@ -186,7 +186,7 @@
                           BorderBrush="Transparent" Foreground="White">
                         <TabItem.ContextMenu>
                             <ContextMenu>
-                                <MenuItem Header="Edit"/>
+                                <MenuItem Header="Edit" Command="{Binding OpenEditItem}"/>
                                 <MenuItem Header="Delete" Command="{Binding DeleteItem}"/>
                             </ContextMenu>
                         </TabItem.ContextMenu>
