@@ -22,7 +22,7 @@
             <ComboBox x:Name="ProjectBlock" ItemsSource="{Binding AllProjects}" DisplayMemberPath="Title" SelectedItem="{Binding TaskProject}"
                       />
             <TextBlock Text="Developer"/>
-            <ComboBox x:Name="StaffBlock" ItemsSource="{Binding AllStaffs}" DisplayMemberPath="Name" SelectedItem="{Binding TaskStaff}"/>
+            <ComboBox x:Name="StaffBlock" ItemsSource="{Binding AllStaffs}" DisplayMemberPath="FullNameStaff" SelectedItem="{Binding TaskStaff}"/>
             <TextBlock Text="Priority"/>
             <ComboBox x:Name="PriorityBlock"  SelectedItem="{Binding TaskPriority}" >
                 <ComboBoxItem Content="Hight"/>

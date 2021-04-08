@@ -205,6 +205,11 @@ namespace AstraHTML.Data
             }
         }
 
+        public static string GetFullNameStaff(string name, string surname)
+        {
+            return name + " " + surname;
+        }
+
         #endregion
     }
 }

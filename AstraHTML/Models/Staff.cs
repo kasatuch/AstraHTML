@@ -1,5 +1,7 @@
-﻿using System;
+﻿using AstraHTML.Data;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace AstraHTML.Models
@@ -14,6 +16,15 @@ namespace AstraHTML.Models
         public int Salary { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
+
+        [NotMapped]
+        public string FullNameStaff
+        {
+            get
+            {
+                return DataWorker.GetFullNameStaff(Name, Surname);
+            }
+        }
 
     }
 }
