@@ -231,7 +231,7 @@ namespace AstraHTML.Views
 
         #region Вспомогательные
 
-        //Выделяет красным поля с неправильными введёнными данными
+        //Выделяет красным поля с неправильными введёнными данными.
         private void SetRedBlockControl(Window window, string BlockName)
         {
             Control block = window.FindName(BlockName) as Control;
@@ -249,7 +249,7 @@ namespace AstraHTML.Views
 
         private void UpdateAllDataView()
         {
-           UpdateAllStaffs();
+            UpdateAllStaffs();
             UpdateAllTasks();
             UpdateAllProjects();
         }
