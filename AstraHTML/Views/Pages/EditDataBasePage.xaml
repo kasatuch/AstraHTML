@@ -125,7 +125,7 @@
                                     <GridViewColumn Header="id" DisplayMemberBinding="{Binding Path = id}" />
                                     <GridViewColumn Header="Name"  DisplayMemberBinding="{Binding Path = Name}"/>
                                     <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Path= Description}"/>
-                                    <GridViewColumn Header="Project" DisplayMemberBinding="{Binding Path = Projectid}"/>
+                                    <GridViewColumn Header="Project" DisplayMemberBinding="{Binding Path = TaskProject.Title}"/>
                                     <GridViewColumn Header="Priority" DisplayMemberBinding="{Binding Path = Priority}"/>
                                     <!--#region Header ListView -->
                                     <GridView.ColumnHeaderContainerStyle>

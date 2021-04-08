@@ -1,5 +1,7 @@
-﻿using System;
+﻿using AstraHTML.Data;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace AstraHTML.Models
@@ -14,6 +16,15 @@ namespace AstraHTML.Models
         public virtual Projects Project { get; set; }
         public int Projectid { get; set; }
         public string Priority { get; set; }
+
+        [NotMapped]
+        public  Projects TaskProject
+        {
+            get
+            {
+                return DataWorker.GetProjectTitleByid(Projectid);
+            } 
+        }
 
     }
 }

@@ -191,5 +191,20 @@ namespace AstraHTML.Data
         }
 
         #endregion
+
+        #region Get Data
+
+        //Получение Title проекта, по id.
+
+        public static Projects GetProjectTitleByid(int id)
+        {
+            using(ApplicationContext db = new ApplicationContext())
+            {
+                Projects pro = db.Projects.FirstOrDefault(p => p.id == id);
+                return pro;
+            }
+        }
+
+        #endregion
     }
 }
