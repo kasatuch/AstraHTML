@@ -127,6 +127,7 @@
                                   BorderThickness="0" BorderBrush="Transparent"
                                   SelectedItem="{Binding SelectedTask}"
                                   ItemsSource="{Binding AllTasks}">
+                            
                             <ListView.View>
                                 <GridView >
                                     <GridViewColumn Header="id" DisplayMemberBinding="{Binding Path = id}" />
@@ -154,6 +155,12 @@
                     <TabItem Header="Staff" x:Name="StaffTab"
                          Background="Transparent" BorderThickness="0"
                           BorderBrush="Transparent" Foreground="White">
+                        <TabItem.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Edit"/>
+                                <MenuItem Header="Delete" Command="{Binding DeleteItem}"/>
+                            </ContextMenu>
+                        </TabItem.ContextMenu>
                         <ListView x:Name="ViewAllStaffs"
                                   ItemsSource ="{Binding AllStaffs}"
                                   SelectedItem="{Binding SelectedStaff}"
@@ -177,6 +184,12 @@
                     <TabItem Header="Projects" x:Name="ProjectTab"
                          Background="Transparent" BorderThickness="0"
                           BorderBrush="Transparent" Foreground="White">
+                        <TabItem.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Edit"/>
+                                <MenuItem Header="Delete" Command="{Binding DeleteItem}"/>
+                            </ContextMenu>
+                        </TabItem.ContextMenu>
                         <ListView x:Name="ViewAllProjects"
                                   ItemsSource ="{Binding AllProjects}"
                                   SelectedItem="{Binding SelectedProject}">
