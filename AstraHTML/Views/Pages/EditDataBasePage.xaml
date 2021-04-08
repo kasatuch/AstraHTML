@@ -117,6 +117,12 @@
                     <TabItem x:Name="TaskTab" Header="Tasks" Height="30" BorderThickness="0"
                           BorderBrush="Transparent" Foreground="White"
                           Background="Transparent">
+                        <TabItem.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Edit"/>
+                                <MenuItem Header="Delete" Command="{Binding DeleteItem}"/>
+                            </ContextMenu>
+                        </TabItem.ContextMenu>
                         <ListView x:Name="ViewAllTasks" Background="Transparent"
                                   BorderThickness="0" BorderBrush="Transparent"
                                   SelectedItem="{Binding SelectedTask}"
