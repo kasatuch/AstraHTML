@@ -111,14 +111,15 @@
                     <!--#endregion-->
                 </Grid>
                 <!--#endregion-->
-                    
-                <TabControl Background="Transparent" Grid.Column="0">
+
+                <TabControl Background="Transparent" Grid.Column="0" SelectedItem="{Binding SelectedTabItem}">
                     <!--#region TaskTable-->
-                    <TabItem  Header="Tasks" Height="30" BorderThickness="0"
+                    <TabItem x:Name="TaskTab" Header="Tasks" Height="30" BorderThickness="0"
                           BorderBrush="Transparent" Foreground="White"
                           Background="Transparent">
                         <ListView x:Name="ViewAllTasks" Background="Transparent"
                                   BorderThickness="0" BorderBrush="Transparent"
+                                  SelectedItem="{Binding SelectedTask}"
                                   ItemsSource="{Binding AllTasks}">
                             <ListView.View>
                                 <GridView >
@@ -144,11 +145,13 @@
                     <!--#endregion-->
 
                     <!--#region StaffTable-->
-                    <TabItem Header="Staff"
+                    <TabItem Header="Staff" x:Name="StaffTab"
                          Background="Transparent" BorderThickness="0"
                           BorderBrush="Transparent" Foreground="White">
                         <ListView x:Name="ViewAllStaffs"
-                                  ItemsSource ="{Binding AllStaffs}">
+                                  ItemsSource ="{Binding AllStaffs}"
+                                  SelectedItem="{Binding SelectedStaff}"
+                                  >
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Header="id" DisplayMemberBinding="{Binding Path=id}"/>
@@ -165,11 +168,12 @@
                     </TabItem>
                     <!--#endregion-->
                     <!--#region ProjectTable-->
-                    <TabItem Header="Projects"
+                    <TabItem Header="Projects" x:Name="ProjectTab"
                          Background="Transparent" BorderThickness="0"
                           BorderBrush="Transparent" Foreground="White">
                         <ListView x:Name="ViewAllProjects"
-                                  ItemsSource ="{Binding AllProjects}">
+                                  ItemsSource ="{Binding AllProjects}"
+                                  SelectedItem="{Binding SelectedProject}">
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Header="id" DisplayMemberBinding="{Binding Path=id}"/>

@@ -192,7 +192,7 @@ namespace AstraHTML.Data
 
         #endregion
 
-        #region Get Data
+        #region Get Data For View
 
         //Получение Title проекта, по id.
 
@@ -205,6 +205,7 @@ namespace AstraHTML.Data
             }
         }
 
+        //Конкатенация Ф.И. для их вывода в одном Item в Combobox
         public static string GetFullNameStaff(string name, string surname)
         {
             return name + " " + surname;

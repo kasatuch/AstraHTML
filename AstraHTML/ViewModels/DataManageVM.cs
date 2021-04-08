@@ -52,6 +52,7 @@ namespace AstraHTML.Views
 
         #endregion
 
+
         #region Commands to Add
 
 
@@ -315,6 +316,65 @@ namespace AstraHTML.Views
         #endregion
 
         #endregion
+
+        #endregion
+
+        #region Свойства для выделенных элементов в ListView
+
+        public TabItem SelectedTabItem { get; set; }
+
+        public Tasks SelectedTask { get; set; }
+
+        public Staff SelectedStaff { get; set; }
+
+        public Projects SelectedProject { get; set; }
+
+        #endregion
+
+
+        #region Delete
+
+        private LambdaCommand deleteItem;
+        public LambdaCommand DeleteItem
+        {
+            get
+            {
+                return deleteItem ?? new LambdaCommand(obj =>
+                {
+                    string resultStr = "Ничего не выбрано";
+
+                    //If Staff
+
+                    if(SelectedTabItem.Name == "StaffTab" && SelectedStaff != null)
+                    {
+                        resultStr = DataWorker.DeleteStaff(SelectedStaff);
+                        UpdateAllDataView();
+                    }
+
+                    //If Task
+
+                    if (SelectedTabItem.Name == "TaskTab" && SelectedTask != null)
+                    {
+                        resultStr = DataWorker.DeleteTask(SelectedTask);
+                        UpdateAllDataView();
+                    }
+
+                    //If Project
+
+                    if (SelectedTabItem.Name == "ProjectTab" && SelectedProject != null)
+                    {
+                        resultStr = DataWorker.DeleteProject(SelectedProject);
+                        UpdateAllDataView();
+                    }
+
+                    //Update
+
+                    SetNullValuesToProperties();
+                    ShowMessageToUser(resultStr);
+                }
+                );
+            }
+        }
 
         #endregion
 
