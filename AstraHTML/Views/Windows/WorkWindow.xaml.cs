@@ -25,7 +25,9 @@ namespace AstraHTML.Views.Windows
         public WorkWindow()
         {
             InitializeComponent();
+
             MainFrame.NavigationService.Navigate(new ViewDataBasePage());
+            
         }
 
         #region Интерактивное взаимодействие с формой

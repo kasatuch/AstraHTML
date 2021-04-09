@@ -29,5 +29,6 @@ namespace AstraHTML.Views.Pages
             AllTasksView = ViewAllTasks;
             AllProjectsView = ViewAllProjects;
         }
+
     }
 }

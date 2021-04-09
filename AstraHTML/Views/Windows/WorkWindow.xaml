@@ -342,8 +342,7 @@
 
     </Window.Resources>
     <Grid>
-
-        <Grid Margin="20" Background="#181735">
+        <Grid  Background="#181735">
             <Grid.Effect>
                 <DropShadowEffect BlurRadius="30"
                                   ShadowDepth="2"
@@ -351,7 +350,16 @@
                                   Color="Gray">
                 </DropShadowEffect>
             </Grid.Effect>
-            <Grid Width="100"
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="800"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="400"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid Width="100" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
                         HorizontalAlignment="Left"
                         Background="#383660">
                 <Grid.RowDefinitions>
@@ -425,12 +433,9 @@
                     </iconPacks:PackIconMaterial>
                 </Button>
             </Grid>
-            <Frame Background="Transparent" x:Name="MainFrame" Panel.ZIndex="-1">
-
-            </Frame>
+            
             <Grid Height="50" MouseDown="Grid_MouseDown"
-                  VerticalAlignment="Top"
-                  Background="#0F0F2D"
+                  Background="#0F0F2D" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0"
                   >
 
                 <TextBlock Text="AstraHTML"
@@ -487,7 +492,11 @@
                     </Button.Template>
                 </Button>
             </Grid>
-            <Grid Height="50"
+            <Frame Background="Transparent" x:Name="MainFrame" Grid.Row="1" Grid.Column="1" NavigationUIVisibility="Hidden">
+
+            </Frame>
+            <Grid Height="50" Grid.Column="0" Grid.ColumnSpan="2"
+                  Grid.Row="2"
                   VerticalAlignment="Bottom"
                   Background="#0F0F2D">
                 <TextBlock Text="Form Name"
