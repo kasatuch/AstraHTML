@@ -242,36 +242,90 @@
                              Height="30" BorderThickness="0"
                           BorderBrush="Transparent" Foreground="White"
                           Background="Transparent">
+                        
                         <TabItem.ContextMenu>
                             <ContextMenu>
+                                <ContextMenu.Resources>
+                                    <Style TargetType="ContextMenu">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="{x:Type ContextMenu}">
+                                                    <Border x:Name="Border"
+                                                            Background="#383660"
+                                                            BorderThickness="1">
+                                                        <Border.BorderBrush>
+                                                            <SolidColorBrush Color="White" />
+                                                            <!-- Set this brush to transparent -->
+                                                        </Border.BorderBrush>
+                                                        <StackPanel IsItemsHost="True"
+                      KeyboardNavigation.DirectionalNavigation="Cycle" />
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Setter Property="Foreground" Value="White"/>
+                                        <Setter Property="BorderThickness" Value="0"/>
+                                        <Setter Property="BorderBrush" Value="Transparent"/>
+                                    </Style>
+                                </ContextMenu.Resources>
                                 <MenuItem Header="Edit" Command="{Binding OpenEditItem}"/>
                                 <MenuItem Header="Delete" Command="{Binding DeleteItem}"/>
                                 <MenuItem Header="Add..">
+                                    <MenuItem.ItemContainerStyle>
+                                        <Style TargetType="MenuItem">
+                                            <Setter Property="Background" Value="#383660"/>
+                                            <Setter Property="BorderBrush" Value="White"/>
+                                            <Setter Property="BorderThickness" Value="1"/>
+                                            <Setter Property="Foreground" Value="White"/>
+                                        </Style>
+                                    </MenuItem.ItemContainerStyle>
                                     <MenuItem Header="Staff" Command="{Binding OpenAddNewStaffWindow}"/>
                                     <MenuItem Header="Task" Command="{Binding OpenAddNewTaskWindow}"/>
                                     <MenuItem Header="Project" Command="{Binding OpenAddNewProjectWindow}"/>
                                 </MenuItem>
                             </ContextMenu>
                         </TabItem.ContextMenu>
+                        
                         <ListView x:Name="ViewAllTasks" Background="Transparent"
                                   BorderThickness="0" BorderBrush="Transparent"
                                   SelectedItem="{Binding SelectedTask}"
                                   ItemsSource="{Binding AllTasks}">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="Foreground" Value="White"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#2F1638"/>
+                                            <Setter Property="BorderThickness" Value="1"/>
+                                            <Setter Property="BorderBrush" Value="#383660"/>
+                                            <Setter Property="Opacity" Value="0.9"/>
+                                            <Setter Property="Foreground" Value="Wheat"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ListView.ItemContainerStyle>
                             <ListView.View>
-                                <GridView >
-                                    <GridViewColumn Header="id" DisplayMemberBinding="{Binding Path = id}" />
-                                    <GridViewColumn Header="Name"  DisplayMemberBinding="{Binding Path = Name}"/>
-                                    <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Path= Description}"/>
-                                    <GridViewColumn Header="Project" DisplayMemberBinding="{Binding Path = TaskProject.Title}"/>
-                                    <GridViewColumn Header="Priority" DisplayMemberBinding="{Binding Path = Priority}"/>
+                                <GridView>
                                     <!--#region Header ListView -->
                                     <GridView.ColumnHeaderContainerStyle>
                                         <Style TargetType="GridViewColumnHeader">
                                             <Setter Property="Foreground" Value="White"/>
                                             <Setter Property="Background" Value="Transparent"/>
+                                            <Setter Property="BorderBrush" Value="Transparent"/>
+                                            <Setter Property="BorderThickness" Value="0"/>
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="Transparent"/>
+                                                </Trigger>
+                                            </Style.Triggers>
                                         </Style>
                                     </GridView.ColumnHeaderContainerStyle>
                                     <!--#endregion-->
+                                    <GridViewColumn Header="id" DisplayMemberBinding="{Binding Path = id}" />
+                                    <GridViewColumn Header="Name"  DisplayMemberBinding="{Binding Path = Name}"/>
+                                    <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Path= Description}"/>
+                                    <GridViewColumn Header="Project" DisplayMemberBinding="{Binding Path = TaskProject.Title}"/>
+                                    <GridViewColumn Header="Priority" DisplayMemberBinding="{Binding Path = Priority}"/>
                                 </GridView>
                             </ListView.View>
                         </ListView>
@@ -281,25 +335,87 @@
                     <TabItem  Style="{DynamicResource TabStyle}" Header="Staff" x:Name="StaffTab"
                          Background="Transparent" BorderThickness="0"
                           BorderBrush="Transparent" Foreground="White">
+                        
                         <TabItem.ContextMenu>
                             <ContextMenu>
+                                <ContextMenu.Resources>
+                                    <Style TargetType="ContextMenu">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="{x:Type ContextMenu}">
+                                                    <Border x:Name="Border"
+                                                            Background="#383660"
+                                                            BorderThickness="1">
+                                                        <Border.BorderBrush>
+                                                            <SolidColorBrush Color="White" />
+                                                            <!-- Set this brush to transparent -->
+                                                        </Border.BorderBrush>
+                                                        <StackPanel IsItemsHost="True"
+                      KeyboardNavigation.DirectionalNavigation="Cycle" />
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Setter Property="Foreground" Value="White"/>
+                                        <Setter Property="BorderThickness" Value="0"/>
+                                        <Setter Property="BorderBrush" Value="Transparent"/>
+                                    </Style>
+                                </ContextMenu.Resources>
                                 <MenuItem Header="Edit" Command="{Binding OpenEditItem}"/>
                                 <MenuItem Header="Delete" Command="{Binding DeleteItem}"/>
                                 <MenuItem Header="Add..">
+                                    <MenuItem.ItemContainerStyle>
+                                        <Style TargetType="MenuItem">
+                                            <Setter Property="Background" Value="#383660"/>
+                                            <Setter Property="BorderBrush" Value="White"/>
+                                            <Setter Property="BorderThickness" Value="1"/>
+                                            <Setter Property="Foreground" Value="White"/>
+                                        </Style>
+                                    </MenuItem.ItemContainerStyle>
                                     <MenuItem Header="Staff" Command="{Binding OpenAddNewStaffWindow}"/>
                                     <MenuItem Header="Task" Command="{Binding OpenAddNewTaskWindow}"/>
                                     <MenuItem Header="Project" Command="{Binding OpenAddNewProjectWindow}"/>
                                 </MenuItem>
                             </ContextMenu>
                         </TabItem.ContextMenu>
+
                         <ListView x:Name="ViewAllStaffs"
                                   Background="Transparent"
                                   BorderThickness="0" BorderBrush="Transparent"
                                   ItemsSource ="{Binding AllStaffs}"
                                   SelectedItem="{Binding SelectedStaff}"
                                   >
+                            
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="Foreground" Value="White"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#2F1638"/>
+                                            <Setter Property="BorderThickness" Value="1"/>
+                                            <Setter Property="BorderBrush" Value="#383660"/>
+                                            <Setter Property="Opacity" Value="0.9"/>
+                                            <Setter Property="Foreground" Value="Wheat"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            
                             <ListView.View>
                                 <GridView>
+                                     <GridView.ColumnHeaderContainerStyle>
+                                        <Style TargetType="GridViewColumnHeader">
+                                            <Setter Property="Foreground" Value="White"/>
+                                            <Setter Property="Background" Value="Transparent"/>
+                                            <Setter Property="BorderBrush" Value="Transparent"/>
+                                            <Setter Property="BorderThickness" Value="0"/>
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="Transparent"/>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </GridView.ColumnHeaderContainerStyle>
                                     <GridViewColumn Header="id" DisplayMemberBinding="{Binding Path=id}"/>
                                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Path=Name}"/>
                                     <GridViewColumn Header="Surname" DisplayMemberBinding="{Binding Path=Surname}"/>
@@ -308,12 +424,6 @@
                                     <GridViewColumn Header="Salary" DisplayMemberBinding="{Binding Path=Salary}"/>
                                     <GridViewColumn Header="Login" DisplayMemberBinding="{Binding Path=Login}"/>
                                     <GridViewColumn Header="Password" DisplayMemberBinding="{Binding Path=Password}"/>
-                                    <GridView.ColumnHeaderContainerStyle>
-                                        <Style TargetType="GridViewColumnHeader">
-                                            <Setter Property="Foreground" Value="White"/>
-                                            <Setter Property="Background" Value="Transparent"/>
-                                        </Style>
-                                    </GridView.ColumnHeaderContainerStyle>
                                 </GridView>
                             </ListView.View>
                         </ListView>
@@ -323,34 +433,90 @@
                     <TabItem  Style="{DynamicResource TabStyle}" Header="Projects" x:Name="ProjectTab"
                          Background="Transparent" BorderThickness="0"
                           BorderBrush="Transparent" Foreground="White">
+
                         <TabItem.ContextMenu>
                             <ContextMenu>
+                                <ContextMenu.Resources>
+                                    <Style TargetType="ContextMenu">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="{x:Type ContextMenu}">
+                                                    <Border x:Name="Border"
+                                                            Background="#383660"
+                                                            BorderThickness="1">
+                                                        <Border.BorderBrush>
+                                                            <SolidColorBrush Color="White" />
+                                                            <!-- Set this brush to transparent -->
+                                                        </Border.BorderBrush>
+                                                        <StackPanel IsItemsHost="True"
+                      KeyboardNavigation.DirectionalNavigation="Cycle" />
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Setter Property="Foreground" Value="White"/>
+                                        <Setter Property="BorderThickness" Value="0"/>
+                                        <Setter Property="BorderBrush" Value="Transparent"/>
+                                    </Style>
+                                </ContextMenu.Resources>
                                 <MenuItem Header="Edit" Command="{Binding OpenEditItem}"/>
                                 <MenuItem Header="Delete" Command="{Binding DeleteItem}"/>
                                 <MenuItem Header="Add..">
+                                    <MenuItem.ItemContainerStyle>
+                                        <Style TargetType="MenuItem">
+                                            <Setter Property="Background" Value="#383660"/>
+                                            <Setter Property="BorderBrush" Value="White"/>
+                                            <Setter Property="BorderThickness" Value="1"/>
+                                            <Setter Property="Foreground" Value="White"/>
+                                        </Style>
+                                    </MenuItem.ItemContainerStyle>
                                     <MenuItem Header="Staff" Command="{Binding OpenAddNewStaffWindow}"/>
                                     <MenuItem Header="Task" Command="{Binding OpenAddNewTaskWindow}"/>
                                     <MenuItem Header="Project" Command="{Binding OpenAddNewProjectWindow}"/>
                                 </MenuItem>
                             </ContextMenu>
                         </TabItem.ContextMenu>
+
                         <ListView x:Name="ViewAllProjects"
                                   Background="Transparent"
                                   BorderThickness="0" BorderBrush="Transparent"
                                   ItemsSource ="{Binding AllProjects}"
                                   SelectedItem="{Binding SelectedProject}">
+                            <ListView.ItemContainerStyle>
+                                
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="Foreground" Value="White"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#2F1638"/>
+                                            <Setter Property="BorderThickness" Value="1"/>
+                                            <Setter Property="BorderBrush" Value="#383660"/>
+                                            <Setter Property="Opacity" Value="0.9"/>
+                                            <Setter Property="Foreground" Value="Wheat"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            
                             <ListView.View>
                                 <GridView>
-                                    <GridViewColumn Header="id" DisplayMemberBinding="{Binding Path=id}"/>
-                                    <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Path=Title}"/>
-                                    <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Path=Description}"/>
-                                    <GridViewColumn Header="Consumer" DisplayMemberBinding="{Binding Path=Client}" />
                                     <GridView.ColumnHeaderContainerStyle>
                                         <Style TargetType="GridViewColumnHeader">
                                             <Setter Property="Foreground" Value="White"/>
                                             <Setter Property="Background" Value="Transparent"/>
+                                            <Setter Property="BorderBrush" Value="Transparent"/>
+                                            <Setter Property="BorderThickness" Value="0"/>
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="Transparent"/>
+                                                </Trigger>
+                                            </Style.Triggers>
                                         </Style>
                                     </GridView.ColumnHeaderContainerStyle>
+                                    <GridViewColumn Header="id" DisplayMemberBinding="{Binding Path=id}"/>
+                                    <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Path=Title}"/>
+                                    <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Path=Description}"/>
+                                    <GridViewColumn Header="Consumer" DisplayMemberBinding="{Binding Path=Client}" />
                                 </GridView>
                             </ListView.View>
                         </ListView>
