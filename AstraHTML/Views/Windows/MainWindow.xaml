@@ -55,7 +55,7 @@
                        FontFamily="pack://application:,,,/Resources/Fonts/#Dosis"
                        FontWeight="Medium"/>
 
-            <TextBlock Text="Menu"
+            <TextBlock Text="Help"
                        Foreground="LightGray"
                        Grid.Column="2"
                        VerticalAlignment="Center"
@@ -248,6 +248,81 @@
             </StackPanel>
         </StackPanel>
         <Grid Grid.Column="1" Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="1.20*"/>
+            </Grid.RowDefinitions>
+            
+            <StackPanel Grid.Row="1">
+                    <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="LoginTextbox" FontFamily="Helvetica"
+                         FontWeight="Light"
+                         FontSize="20"
+                         HorizontalAlignment="Center"
+                         Background="Transparent"
+                         BorderThickness="0"
+                         HorizontalContentAlignment="Left"
+                         Opacity="0.8"
+                         Height="25"
+                         Width="200"
+                             Margin="125,0,0,0">
+                        <TextBox.Style>
+                            <Style TargetType="TextBox">
+                                <Setter Property="Text" Value="UserName"/>
+                                <Setter Property="Foreground" Value="#ee9ca7"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding  ElementName=LoginTextbox, Path = Text}" Value="">
+                                        <Setter Property="Text" Value="UserName"/>
+                                        <Setter Property="Foreground" Value="Red"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+                        
+                </StackPanel>
+                <Border Width="250"
+                    Height="2"
+                    Background="White"
+                    Opacity="0.5"
+                    />
+                <Border Width="250"
+                    Height="2"
+                    Background="White"
+                    Opacity="0.5"
+                    />
+                
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <PasswordBox  FontFamily="Helvetica"
+                                 x:Name="PasswordTextbox"
+                         FontWeight="Light"
+                         Password="Password"
+                         FontSize="20"
+                         HorizontalAlignment="Center"
+                         Foreground="#ffdde1"
+                         Background="Transparent"
+                         BorderThickness="0"
+                         HorizontalContentAlignment="Left"
+                         Opacity="0.8"
+                         Height="25"
+                         Width="200"
+                         Margin="125,0,0,0">
+                    </PasswordBox>
+
+                </StackPanel>
+                    <Border Width="250"
+                    Height="2"
+                    Background="Red"
+                    Opacity="0.5"
+                    />
+
+                <Border Width="250"
+                    Height="2"
+                    Background="White"
+                    Opacity="0.5"
+                    />
+            </StackPanel>
+
         </Grid>
         <Grid Grid.Column="1"
               Grid.RowSpan="2"
