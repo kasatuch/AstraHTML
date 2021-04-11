@@ -453,13 +453,26 @@
                        RenderOptions.BitmapScalingMode="Fant"
                     Source="pack://application:,,,/Resources/Images/CSharp.png">
                 </Image>
-                <TextBlock Text="User Name" Name="ActiveUserText" Margin="70,0,0,0"
+                <TextBlock Name="ActiveUserText" Margin="70,0,0,0"
+                           Text="UserName"
                            FontFamily="pack://application:,,,/Resources/Fonts/#Dosis"
                            FontSize="20"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Left"
-                           Foreground="White"
-                           RenderOptions.BitmapScalingMode="Fant"></TextBlock>
+                           RenderOptions.BitmapScalingMode="Fant">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Foreground" Value="#383660"/>
+                            <Setter Property="Opacity" Value="0.8"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Opacity" Value="1"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
                 <Button Content="Exit"
                         Foreground="White"
                         FontSize="10"
@@ -503,8 +516,20 @@
                            FontFamily="pack://application:,,,/Resources/Fonts/#Dosis"
                            FontSize="20"
                            VerticalAlignment="Center"
-                           HorizontalAlignment="Center"
-                           Foreground="White"></TextBlock>
+                           HorizontalAlignment="Center">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Foreground" Value="#383660"/>
+                            <Setter Property="Opacity" Value="0.8"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Opacity" Value="1"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
             </Grid>
         </Grid>
         <Popup x:Name="popup_uc"

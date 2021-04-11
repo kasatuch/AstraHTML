@@ -48,7 +48,6 @@ namespace AstraHTML
         {
             if (DataWorker.StaffExistence(LoginTextbox.Text, PasswordTextbox.Password))
             {
-                DataExchange.ActiveUser = LoginTextbox.Text;
                 DataExchange.GetStaff(LoginTextbox.Text, PasswordTextbox.Password);
                 this.Close();
                 WorkWindow wnd = new WorkWindow();
@@ -69,8 +68,7 @@ namespace AstraHTML
 
     public static class DataExchange
     {
-        public static string ActiveUser;
-        public static Staff ActiveUserObj;
+        public static Staff ActiveUser;
 
         public static void GetStaff(string login, string password)
         {
@@ -79,7 +77,7 @@ namespace AstraHTML
             {
                 Staff s = new Staff();
                 s = db.Staff.FirstOrDefault(s => s.Login == login && s.Password == password);
-                ActiveUserObj = s;
+                ActiveUser = s;
             }
 
         }

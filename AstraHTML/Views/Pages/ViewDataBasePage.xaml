@@ -234,8 +234,8 @@
               Grid.Column="1"
               Grid.Row="1">
             <TabControl Background="Transparent">
-                <!--#region TaskTable-->
-                <TabItem  Style="{DynamicResource TabStyle}" Header="Active Tasks" x:Name="TaskUserTab"
+                <!--#region MyTasks-->
+                <TabItem  Style="{DynamicResource TabStyle}" Header="My Tasks" x:Name="TaskUserTab"
                          Background="Transparent" BorderThickness="0"
                           BorderBrush="Transparent" Foreground="White">
 
@@ -309,7 +309,82 @@
                     
                 </TabItem>
                 <!--#endregion-->
-                </TabControl>
+
+                <TabItem  Style="{DynamicResource TabStyle}" Header="Other Tasks" x:Name="TaskOtherTab"
+                         Background="Transparent" BorderThickness="0"
+                          BorderBrush="Transparent" Foreground="White">
+
+                    <TabItem.ContextMenu>
+                        <ContextMenu>
+                            <ContextMenu.Resources>
+                                <Style TargetType="ContextMenu">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type ContextMenu}">
+                                                <Border x:Name="Border"
+                                                            Background="#383660"
+                                                            BorderThickness="1">
+                                                    <Border.BorderBrush>
+                                                        <SolidColorBrush Color="White" />
+                                                        <!-- Set this brush to transparent -->
+                                                    </Border.BorderBrush>
+                                                    <StackPanel IsItemsHost="True"
+                      KeyboardNavigation.DirectionalNavigation="Cycle" />
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Foreground" Value="White"/>
+                                    <Setter Property="BorderThickness" Value="0"/>
+                                    <Setter Property="BorderBrush" Value="Transparent"/>
+                                </Style>
+                            </ContextMenu.Resources>
+                            <MenuItem Header="Complete" Command="{Binding DeleteItem}"/>
+                        </ContextMenu>
+                    </TabItem.ContextMenu>
+
+                    <ListView x:Name="ViewAllOtherTasks" Background="Transparent"
+                                  BorderThickness="0" BorderBrush="Transparent"
+                                  ItemsSource ="{Binding AllTasks}"
+                                  SelectedItem="{Binding SelectedStaff}">
+
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="Foreground" Value="White"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#2F1638"/>
+                                        <Setter Property="BorderThickness" Value="1"/>
+                                        <Setter Property="BorderBrush" Value="#383660"/>
+                                        <Setter Property="Opacity" Value="0.9"/>
+                                        <Setter Property="Foreground" Value="Wheat"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+
+                        <ListView.View>
+                            <GridView >
+                                <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Path = Name}"/>
+                                <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Path= Description}"/>
+                                <GridViewColumn Header="Project" DisplayMemberBinding="{Binding Path = TaskProject.Title}"/>
+                                <GridViewColumn Header="Priority" DisplayMemberBinding="{Binding Path = Priority}"/>
+                                <!--#region Header ListView -->
+                                <GridView.ColumnHeaderContainerStyle>
+                                    <Style TargetType="GridViewColumnHeader">
+                                        <Setter Property="Foreground" Value="White"/>
+                                        <Setter Property="Background" Value="Transparent"/>
+                                    </Style>
+                                </GridView.ColumnHeaderContainerStyle>
+                                <!--#endregion-->
+                            </GridView>
+
+                        </ListView.View>
+                    </ListView>
+
+                </TabItem>
+
+            </TabControl>
                 </Grid>
         </Grid>
 </Page>

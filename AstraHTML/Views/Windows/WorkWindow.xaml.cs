@@ -26,8 +26,8 @@ namespace AstraHTML.Views.Windows
         {
             InitializeComponent();
             MainFrame.NavigationService.Navigate(new ViewDataBasePage());
-            ActiveUserText.Text = DataExchange.ActiveUser;
-            UserSpeciality.Text = DataExchange.ActiveUserObj.Speciality;
+            ActiveUserText.Text = DataExchange.ActiveUser.Login;
+            UserSpeciality.Text = DataExchange.ActiveUser.Speciality;
             
         }
 
