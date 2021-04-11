@@ -453,7 +453,7 @@
                        RenderOptions.BitmapScalingMode="Fant"
                     Source="pack://application:,,,/Resources/Images/CSharp.png">
                 </Image>
-                <TextBlock Text="User Name" Margin="70,0,0,0"
+                <TextBlock Text="User Name" Name="ActiveUserText" Margin="70,0,0,0"
                            FontFamily="pack://application:,,,/Resources/Fonts/#Dosis"
                            FontSize="20"
                            VerticalAlignment="Center"
@@ -499,7 +499,7 @@
                   Grid.Row="2"
                   VerticalAlignment="Bottom"
                   Background="#0F0F2D">
-                <TextBlock Text="Form Name"
+                <TextBlock Text="Form Name" Name="UserSpeciality"
                            FontFamily="pack://application:,,,/Resources/Fonts/#Dosis"
                            FontSize="20"
                            VerticalAlignment="Center"

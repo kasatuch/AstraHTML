@@ -43,67 +43,67 @@ namespace AstraHTML.Views.Windows
         {
             if (NameBlock.Text == "")
             {
-                NameBlock.BorderBrush = Brushes.Red;
+                NameImg.Foreground = Brushes.Red;
             }
             else
             {
-                NameBlock.BorderBrush = Brushes.Green;
+                NameImg.Foreground = Brushes.Green;
             }
 
             if (SurnameBlock.Text == "")
             {
-                SurnameBlock.BorderBrush = Brushes.Red;
+                SurnameImg.Foreground = Brushes.Red;
             }
             else
             {
-                SurnameBlock.BorderBrush = Brushes.Green;
+                SurnameImg.Foreground = Brushes.Green;
             }
 
             if (SpecialityBlock.Text == "")
             {
-                SpecialityBlock.BorderBrush = Brushes.Red;
+                SpecialityImg.Foreground = Brushes.Red;
             }
             else
             {
-                SpecialityBlock.BorderBrush = Brushes.Green;
+                SpecialityImg.Foreground = Brushes.Green;
             }
 
             if (PostBlock.Text == "")
             {
-                PostBlock.BorderBrush = Brushes.Red;
+                PostImg.Foreground = Brushes.Red;
             }
             else
             {
-                PostBlock.BorderBrush = Brushes.Green;
+                PostImg.Foreground = Brushes.Green;
             }
 
             int salary = Convert.ToInt32(SalaryBlock.Text);
 
             if (salary < 0 || salary == 0)
             {
-                SalaryBlock.BorderBrush = Brushes.Red;
+                SalaryImg.Foreground = Brushes.Red;
             }
             else
             {
-                SalaryBlock.BorderBrush = Brushes.Green;
+                SalaryImg.Foreground = Brushes.Green;
             }
 
             if (LoginBlock.Text == "")
             {
-                LoginBlock.BorderBrush = Brushes.Red;
+                LoginImg.Foreground = Brushes.Red;
             }
             else
             {
-                LoginBlock.BorderBrush = Brushes.Green;
+                LoginImg.Foreground = Brushes.Green;
             }
 
             if (PasswordBlock.Text == "")
             {
-                PasswordBlock.BorderBrush = Brushes.Red;
+                PasswordImg.Foreground = Brushes.Red;
             }
             else
             {
-                PasswordBlock.BorderBrush = Brushes.Green;
+                PasswordImg.Foreground = Brushes.Green;
             }
         }
     }

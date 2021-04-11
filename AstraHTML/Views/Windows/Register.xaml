@@ -73,7 +73,7 @@
             </StackPanel>
 
             <StackPanel Grid.Row="1">
-                
+
                 <StackPanel Orientation="Horizontal">
                     <TextBox x:Name="NameBlock"
                          Text="{Binding StaffName}"
@@ -88,14 +88,28 @@
                          Width="235"
                          HorizontalContentAlignment="Left"
                          Opacity="0.5"
-                         Height="25"
+                         Height="20"
                              Margin="63,0,0,0">
                     </TextBox>
-                    <iconPacks:PackIconMaterial Kind="AccountBox"
+                    <iconPacks:PackIconMaterial Name="NameImg" Kind="AccountBox"
                                  VerticalAlignment="Center"
                                  HorizontalAlignment="Center"
                                             Foreground="White" >
                     </iconPacks:PackIconMaterial>
+
+                    <TextBlock Text="Name"
+                         FontFamily="Helvetica"
+                         FontWeight="Light"
+                         FontSize="10"
+                         HorizontalAlignment="Center"
+                         Foreground="White"
+                         Background="Transparent"
+                         Width="100"
+                         Opacity="0.2"
+                         Height="10" Panel.ZIndex="-1"
+                         Margin="-400,-15,0,0">>
+                    </TextBlock>
+
                 </StackPanel>
                 
                 <Border Width="250"
@@ -105,7 +119,7 @@
                     />
 
 
-                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
                     <TextBox x:Name="SurnameBlock" FontFamily="Helvetica"
                          FontWeight="Light"
                          Text="{Binding StaffSurname}"
@@ -118,13 +132,27 @@
                          Width="235"
                          HorizontalContentAlignment="Left"
                          Opacity="0.5"
-                         Height="25"
+                         Height="20"
                              Margin="63,0,0,0"/>
-                    <iconPacks:PackIconMaterial Kind="Account"
+                    <iconPacks:PackIconMaterial Name="SurnameImg" Kind="Account"
                                  VerticalAlignment="Center"
                                  HorizontalAlignment="Center"
                                             Foreground="White" >
                     </iconPacks:PackIconMaterial>
+
+                    <TextBlock Text="Surname"
+                         FontFamily="Helvetica"
+                         FontWeight="Light"
+                         FontSize="10"
+                         HorizontalAlignment="Center"
+                         Foreground="White"
+                         Background="Transparent"
+                         Width="100"
+                         Opacity="0.2"
+                         Height="10" Panel.ZIndex="-1"
+                         Margin="-400,-15,0,0">>
+                    </TextBlock>
+
                 </StackPanel>
 
                 <Border Width="250"
@@ -133,7 +161,7 @@
                     Opacity="0.5"
                     />
 
-                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
                     <TextBox x:Name="SpecialityBlock" FontFamily="Helvetica"
                          FontWeight="Light"
                          Text="{Binding StaffSpeciality}"
@@ -146,13 +174,27 @@
                          Width="235"
                          HorizontalContentAlignment="Left"
                          Opacity="0.5"
-                         Height="25"
+                         Height="20"
                              Margin="63,0,0,0"/>
-                    <iconPacks:PackIconMaterial Kind="LanguageJava"
+                    <iconPacks:PackIconMaterial Name="SpecialityImg" Kind="LanguageJava"
                                  VerticalAlignment="Center"
                                  HorizontalAlignment="Center"
                                             Foreground="White" >
                     </iconPacks:PackIconMaterial>
+
+                    <TextBlock Text="Speciality"
+                         FontFamily="Helvetica"
+                         FontWeight="Light"
+                         FontSize="10"
+                         HorizontalAlignment="Center"
+                         Foreground="White"
+                         Background="Transparent"
+                         Width="100"
+                         Opacity="0.2"
+                         Height="10" Panel.ZIndex="-1"
+                         Margin="-400,-15,0,0">>
+                    </TextBlock>
+
                 </StackPanel>
 
                 <Border Width="250"
@@ -162,7 +204,7 @@
                     />
 
 
-                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
                     <TextBox x:Name="PostBlock" FontFamily="Helvetica"
                          FontWeight="Light"
                         Text="{Binding StaffPost}"
@@ -175,13 +217,27 @@
                          Width="235"
                          HorizontalContentAlignment="Left"
                          Opacity="0.5"
-                         Height="25"
+                         Height="20"
                              Margin="63,0,0,0"/>
-                    <iconPacks:PackIconMaterial Kind="DeveloperBoard"
+                    <iconPacks:PackIconMaterial  Name="PostImg" Kind="DeveloperBoard"
                                  VerticalAlignment="Center"
                                  HorizontalAlignment="Center"
                                             Foreground="White"/>
-                    
+
+                    <TextBlock Text="Post"
+                         FontFamily="Helvetica"
+                         FontWeight="Light"
+                         FontSize="10"
+                         HorizontalAlignment="Center"
+                         Foreground="White"
+                         Background="Transparent"
+                         Width="100"
+                         Opacity="0.2"
+                         Height="10" Panel.ZIndex="-1"
+                         Margin="-400,-15,0,0">>
+                    </TextBlock>
+
+
                 </StackPanel>
                 <Border Width="250"
                     Height="2"
@@ -190,7 +246,7 @@
                     />
 
 
-                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
                     <TextBox x:Name="SalaryBlock" FontFamily="Helvetica" PreviewTextInput="PreviewTextInput"
                          FontWeight="Light"
                           Text="{Binding StaffSalary}"
@@ -203,12 +259,26 @@
                          Width="235"
                          HorizontalContentAlignment="Left"
                          Opacity="0.5"
-                         Height="25"
+                         Height="20"
                              Margin="63,0,0,0"/>
-                    <iconPacks:PackIconMaterial Kind="AccountCash"
+                    <iconPacks:PackIconMaterial Name="SalaryImg" Kind="AccountCash"
                                  VerticalAlignment="Center"
                                  HorizontalAlignment="Center"
                                             Foreground="White"/>
+
+                    <TextBlock Text="Salary"
+                         FontFamily="Helvetica"
+                         FontWeight="Light"
+                         FontSize="10"
+                         HorizontalAlignment="Center"
+                         Foreground="White"
+                         Background="Transparent"
+                         Width="100"
+                         Opacity="0.2"
+                         Height="10" Panel.ZIndex="-1"
+                         Margin="-400,-15,0,0">>
+                    </TextBlock>
+
 
                 </StackPanel>
                 <Border Width="250"
@@ -218,7 +288,7 @@
                     />
 
 
-                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
                     <TextBox x:Name="LoginBlock" FontFamily="Helvetica"
                          FontWeight="Light"
                          Text="{Binding StaffLogin}"
@@ -231,13 +301,27 @@
                          Width="235"
                          HorizontalContentAlignment="Left"
                          Opacity="0.5"
-                         Height="25"
+                         Height="20"
                              Margin="63,0,0,0"/>
-                    <iconPacks:PackIconMaterial Kind="Login"
+                    <iconPacks:PackIconMaterial Name="LoginImg"  Kind="Login"
                                  VerticalAlignment="Center"
                                  HorizontalAlignment="Center"
                                             Foreground="White" >
                     </iconPacks:PackIconMaterial>
+
+                    <TextBlock Text="Login"
+                         FontFamily="Helvetica"
+                         FontWeight="Light"
+                         FontSize="10"
+                         HorizontalAlignment="Center"
+                         Foreground="White"
+                         Background="Transparent"
+                         Width="100"
+                         Opacity="0.2"
+                         Height="10" Panel.ZIndex="-1"
+                         Margin="-400,-15,0,0">>
+                    </TextBlock>
+
                 </StackPanel>
 
                 <Border Width="250"
@@ -245,7 +329,7 @@
                     Background="White"
                     Opacity="0.5"
                     />
-                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
                     <TextBox  Name="PasswordBlock" FontFamily="Helvetica"
                          FontWeight="Light"
                          Text="{Binding StaffPassword}"
@@ -258,14 +342,28 @@
                          Width="235"
                          HorizontalContentAlignment="Left"
                          Opacity="0.5"
-                         Height="25"
+                         Height="20"
                          Margin="63,0,0,0">
                     </TextBox>
 
-                    <iconPacks:PackIconMaterial Kind="FormTextboxPassword"
+                    <iconPacks:PackIconMaterial  Name="PasswordImg" Kind="FormTextboxPassword"
                                  VerticalAlignment="Center"
                                  HorizontalAlignment="Center"
                                             Foreground="White"/>
+
+                    <TextBlock Text="Password"
+                         FontFamily="Helvetica"
+                         FontWeight="Light"
+                         FontSize="10"
+                         HorizontalAlignment="Center"
+                         Foreground="White"
+                         Background="Transparent"
+                         Width="100"
+                         Opacity="0.2"
+                         Height="10" Panel.ZIndex="-1"
+                         Margin="-400,-15,0,0">>
+                    </TextBlock>
+
                 </StackPanel>
                 <Border Width="250"
                     Height="2"

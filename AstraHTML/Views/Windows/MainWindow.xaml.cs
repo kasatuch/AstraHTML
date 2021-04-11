@@ -1,4 +1,5 @@
 ﻿using AstraHTML.Data;
+using AstraHTML.Models;
 using AstraHTML.Views;
 using AstraHTML.Views.Windows;
 using System;
@@ -32,7 +33,7 @@ namespace AstraHTML
 
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if(e.LeftButton == MouseButtonState.Pressed)
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
                 DragMove();
             }
@@ -47,9 +48,15 @@ namespace AstraHTML
         {
             if (DataWorker.StaffExistence(LoginTextbox.Text, PasswordTextbox.Password))
             {
+                DataExchange.ActiveUser = LoginTextbox.Text;
+                DataExchange.GetStaff(LoginTextbox.Text, PasswordTextbox.Password);
                 this.Close();
                 WorkWindow wnd = new WorkWindow();
                 wnd.Show();
+            }
+            else
+            {
+                MessageBox.Show("Пользователя не существует.");
             }
         }
 
@@ -58,5 +65,24 @@ namespace AstraHTML
             Register wnd = new Register();
             wnd.Show();
         }
+    }
+
+    public static class DataExchange
+    {
+        public static string ActiveUser;
+        public static Staff ActiveUserObj;
+
+        public static void GetStaff(string login, string password)
+        {
+            string result = "Такой задачи не существует";
+            using (ApplicationContext db = new ApplicationContext())
+            {
+                Staff s = new Staff();
+                s = db.Staff.FirstOrDefault(s => s.Login == login && s.Password == password);
+                ActiveUserObj = s;
+            }
+
+        }
+
     }
 }
