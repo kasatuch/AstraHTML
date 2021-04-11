@@ -1,4 +1,7 @@
-﻿using System;
+﻿using AstraHTML.Data;
+using AstraHTML.Views;
+using AstraHTML.Views.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +26,8 @@ namespace AstraHTML
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new DataManageVM();
+
         }
 
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
@@ -31,6 +36,27 @@ namespace AstraHTML
             {
                 DragMove();
             }
+        }
+
+        private void ExitBut_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void AuthBut_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataWorker.StaffExistence(LoginTextbox.Text, PasswordTextbox.Password))
+            {
+                this.Close();
+                WorkWindow wnd = new WorkWindow();
+                wnd.Show();
+            }
+        }
+
+        private void RegBut_Click(object sender, RoutedEventArgs e)
+        {
+            Register wnd = new Register();
+            wnd.Show();
         }
     }
 }

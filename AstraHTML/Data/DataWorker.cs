@@ -7,6 +7,20 @@ namespace AstraHTML.Data
     static class DataWorker
     {
 
+        public static bool StaffExistence(string login, string password)
+        {
+            using (ApplicationContext db = new ApplicationContext())
+            {
+                //Проверка на существование сотрудника
+                bool checkIsIxist = db.Staff.Any(el => el.Login == login && el.Password == password);
+                if (!checkIsIxist)
+                {
+                    return false;
+                }
+                return true;
+            }
+        }
+
         #region Create
         public static string CreateStaff(string name, string surname, string speciality, string post, int salary, string login, string password)
         {

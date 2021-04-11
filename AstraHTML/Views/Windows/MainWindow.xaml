@@ -11,7 +11,8 @@
         ResizeMode="NoResize"
         Background="#181735"
         Height="500" Width="900"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        Name="MainWnd">
     <Window.Resources>
         <cmd:CloseApplicationCommand x:Key="CloseApplicationCommand"/>
     </Window.Resources>
@@ -67,6 +68,7 @@
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
                        FontFamily="pack://application:,,,/Resources/Fonts/#Dosis"/>
+            
             <Button Content="Exit"
                         Foreground="White"
                         FontSize="10"
@@ -74,7 +76,8 @@
                         Margin="0,0,10,0"
                     Grid.Column="12"
                     Grid.ColumnSpan="2"
-                    Command="{StaticResource CloseApplicationCommand}">
+                  Click="ExitBut_Click">
+                
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="TextElement.FontFamily" Value="/Resources/Fonts/#Dosis"/>
@@ -190,11 +193,16 @@
 
             <StackPanel Orientation="Horizontal"
                         Margin="0,15,0,0">
+                
+                <!--#region Start Button-->
+                
                 <Button Content="Start"
                         Foreground="White"
                         FontSize="14"
                         FontWeight="Medium"
-                        Margin="0,0,10,0">
+                        Margin="0,0,10,0"
+                        Click="AuthBut_Click">
+                    
                     <Button.Style>
                         <Style TargetType="Button">
                             <Setter Property="TextElement.FontFamily" Value="pack://application:,,,/Resources/Fonts/#Dosis"/>
@@ -217,11 +225,16 @@
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
+                
+                <!--#endregion-->
+                
+                <!--#region Register Button-->
+                
                 <Button Content="Register"
                         Foreground="White"
                         FontSize="14"
                         FontWeight="Medium"
-                        Command="{Binding Path=OpenRegForm}"
+                        Click="RegBut_Click"
                         >
                     <Button.Style>
                         <Style TargetType="Button">
@@ -245,6 +258,9 @@
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
+                
+                <!--#endregion-->
+                
             </StackPanel>
         </StackPanel>
         <Grid Grid.Column="1" Grid.RowSpan="2">

@@ -10,6 +10,7 @@ using System.ComponentModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 
 namespace AstraHTML.Views
@@ -115,6 +116,35 @@ namespace AstraHTML.Views
                         resultStr = DataWorker.CreateStaff(StaffName, StaffSurname, StaffSpeciality, StaffPost, StaffSalary, StaffLogin, StaffPassword);
                         ShowMessageToUser(resultStr);
                         UpdateAllDataView();
+                        SetNullValuesToProperties();
+                        wnd.Close();
+                    }
+                }
+
+                    );
+            }
+        }
+
+        public LambdaCommand AddNewStaffReg
+        {
+            get
+            {
+                return addNewStaff ?? new LambdaCommand(obj =>
+                {
+                    Window wnd = new Window();
+                    string resultStr = "";
+
+                    if (StaffName == null || StaffName.Replace(" ", "").Length == 0) { }
+                   else if (StaffSurname == null || StaffSurname.Replace(" ", "").Length == 0) { }
+                    else if (StaffSpeciality == null || StaffSpeciality.Replace(" ", "").Length == 0) { }
+                    else if (StaffPost == null || StaffPost.Replace(" ", "").Length == 0) { }
+                   else if (StaffSalary == 0) { }
+                  else  if (StaffLogin == null || StaffLogin.Replace(" ", "").Length == 0) { }
+                  else  if (StaffPassword == null || StaffPassword.Replace(" ", "").Length == 0) { }
+                    else
+                    {
+                        resultStr = DataWorker.CreateStaff(StaffName, StaffSurname, StaffSpeciality, StaffPost, StaffSalary, StaffLogin, StaffPassword);
+                        ShowMessageToUser(resultStr);
                         SetNullValuesToProperties();
                         wnd.Close();
                     }
@@ -598,6 +628,7 @@ namespace AstraHTML.Views
         }
 
         #endregion
+
 
         #region Edit
 
