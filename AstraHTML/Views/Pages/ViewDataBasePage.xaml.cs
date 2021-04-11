@@ -22,11 +22,16 @@ namespace AstraHTML.Views.Pages
     public partial class ViewDataBasePage : Page
     {
         public static ListView AllTasksView;
+
         public ViewDataBasePage()
         {
             InitializeComponent();
             DataContext = new DataManageVM();
-            AllTasksView = ViewAllTasks;
+            List<Tasks> task = new List<Tasks>();
+            task = DataWorker.GetAllTasks();
+            List<Tasks> newTasks = new List<Tasks>();
+            newTasks = task.FindAll(t => t.Staffid == DataExchange.ActiveUser.id);
+            ViewAllTasks.ItemsSource =  newTasks;
         }
     }
 }
