@@ -266,6 +266,7 @@
                                 </Style>
                             </ContextMenu.Resources>
                             <MenuItem Header="Complete" Command="{Binding DeleteItem}"/>
+                            <MenuItem Header="Refresh" Click="MenuItemRefresh_Click"/>
                         </ContextMenu>
                     </TabItem.ContextMenu>
 

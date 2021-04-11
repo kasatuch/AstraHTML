@@ -23,6 +23,7 @@ namespace AstraHTML.Views.Pages
     {
         public static ListView AllTasksView;
 
+
         public ViewDataBasePage()
         {
             InitializeComponent();
@@ -31,7 +32,16 @@ namespace AstraHTML.Views.Pages
             task = DataWorker.GetAllTasks();
             List<Tasks> newTasks = new List<Tasks>();
             newTasks = task.FindAll(t => t.Staffid == DataExchange.ActiveUser.id);
-            ViewAllTasks.ItemsSource =  newTasks;
+            ViewAllTasks.ItemsSource = newTasks;
+        }
+
+        private void MenuItemRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            List<Tasks> task = new List<Tasks>();
+            task = DataWorker.GetAllTasks();
+            List<Tasks> newTasks = new List<Tasks>();
+            newTasks = task.FindAll(t => t.Staffid == DataExchange.ActiveUser.id);
+            ViewAllTasks.ItemsSource = newTasks;
         }
     }
 }
