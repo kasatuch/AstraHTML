@@ -381,12 +381,19 @@ namespace AstraHTML.Views
                         UpdateAllDataView();
                     }
 
+                    
+
                     //If Task
 
                     if (SelectedTabItem.Name == "TaskTab" && SelectedTask != null)
                     {
                         resultStr = DataWorker.DeleteTask(SelectedTask);
                         UpdateAllDataView();
+                    }
+
+                    if (SelectedTabItem.Name == "UserTaskTab" && SelectedTask != null)
+                    {
+                        resultStr = DataWorker.DeleteTask(SelectedTask);
                     }
 
                     //If Project

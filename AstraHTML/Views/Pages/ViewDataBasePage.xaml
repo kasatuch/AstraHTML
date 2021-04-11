@@ -233,9 +233,10 @@
         <Grid Background="Transparent"
               Grid.Column="1"
               Grid.Row="1">
-            <TabControl Background="Transparent">
+            <TabControl Background="Transparent"
+                        SelectedItem="{Binding SelectedTabItem}">
                 <!--#region MyTasks-->
-                <TabItem  Style="{DynamicResource TabStyle}" Header="My Tasks"
+                <TabItem  Style="{DynamicResource TabStyle}" Name="UserTaskTab" Header="My Tasks"
                          Background="Transparent" BorderThickness="0"
                           BorderBrush="Transparent" Foreground="White">
 
@@ -270,7 +271,7 @@
 
                     <ListView x:Name="ViewAllTasks" Background="Transparent"
                                   BorderThickness="0" BorderBrush="Transparent"
-                                  SelectedItem="{Binding SelectedStaff}">
+                                  SelectedItem="{Binding SelectedTask}">
                         
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
