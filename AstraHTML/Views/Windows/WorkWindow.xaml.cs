@@ -103,7 +103,7 @@ namespace AstraHTML.Views.Windows
             popup_uc.PlacementTarget = EmployeeDBBut;
             popup_uc.Placement = PlacementMode.Right;
             popup_uc.IsOpen = true;
-            Header.PopupText.Text = "Edit Employee DB";
+            Header.PopupText.Text = "Edit User";
             #endregion
         }
 
