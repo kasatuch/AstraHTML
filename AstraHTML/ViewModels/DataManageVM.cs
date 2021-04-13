@@ -77,37 +77,38 @@ namespace AstraHTML.Views
 
                     if (StaffName == null || StaffName.Replace(" ", "").Length == 0)
                     {
-                        SetRedBlockControl(wnd, "NameBlock");
+                        MessageView mes = new MessageView("Вы не задали имя.");
+                        mes.Show();
                     }
-
-                    if (StaffSurname == null || StaffSurname.Replace(" ", "").Length == 0)
+                    else if (StaffSurname == null || StaffSurname.Replace(" ", "").Length == 0)
                     {
-                        SetRedBlockControl(wnd, "SurnameBlock");
+                        MessageView mes = new MessageView("Вы не задали фамилию.");
+                        mes.Show();
                     }
-
-                    if (StaffSpeciality == null || StaffSpeciality.Replace(" ", "").Length == 0)
+                    else if (StaffSpeciality == null || StaffSpeciality.Replace(" ", "").Length == 0)
                     {
-                        SetRedBlockControl(wnd, "SpecialityBlock");
+                        MessageView mes = new MessageView("Вы не задали специализацию.");
+                        mes.Show();
                     }
-
-                    if (StaffPost == null || StaffPost.Replace(" ", "").Length == 0)
+                    else if (StaffPost == null || StaffPost.Replace(" ", "").Length == 0)
                     {
-                        SetRedBlockControl(wnd, "PostBlock");
+                        MessageView mes = new MessageView("Вы не задали должность.");
+                        mes.Show();
                     }
-
-                    if (StaffSalary == 0)
+                    else if (StaffSalary == 0)
                     {
-                        SetRedBlockControl(wnd, "SalaryBlock");
+                        MessageView mes = new MessageView("Вы не правильно указали зарплату.");
+                        mes.Show();
                     }
-
-                    if (StaffLogin == null || StaffLogin.Replace(" ", "").Length == 0)
+                    else if (StaffLogin == null || StaffLogin.Replace(" ", "").Length == 0)
                     {
-                        SetRedBlockControl(wnd, "LoginBlock");
+                        MessageView mes = new MessageView("Вы не задали логин.");
+                        mes.Show();
                     }
-
-                    if (StaffPassword == null || StaffPassword.Replace(" ", "").Length == 0)
+                    else if (StaffPassword == null || StaffPassword.Replace(" ", "").Length == 0)
                     {
-                        SetRedBlockControl(wnd, "PasswordBlock");
+                        MessageView mes = new MessageView("Вы не задали пароль.");
+                        mes.Show();
                     }
 
                     else
@@ -133,13 +134,40 @@ namespace AstraHTML.Views
                     Window wnd = new Window();
                     string resultStr = "";
 
-                    if (StaffName == null || StaffName.Replace(" ", "").Length == 0) { }
-                   else if (StaffSurname == null || StaffSurname.Replace(" ", "").Length == 0) { }
-                    else if (StaffSpeciality == null || StaffSpeciality.Replace(" ", "").Length == 0) { }
-                    else if (StaffPost == null || StaffPost.Replace(" ", "").Length == 0) { }
-                   else if (StaffSalary == 0) { }
-                  else  if (StaffLogin == null || StaffLogin.Replace(" ", "").Length == 0) { }
-                  else  if (StaffPassword == null || StaffPassword.Replace(" ", "").Length == 0) { }
+                    if (StaffName == null || StaffName.Replace(" ", "").Length == 0) 
+                    {
+                        MessageView mes = new MessageView("Вы не задали имя.");
+                        mes.Show();
+                    }
+                   else if (StaffSurname == null || StaffSurname.Replace(" ", "").Length == 0) 
+                    {
+                        MessageView mes = new MessageView("Вы не задали фамилию.");
+                        mes.Show();
+                    }
+                    else if (StaffSpeciality == null || StaffSpeciality.Replace(" ", "").Length == 0)
+                    {
+                        MessageView mes = new MessageView("Вы не задали специализацию.");
+                        mes.Show();
+                    }
+                    else if (StaffPost == null || StaffPost.Replace(" ", "").Length == 0) 
+                    {
+                        MessageView mes = new MessageView("Вы не задали должность.");
+                        mes.Show();
+                    }
+                   else if (StaffSalary == 0) {
+                        MessageView mes = new MessageView("Вы не правильно указали зарплату.");
+                        mes.Show();
+                    }
+                  else  if (StaffLogin == null || StaffLogin.Replace(" ", "").Length == 0) 
+                    {
+                        MessageView mes = new MessageView("Вы не задали логин.");
+                        mes.Show();
+                    }
+                  else  if (StaffPassword == null || StaffPassword.Replace(" ", "").Length == 0) 
+                    {
+                        MessageView mes = new MessageView("Вы не задали пароль.");
+                        mes.Show();
+                    }
                     else
                     {
                         resultStr = DataWorker.CreateStaff(StaffName, StaffSurname, StaffSpeciality, StaffPost, StaffSalary, StaffLogin, StaffPassword);
@@ -178,23 +206,29 @@ namespace AstraHTML.Views
                     string resultStr = "";
                     if (TaskName == null || TaskName.Replace(" ", "").Length == 0)
                     {
-                        SetRedBlockControl(wnd, "NameBlock");
+                        MessageView mes = new MessageView("Вы не задали название.");
+                        mes.Show();
+
                     }
-                    if (TaskDescription == null || TaskName.Replace(" ", "").Length == 0)
+                    else if (TaskDescription == null || TaskName.Replace(" ", "").Length == 0)
                     {
-                        SetRedBlockControl(wnd, "DescriptionBlock");
+                        MessageView mes = new MessageView("Вы не задали описание.");
+                        mes.Show();
                     }
-                    if (TaskProject == null)
+                   else  if (TaskProject == null)
                     {
-                        MessageBox.Show("Вы не выбрали проект");
+                        MessageView mes = new MessageView("Вы не указали проект.");
+                        mes.Show();
                     }
-                    if (TaskStaff == null)
+                    else if (TaskStaff == null)
                     {
-                        MessageBox.Show("Вы не выбрали разработчика");
+                        MessageView mes = new MessageView("Вы не указали разработчика.");
+                        mes.Show();
                     }
-                    if (TaskPriority == null)
+                   else  if (TaskPriority == null)
                     {
-                        MessageBox.Show("Вы не выбрали приоритет");
+                        MessageView mes = new MessageView("Вы не задали приоритетность.");
+                        mes.Show();
                     }
                     else
                     {
@@ -230,17 +264,20 @@ namespace AstraHTML.Views
 
                     string resultStr = "";
 
-                    if(ProjectTitle == null || ProjectTitle.Replace(" ","").Length == 0)
-                {
-                        SetRedBlockControl(wnd, "TitleBlock");
-                }
-                    if (ProjectClient == null || ProjectClient.Replace(" ", "").Length == 0)
+                         if (ProjectTitle == null || ProjectTitle.Replace(" ","").Length == 0)
                     {
-                        SetRedBlockControl(wnd, "ClientBlock");
+                        MessageView mes = new MessageView("Вы не указали название проекта.");
+                        mes.Show();
                     }
-                    if (ProjectDescription == null || ProjectDescription.Replace(" ", "").Length == 0)
+                    else if (ProjectClient == null || ProjectClient.Replace(" ", "").Length == 0)
                     {
-                        SetRedBlockControl(wnd, "DescriptionBlock");
+                        MessageView mes = new MessageView("Вы не указали заказчика.");
+                        mes.Show();
+                    }
+                    else if (ProjectDescription == null || ProjectDescription.Replace(" ", "").Length == 0)
+                    {
+                        MessageView mes = new MessageView("Вы не указали описание проекта.");
+                        mes.Show();
                     }
                     else
                     {

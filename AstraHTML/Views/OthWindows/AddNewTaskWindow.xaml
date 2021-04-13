@@ -88,7 +88,7 @@
         </StackPanel>
         <Button Grid.Row="1" Content="Add" Command="{Binding AddNewTask}"
                 CommandParameter="{Binding ElementName=AddNewTaskWnd}"
-                 Foreground="White" BorderBrush="Transparent">
+                Foreground="White" BorderBrush="Transparent">
             <Button.Background>
                 <LinearGradientBrush>
                     <GradientStop Color="#383660" Offset="0.0"/>

@@ -11,7 +11,7 @@
         Background="Transparent"
         WindowStyle="None"
         ResizeMode="NoResize"
-        Title="MessageView" Height="100" Width="100">
+        Title="MessageView" Height="200" Width="200">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -32,10 +32,10 @@
                    TextWrapping="Wrap"
                    FontFamily="Helvetica"
                    FontWeight="Light"
-                   FontSize="10"
+                   FontSize="15"
                    Foreground="White"
                    Background="Transparent"
-                   Width="100"
+                   Width="150"
                    Opacity="0.6"/>
         <Button Grid.Row="1" Content="OK" Click="Button_Click"
                 Foreground="White" BorderBrush="Transparent">
