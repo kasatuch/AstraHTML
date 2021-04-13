@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using System.Windows.Navigation;
 using System.Windows.Controls.Primitives;
 using AstraHTML.Views.Pages;
+using AstraHTML.Views.OthWindows;
 
 namespace AstraHTML.Views.Windows
 {

@@ -471,6 +471,7 @@ namespace AstraHTML.Views
                         OpenEditStaffWindowMethod(SelectedStaff);
                     }
 
+
                     //If Task
 
                     if (SelectedTabItem.Name == "TaskTab" && SelectedTask != null)
@@ -558,6 +559,7 @@ namespace AstraHTML.Views
                 });
             }
         }
+
 
         private LambdaCommand editTask;
         public LambdaCommand EditTask
@@ -739,7 +741,7 @@ namespace AstraHTML.Views
 
         #region Edit
 
-        private void OpenEditStaffWindowMethod(Staff staff)
+        public void OpenEditStaffWindowMethod(Staff staff)
         {
             EditStaffWindow editStaffWindow = new EditStaffWindow(staff);
             SetCenterPositionAndOpen(editStaffWindow);

@@ -21,6 +21,11 @@ namespace AstraHTML.Views.Pages
         public EmployeeDataBasePage()
         {
             InitializeComponent();
+            LoginBlock.Content = DataExchange.ActiveUser.Login;
+            NameBlock.Text = DataExchange.ActiveUser.Name;
+            SurnameBlock.Text = DataExchange.ActiveUser.Surname;
+            SpecialBlock.Text = DataExchange.ActiveUser.Speciality;
+            PostBlock.Text = DataExchange.ActiveUser.Post;
         }
     }
 }

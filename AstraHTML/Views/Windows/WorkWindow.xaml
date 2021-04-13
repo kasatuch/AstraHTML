@@ -486,7 +486,6 @@
                                 </Style>
                             </ContextMenu.Resources>
                             <MenuItem Header="Home" Click="EmployeeDBBut_Click"/>
-                            <MenuItem Header="Edit" Command="{Binding EditStaff}"/>
                             <MenuItem Header="Exit"/>
                         </ContextMenu>
                     </TextBlock.ContextMenu>

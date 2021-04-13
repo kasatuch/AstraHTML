@@ -12,23 +12,143 @@
     <Grid>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="67*"/>
+                <ColumnDefinition Width="133*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            
-            <Grid Grid.Row="0" Grid.Column="0">
-                <Border Background="White" HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Width="100" Height="100"
-                        Margin="0,0,160,50">
-                    
-                </Border>
+
+            <Grid Grid.Row="0">
+
+                <Image Grid.Row="0"
+                       Margin="0,40,0,40"
+                       RenderOptions.BitmapScalingMode="Fant"
+                       Source="pack://application:,,,/Resources/Images/User.png"
+                       Width="150" 
+                       />
+                <Label Grid.Row="1" x:Name="LoginBlock"
+                       Content="Login"
+                       Margin="0,180,0,0"
+                       FontWeight="Light"
+                       Width="100"
+                       VerticalAlignment="Center"
+                       HorizontalContentAlignment="Center"
+                       Foreground="White"
+                       Height="40"
+                       FontFamily="pack://application:,,,/Resources/Fonts/#Dosis"
+                       FontSize="22"
+                       HorizontalAlignment="Center"/>
             </Grid>
-            
+
+            <Grid Grid.Row="0" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="81*"/>
+                    <ColumnDefinition Width="185*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+
+                <TextBlock Text="About Me:" Grid.Row="1"
+                       FontFamily="Helvetica"
+                       FontWeight="Light"
+                       FontSize="20" 
+                       HorizontalAlignment="Center"
+                       Foreground="White"
+                       Background="Transparent"
+                       Width="100"
+                       Opacity="0.6"/>
+                <TextBlock Text="Name:" Grid.Row="3"
+                       FontFamily="Helvetica"
+                       FontWeight="Light"
+                       FontSize="20"
+                       HorizontalAlignment="Center"
+                       Foreground="White"
+                       Background="Transparent"
+                       Width="100"
+                       Opacity="0.6"/>
+
+                <TextBlock x:Name="NameBlock" Text="UserName" Grid.Row="3" Grid.Column="1"
+                       FontFamily="Helvetica"
+                       FontWeight="Light"
+                       FontSize="19"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       Background="Transparent"
+                       Width="150"
+                       Opacity="0.6"/>
+
+                <TextBlock Text="Surname:" Grid.Row="4"
+                       FontFamily="Helvetica"
+                       FontWeight="Light"
+                       FontSize="20"
+                       HorizontalAlignment="Center"
+                       Foreground="White"
+                       Background="Transparent"
+                       Width="100"
+                       Opacity="0.6"/>
+
+                <TextBlock x:Name="SurnameBlock" Text="UserSurName" Grid.Row="4" Grid.Column="1"
+                       FontFamily="Helvetica"
+                       FontWeight="Light"
+                       FontSize="19"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       Background="Transparent"
+                       Width="150"
+                       Opacity="0.6"/>
+
+                <TextBlock Text="Speciality:" Grid.Row="5"
+                       FontFamily="Helvetica"
+                       FontWeight="Light"
+                       FontSize="20"
+                       HorizontalAlignment="Center"
+                       Foreground="White"
+                       Background="Transparent"
+                       Width="100"
+                       Opacity="0.6"/>
+
+                <TextBlock x:Name="SpecialBlock" Text="UserSpeciality" Grid.Row="5" Grid.Column="1"
+                       FontFamily="Helvetica"
+                       FontWeight="Light"
+                       FontSize="19"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       Background="Transparent"
+                       Width="150"
+                       Opacity="0.6"/>
+
+                <TextBlock Text="Post:" Grid.Row="6"
+                       FontFamily="Helvetica"
+                       FontWeight="Light"
+                       FontSize="20"
+                       HorizontalAlignment="Center"
+                       Foreground="White"
+                       Background="Transparent"
+                       Width="100"
+                       Opacity="0.6"/>
+
+                <TextBlock x:Name="PostBlock" Text="UserPost" Grid.Row="6" Grid.Column="1"
+                       FontFamily="Helvetica"
+                       FontWeight="Light"
+                       FontSize="19"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       Background="Transparent"
+                       Width="150"
+                       Opacity="0.6"/>
+            </Grid>
         </Grid>
     </Grid>
 </Page>
