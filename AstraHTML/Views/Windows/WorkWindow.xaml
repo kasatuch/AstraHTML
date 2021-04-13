@@ -421,7 +421,7 @@
                         Height="85"
                         Grid.Row="4"
                         Background="Transparent"
-                        BorderBrush="Transparent"
+                        BorderBrush="Transparent" Click="EmployeeDBBut_Click"
                         Margin="0,10,0,0" MouseEnter="EmployeeDBBut_MouseEnter" MouseLeave="EmployeeDBBut_MouseLeave"   >
                     <iconPacks:PackIconMaterial Style="{DynamicResource EditEmployeDBButStyle}" Kind="AccountChild"                           
                                  VerticalAlignment="Center"
@@ -460,6 +460,36 @@
                            VerticalAlignment="Center"
                            HorizontalAlignment="Left"
                            RenderOptions.BitmapScalingMode="Fant">
+                    <TextBlock.ContextMenu>
+                        <ContextMenu>
+                            <ContextMenu.Resources>
+                                <Style TargetType="ContextMenu">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type ContextMenu}">
+                                                <Border x:Name="Border"
+                                                            Background="#383660"
+                                                            BorderThickness="1">
+                                                    <Border.BorderBrush>
+                                                        <SolidColorBrush Color="White" />
+                                                        <!-- Set this brush to transparent -->
+                                                    </Border.BorderBrush>
+                                                    <StackPanel IsItemsHost="True"
+                      KeyboardNavigation.DirectionalNavigation="Cycle" />
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Foreground" Value="White"/>
+                                    <Setter Property="BorderThickness" Value="0"/>
+                                    <Setter Property="BorderBrush" Value="Transparent"/>
+                                </Style>
+                            </ContextMenu.Resources>
+                            <MenuItem Header="Home" Click="EmployeeDBBut_Click"/>
+                            <MenuItem Header="Edit" Command="{Binding EditStaff}"/>
+                            <MenuItem Header="Exit"/>
+                        </ContextMenu>
+                    </TextBlock.ContextMenu>
                     <TextBlock.Style>
                         <Style TargetType="TextBlock">
                             <Setter Property="Foreground" Value="#383660"/>
@@ -481,7 +511,7 @@
                         Width="80"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Right"
-                        Margin="0,0,20,0">
+                        Margin="0,0,20,0" Click="ExitBut_Click">
                     <Button.Style>
                         <Style TargetType="Button">
                             <Setter Property="TextElement.FontFamily" Value="/Resources/Fonts/#Dosis"/>

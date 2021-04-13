@@ -28,7 +28,7 @@ namespace AstraHTML.Data
             using (ApplicationContext db = new ApplicationContext())
             {
                 //Проверка на существование сотрудника
-                bool checkIsIxist = db.Staff.Any(el => el.Name == name && el.Surname == surname);
+                bool checkIsIxist = db.Staff.Any(el => el.Login == login);
                 if (!checkIsIxist)
                 {
                     Staff newStaff = new Staff { Name = name, Surname = surname, Speciality = speciality, Post = post, Salary = salary, Login = login, Password = password};

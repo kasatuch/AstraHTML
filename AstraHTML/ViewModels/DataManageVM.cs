@@ -53,7 +53,6 @@ namespace AstraHTML.Views
 
         #endregion
 
-
         #region Commands to Add
 
 

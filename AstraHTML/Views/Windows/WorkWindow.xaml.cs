@@ -29,6 +29,11 @@ namespace AstraHTML.Views.Windows
             ActiveUserText.Text = DataExchange.ActiveUser.Login;
             UserSpeciality.Text = DataExchange.ActiveUser.Speciality;
             
+            if(DataExchange.ActiveUser.Login == "Admin")
+            {
+                EmployeeDBBut.Visibility = Visibility.Collapsed;
+            }
+
         }
 
         #region Интерактивное взаимодействие с формой
@@ -130,6 +135,15 @@ namespace AstraHTML.Views.Windows
         }
         #endregion
 
+        #region Закрытие программы
+
+        private void ExitBut_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        #endregion
+
         #endregion
 
         #endregion
@@ -141,8 +155,26 @@ namespace AstraHTML.Views.Windows
 
         private void EditDB_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.NavigationService.Navigate(new EditDataBasePage());
+            if(DataExchange.ActiveUser.Login == "Admin")
+            {
+                MainFrame.NavigationService.Navigate(new EditDataBasePage());
+            }
+            else
+            {
+                MessageBox.Show("Вы не обладаете достаточными правами.");
+            }
         }
 
+        private void EmployeeDBBut_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataExchange.ActiveUser.Login != "Admin")
+            {
+                MainFrame.NavigationService.Navigate(new EmployeeDataBasePage());
+            }
+            else
+            {
+                MessageBox.Show("Администратор не может редактировать самого себя.");
+            }
+        }
     }
 }

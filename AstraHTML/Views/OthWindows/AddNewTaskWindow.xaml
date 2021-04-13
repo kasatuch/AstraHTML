@@ -5,25 +5,81 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AstraHTML.Views.OthWindows"
         mc:Ignorable="d"
-        Title="AddNewTaskWindow" Height="300" Width="300"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        MouseDown="Window_MouseDown"
+        Background="Transparent"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Height="300" Width="300"
         Name="AddNewTaskWnd">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
+
+        <Border CornerRadius="10" Grid.RowSpan="2">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#383660" Offset="0.0"/>
+                    <GradientStop Color="#F083DA" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
         <StackPanel Grid.Row="0" Orientation="Vertical" Width="200"
                     HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="Name"/>
+            <TextBlock Text="Name"
+                       FontFamily="Helvetica"
+                       FontWeight="Light"
+                       FontSize="10"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       Background="Transparent"
+                       Width="100"
+                       Opacity="0.6"/>
             <TextBox x:Name="NameBlock" Text="{Binding TaskName}"/>
-            <TextBlock Text="Description"/>
+            <TextBlock Text="Description"
+                       FontFamily="Helvetica"
+                       FontWeight="Light"
+                       FontSize="10"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       Background="Transparent"
+                       Width="100"
+                       Opacity="0.6"/>
             <TextBox x:Name="DescriptionBlock" Text="{Binding TaskDescription}"/>
-            <TextBlock Text="Project"/>
+            <TextBlock Text="Project"
+                       FontFamily="Helvetica"
+                       FontWeight="Light"
+                       FontSize="10"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       Background="Transparent"
+                       Width="100"
+                       Opacity="0.6"/>
             <ComboBox x:Name="ProjectBlock" ItemsSource="{Binding AllProjects}" DisplayMemberPath="Title" SelectedItem="{Binding TaskProject}"
                       />
-            <TextBlock Text="Developer"/>
+            <TextBlock Text="Developer"
+                       FontFamily="Helvetica"
+                       FontWeight="Light"
+                       FontSize="10"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       Background="Transparent"
+                       Width="100"
+                       Opacity="0.6"/>
             <ComboBox x:Name="StaffBlock" ItemsSource="{Binding AllStaffs}" DisplayMemberPath="FullNameStaff" SelectedItem="{Binding TaskStaff}"/>
-            <TextBlock Text="Priority"/>
+            <TextBlock Text="Priority"
+                       FontFamily="Helvetica"
+                       FontWeight="Light"
+                       FontSize="10"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       Background="Transparent"
+                       Width="100"
+                       Opacity="0.6"/>
             <ComboBox x:Name="PriorityBlock"  SelectedItem="{Binding TaskPriority}" >
                 <ComboBoxItem Content="Hight"/>
                 <ComboBoxItem Content="Medium"/>
@@ -31,6 +87,14 @@
             </ComboBox>
         </StackPanel>
         <Button Grid.Row="1" Content="Add" Command="{Binding AddNewTask}"
-                CommandParameter="{Binding ElementName=AddNewTaskWnd}"/>
+                CommandParameter="{Binding ElementName=AddNewTaskWnd}"
+                 Foreground="White" BorderBrush="Transparent">
+            <Button.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#383660" Offset="0.0"/>
+                    <GradientStop Color="#F083DA" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
     </Grid>
 </Window>

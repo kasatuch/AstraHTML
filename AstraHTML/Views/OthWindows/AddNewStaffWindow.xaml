@@ -5,6 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AstraHTML.Views.OthWindows"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        MouseDown="Window_MouseDown"
+        Background="Transparent"
+        WindowStyle="None"
+        ResizeMode="NoResize"
         Title="AddNewStaffWindow" Height="400" Width="300"
         Name="AddNewStaffWnd">
     <Grid>
@@ -12,24 +18,98 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
+
+        <Border CornerRadius="10" Grid.RowSpan="2">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#383660" Offset="0.0"/>
+                    <GradientStop Color="#F083DA" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
         <StackPanel Grid.Row="0" Orientation="Vertical" Width="200"
                     HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="Name"/>
+            <TextBlock Text="Name"
+                       FontFamily="Helvetica"
+                       FontWeight="Light"
+                       FontSize="10"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       Background="Transparent"
+                       Width="100"
+                       Opacity="0.6"/>
             <TextBox x:Name="NameBlock" Text="{Binding StaffName}"/>
-            <TextBlock Text="Surname"/>
+            <TextBlock Text="Surname"
+                        FontFamily="Helvetica"
+                       FontWeight="Light"
+                       FontSize="10"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       Background="Transparent"
+                       Width="100"
+                       Opacity="0.6"/>
             <TextBox x:Name="SurnameBlock" Text="{Binding StaffSurname}"/>
-            <TextBlock Text="Speciality"/>
+            <TextBlock Text="Speciality"
+                       FontFamily="Helvetica"
+                       FontWeight="Light"
+                       FontSize="10"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       Background="Transparent"
+                       Width="100"
+                       Opacity="0.6"/>
             <TextBox Name="SpecialityBlock" Text="{Binding StaffSpeciality}"/>
-            <TextBlock Text="Post"/>
+            <TextBlock Text="Post"
+                        FontFamily="Helvetica"
+                       FontWeight="Light"
+                       FontSize="10"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       Background="Transparent"
+                       Width="100"
+                       Opacity="0.6"/>
             <TextBox x:Name="PostBlock" Text="{Binding StaffPost}"/>
-            <TextBlock Text="Salary"/>
+            <TextBlock Text="Salary"
+                       FontFamily="Helvetica"
+                       FontWeight="Light"
+                       FontSize="10"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       Background="Transparent"
+                       Width="100"
+                       Opacity="0.6"/>
             <TextBox x:Name="SalaryBlock" PreviewTextInput="PreviewTextInput" Text="{Binding StaffSalary}"/>
-            <TextBlock Text="Login"/>
+            <TextBlock Text="Login"
+                       FontFamily="Helvetica"
+                       FontWeight="Light"
+                       FontSize="10"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       Background="Transparent"
+                       Width="100"
+                       Opacity="0.6"/>
             <TextBox x:Name="LoginBlock" Text="{Binding StaffLogin}"/>
-            <TextBlock Text="Password"/>
+            <TextBlock Text="Password"
+                       FontFamily="Helvetica"
+                       FontWeight="Light"
+                       FontSize="10"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       Background="Transparent"
+                       Width="100"
+                       Opacity="0.6"/>
             <TextBox x:Name="PasswordBlock" Text="{Binding StaffPassword}"/>
         </StackPanel>
         <Button Grid.Row="1" Content="Add" Command="{Binding AddNewStaff}"
-                CommandParameter="{Binding ElementName=AddNewStaffWnd}"/>
+                CommandParameter="{Binding ElementName=AddNewStaffWnd}" 
+                Foreground="White" BorderBrush="Transparent">
+            <Button.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#383660" Offset="0.0"/>
+                    <GradientStop Color="#F083DA" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
     </Grid>
 </Window>
