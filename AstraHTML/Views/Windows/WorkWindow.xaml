@@ -487,7 +487,7 @@
                                 </Style>
                             </ContextMenu.Resources>
                             <MenuItem Header="Home" Click="EmployeeDBBut_Click"/>
-                            <MenuItem Header="Exit"/>
+                            <MenuItem Header="Exit" Click="MenuItemExit_Click"/>
                         </ContextMenu>
                     </TextBlock.ContextMenu>
                     <TextBlock.Style>

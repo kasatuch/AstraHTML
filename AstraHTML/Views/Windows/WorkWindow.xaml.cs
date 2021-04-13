@@ -26,13 +26,21 @@ namespace AstraHTML.Views.Windows
         public WorkWindow()
         {
             InitializeComponent();
-            MainFrame.NavigationService.Navigate(new ViewDataBasePage());
             ActiveUserText.Text = DataExchange.ActiveUser.Login;
             UserSpeciality.Text = DataExchange.ActiveUser.Speciality;
             
             if(DataExchange.ActiveUser.Login == "Admin")
             {
+                MainFrame.NavigationService.Navigate(new EditDataBasePage());
                 EmployeeDBBut.Visibility = Visibility.Collapsed;
+                Home.Visibility = Visibility.Collapsed;
+                
+            }
+            else
+            {
+                MainFrame.NavigationService.Navigate(new ViewDataBasePage());
+                PayDays.Visibility = Visibility.Collapsed;
+                EditDBBut.Visibility = Visibility.Collapsed;
             }
 
         }
@@ -184,6 +192,14 @@ namespace AstraHTML.Views.Windows
             {
                 MainFrame.NavigationService.Navigate(new PayDaysPage());
             }
+        }
+
+        private void MenuItemExit_Click(object sender, RoutedEventArgs e)
+        {
+            DataExchange.ActiveUser = null;
+            this.Close();
+            MainWindow window = new MainWindow();
+            window.Show();
         }
     }
 }
