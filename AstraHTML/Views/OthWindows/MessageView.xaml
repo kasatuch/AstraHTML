@@ -5,15 +5,46 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AstraHTML.Views.OthWindows"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        MouseDown="Window_MouseDown"
+        Background="Transparent"
+        WindowStyle="None"
+        ResizeMode="NoResize"
         Title="MessageView" Height="100" Width="100">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="25"/>
         </Grid.RowDefinitions>
+
+        <Border CornerRadius="4" Grid.RowSpan="2">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#383660" Offset="0.0"/>
+                    <GradientStop Color="#F083DA" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        
         <TextBlock Grid.Row="0" x:Name="MessageText"
                    HorizontalAlignment="Center" VerticalAlignment="Center"
-                   TextWrapping="Wrap"/>
-        <Button Grid.Row="1" Content="OK" Click="Button_Click"/>
+                   TextWrapping="Wrap"
+                   FontFamily="Helvetica"
+                   FontWeight="Light"
+                   FontSize="10"
+                   Foreground="White"
+                   Background="Transparent"
+                   Width="100"
+                   Opacity="0.6"/>
+        <Button Grid.Row="1" Content="OK" Click="Button_Click"
+                Foreground="White" BorderBrush="Transparent">
+            <Button.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#383660" Offset="0.0"/>
+                    <GradientStop Color="#F083DA" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
     </Grid>
 </Window>
