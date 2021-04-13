@@ -268,7 +268,7 @@
                 <RowDefinition/>
                 <RowDefinition Height="1.20*"/>
             </Grid.RowDefinitions>
-            
+
             <StackPanel Grid.Row="1">
                     <StackPanel Orientation="Horizontal">
                     <TextBox x:Name="LoginTextbox" FontFamily="Helvetica"
@@ -281,7 +281,7 @@
                          Opacity="0.8"
                          Height="25"
                          Width="200"
-                             Margin="125,0,0,0">
+                             Margin="30,0,0,0">
                         <TextBox.Style>
                             <Style TargetType="TextBox">
                                 <Setter Property="Text" Value="UserName"/>
@@ -301,11 +301,13 @@
                     Height="2"
                     Background="White"
                     Opacity="0.5"
+                    Margin="0,0,160,0"
                     />
                 <Border Width="250"
                     Height="2"
                     Background="White"
                     Opacity="0.5"
+                    Margin="0,0,160,0"
                     />
                 
                     <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
@@ -322,7 +324,7 @@
                          Opacity="0.8"
                          Height="25"
                          Width="200"
-                         Margin="125,0,0,0">
+                         Margin="30,0,0,0">
                     </PasswordBox>
 
                 </StackPanel>
@@ -330,12 +332,14 @@
                     Height="2"
                     Background="Red"
                     Opacity="0.5"
+                    Margin="0,0,160,0"
                     />
 
                 <Border Width="250"
                     Height="2"
                     Background="White"
                     Opacity="0.5"
+                    Margin="0,0,160,0"
                     />
             </StackPanel>
 
