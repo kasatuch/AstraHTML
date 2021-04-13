@@ -499,20 +499,62 @@ namespace AstraHTML.Views
             {
                 return editStaff ?? new LambdaCommand(obj =>
                 {
-                    Window window = obj as Window;
-                    string resultStr = "Не выбран сотрудник";
-                    if(SelectedStaff != null)
-                    {
+
+                Window wnd = new Window();
+                string resultStr = "";
+
+                if (StaffName == null || StaffName.Replace(" ", "").Length == 0)
+                {
+                    MessageView mes = new MessageView("У сотрудника всегда должно быть имя.");
+                    mes.Show();
+                }
+                else if (StaffSurname == null || StaffSurname.Replace(" ", "").Length == 0)
+                {
+                    MessageView mes = new MessageView("У сотрудника всегда должна быть фамилия.");
+                    mes.Show();
+                }
+                else if (StaffSpeciality == null || StaffSpeciality.Replace(" ", "").Length == 0)
+                {
+                    MessageView mes = new MessageView("У сотрудника всегда должна быть специализация.");
+                    mes.Show();
+                }
+                else if (StaffPost == null || StaffPost.Replace(" ", "").Length == 0)
+                {
+                    MessageView mes = new MessageView("У содрудника должна быть должность.");
+                    mes.Show();
+                }
+                else if (StaffSalary == 0)
+                {
+                    MessageView mes = new MessageView("Вы не правильно указали зарплату.");
+                    mes.Show();
+                }
+                else if (StaffLogin == null || StaffLogin.Replace(" ", "").Length == 0)
+                {
+                        if (StaffLogin == "Admin" || StaffLogin.Replace(" ", "") == "Admin" )
+                        {
+                            MessageView mes = new MessageView("В системе может быть только один администратор.");
+                            mes.Show();
+                        }
+                        else
+                        {
+                            MessageView mes = new MessageView("Вы не задали логин.");
+                            mes.Show();
+                        }
+                }
+                else if (StaffPassword == null || StaffPassword.Replace(" ", "").Length == 0)
+                {
+                    MessageView mes = new MessageView("Вы не задали пароль.");
+                    mes.Show();
+                }
+                else
+                {       
                         resultStr = DataWorker.EditStaff(SelectedStaff, StaffName, StaffSurname, StaffSpeciality, StaffPost, StaffSalary, StaffLogin, StaffPassword);
                         UpdateAllDataView();
                         SetNullValuesToProperties();
                         ShowMessageToUser(resultStr);
-                        window.Close();
-                    }
-                    else
-                    {
-                        ShowMessageToUser(resultStr);
-                    }
+                        wnd.Close();
+                }
+
                 });
             }
         }
@@ -524,36 +566,44 @@ namespace AstraHTML.Views
             {
                 return editStaff ?? new LambdaCommand(obj =>
                 {
-                    Window window = obj as Window;
-                    string resultStr = "Не выбрана задача";
-                    string noStaffStr = "Не выбран сотрудник";
-                    string noProjectStr = "Не выбран проект";
-                    if (SelectedTask != null)
+
+                    Window wnd = new Window();
+                    string resultStr = "";
+                    if (TaskName == null || TaskName.Replace(" ", "").Length == 0)
                     {
-                        if (TaskProject != null) 
-                        {
-                            if (TaskStaff != null)
-                            {
-                                resultStr = DataWorker.EditTask(SelectedTask, TaskName, TaskDescription, TaskProject, TaskStaff, TaskPriority);
-                                UpdateAllDataView();
-                                SetNullValuesToProperties();
-                                ShowMessageToUser(resultStr);
-                                window.Close();
-                            }
-                            else
-                            {
-                                ShowMessageToUser(noStaffStr);
-                            }
-                        }
-                        else
-                        {
-                            ShowMessageToUser(noProjectStr);
-                        }
+                        MessageView mes = new MessageView("Поле названия таска не может быть пустым.");
+                        mes.Show();
+
+                    }
+                    else if (TaskDescription == null || TaskName.Replace(" ", "").Length == 0)
+                    {
+                        MessageView mes = new MessageView("Поле описания не принято оставлять пустым.");
+                        mes.Show();
+                    }
+                    else if (TaskProject == null)
+                    {
+                        MessageView mes = new MessageView("Задача без проекта не может существовать.");
+                        mes.Show();
+                    }
+                    else if (TaskStaff == null)
+                    {
+                        MessageView mes = new MessageView("Вы не назначили сотрудника на таск.");
+                        mes.Show();
+                    }
+                    else if (TaskPriority == null)
+                    {
+                        MessageView mes = new MessageView("У задачи всегда должен быть приоритет.");
+                        mes.Show();
                     }
                     else
                     {
+                        resultStr = DataWorker.EditTask(SelectedTask, TaskName, TaskDescription, TaskProject, TaskStaff, TaskPriority);
+                        UpdateAllDataView();
+                        SetNullValuesToProperties();
                         ShowMessageToUser(resultStr);
+                        wnd.Close();
                     }
+
                 });
             }
         }
@@ -565,20 +615,34 @@ namespace AstraHTML.Views
             {
                 return editProject ?? new LambdaCommand(obj =>
                 {
-                    Window window = obj as Window;
-                    string resultStr = "Не выбран проект";
-                    if (SelectedProject != null)
+                    Window wnd = obj as Window;
+
+                    string resultStr = "";
+
+                    if (ProjectTitle == null || ProjectTitle.Replace(" ", "").Length == 0)
                     {
-                        resultStr = DataWorker.EditProject(SelectedProject, ProjectTitle, ProjectClient,ProjectDescription);
-                        UpdateAllDataView();
-                        SetNullValuesToProperties();
-                        ShowMessageToUser(resultStr);
-                        window.Close();
+                        MessageView mes = new MessageView("Поле названия проекта не может быть пустым.");
+                        mes.Show();
+                    }
+                    else if (ProjectClient == null || ProjectClient.Replace(" ", "").Length == 0)
+                    {
+                        MessageView mes = new MessageView("Поле заказчика не может быть пустым.");
+                        mes.Show();
+                    }
+                    else if (ProjectDescription == null || ProjectDescription.Replace(" ", "").Length == 0)
+                    {
+                        MessageView mes = new MessageView("Этичнее не оставлять поле описания пустым.");
+                        mes.Show();
                     }
                     else
                     {
+                        resultStr = DataWorker.EditProject(SelectedProject, ProjectTitle, ProjectClient, ProjectDescription);
+                        UpdateAllDataView();
+                        SetNullValuesToProperties();
                         ShowMessageToUser(resultStr);
+                        wnd.Close();
                     }
+
                 });
             }
         }
