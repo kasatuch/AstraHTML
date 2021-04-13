@@ -177,5 +177,13 @@ namespace AstraHTML.Views.Windows
                 MessageBox.Show("Администратор не может редактировать самого себя.");
             }
         }
+
+        private void PayDays_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataExchange.ActiveUser.Login == "Admin")
+            {
+                MainFrame.NavigationService.Navigate(new PayDaysPage());
+            }
+        }
     }
 }

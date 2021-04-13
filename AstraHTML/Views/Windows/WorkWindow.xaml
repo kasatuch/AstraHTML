@@ -403,6 +403,7 @@
                     </iconPacks:PackIconMaterial>
                 </Button>
                 <Button Style="{DynamicResource SettingsBtnStyle}" x:Name="PayDays"
+                        Click="PayDays_Click"
                         Height="85"
                         Background="Transparent"
                         BorderBrush="Transparent"

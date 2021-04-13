@@ -10,40 +10,223 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
             <RowDefinition/>
-            <RowDefinition Height="50"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <!-- #region ToolBar Hide-->
-        <Grid Background="White"
-              Grid.Column="0"
-              Grid.Row="0"
-              Grid.RowSpan="3">
-        </Grid>
-        <!--#endregion-->
-        <!-- #region Header Hide-->
-        <Grid Background="Black"
-              Grid.Column="1"
-              Grid.Row="0">
-        </Grid>
-        <!--#endregion-->
-        <!--#region Footer Hide-->
-        <Grid Background="Red"
-              Grid.Column="1"
-              Grid.Row="2">
+        <Grid Grid.Row="0" Grid.Column="0">
+            <TextBlock Text="В данном месяце необходимо выплатить: " Grid.Row="0"
+                       FontFamily="Helvetica"
+                       FontWeight="Light"
+                       FontSize="20"
+                       HorizontalAlignment="Center"
+                       Foreground="White"
+                       Background="Transparent"
+                       Height="50"
+                       TextWrapping="Wrap"
+                       Width="350"
+                       Opacity="0.6"/>
+        <Label Content="0000" x:Name="MoneyBlock"
+                       Grid.Row="0"
+               Margin="0,20,100,0"
+                       FontFamily="Helvetica"
+                       FontWeight="Light"
+                       FontSize="20"
+                       HorizontalAlignment="Center"
+                       Foreground="White"
+                       Background="Transparent"
+                       Height="30"
+                       Width="60"
+                       Opacity="0.6"/>
 
-        </Grid>
-        <!--#endregion-->
-        <!--#region Visible Form-->
-        <Grid Background="Blue"
-              Grid.Column="1"
-              Grid.Row="1">
+            <TextBlock Text="С учётом налогов: " Grid.Row="0"
+                       FontFamily="Helvetica"
+                       FontWeight="Light"
+                       FontSize="20"
+                       Margin="25,100,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Foreground="White"
+                       Background="Transparent"
+                       Height="30"
+                       TextWrapping="Wrap"
+                       Width="190"
+                       Opacity="0.6"/>
 
+            <TextBlock Text="0000" Grid.Row="0"
+                       Name="AllMoneyTaxBlock"
+                       FontFamily="Helvetica"
+                       FontWeight="Light"
+                       FontSize="20"
+                       Margin="0,100,75,0"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Foreground="White"
+                       Background="Transparent"
+                       Height="30"
+                       TextWrapping="Wrap"
+                       Width="130"
+                       Opacity="0.6"/>
         </Grid>
-        <!--#endregion-->
+
+        <Grid Grid.Row="0" Grid.Column="2" Grid.RowSpan="2">
+            <ListView x:Name="ViewAllStaffs"
+                                  Margin="0,20,20,20"
+                                  Background="Transparent"
+                                  BorderThickness="0" BorderBrush="Transparent"
+                                  ItemsSource ="{Binding AllStaffs}"
+                                  SelectedItem="{Binding SelectedStaff}"
+                                  >
+
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Foreground" Value="White"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#2F1638"/>
+                                <Setter Property="BorderThickness" Value="1"/>
+                                <Setter Property="BorderBrush" Value="#383660"/>
+                                <Setter Property="Opacity" Value="0.9"/>
+                                <Setter Property="Foreground" Value="Wheat"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListView.ItemContainerStyle>
+
+                <ListView.View>
+                    <GridView>
+                        <GridView.ColumnHeaderContainerStyle>
+                            <Style TargetType="GridViewColumnHeader">
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="BorderThickness" Value="0"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="Transparent"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </GridView.ColumnHeaderContainerStyle>
+                        <GridViewColumn Header="id" DisplayMemberBinding="{Binding Path=id}"/>
+                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Path=Name}"/>
+                        <GridViewColumn Header="Surname" DisplayMemberBinding="{Binding Path=Surname}"/>
+                        <GridViewColumn Header="Speciality" DisplayMemberBinding="{Binding Path=Speciality}" />
+                        <GridViewColumn Header="Post" DisplayMemberBinding="{Binding Path=Post}"/>
+                        <GridViewColumn Header="Salary" DisplayMemberBinding="{Binding Path=Salary}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <!--#endregion-->
+        </Grid>
+
+
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Самый дорогой сотрудник: " Grid.Row="0"
+                       FontFamily="Helvetica"
+                       FontWeight="Light"
+                       FontSize="20"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Top"
+                       Foreground="White"
+                       Background="Transparent"
+                       Height="25"
+                       TextWrapping="Wrap"
+                       Width="350"
+                       Opacity="0.6"/>
+
+            <TextBlock Text="Зарплата: " Grid.Row="0"
+                       FontFamily="Helvetica"
+                       FontWeight="Light"
+                       FontSize="18"
+                       Margin="25,50,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Foreground="White"
+                       Background="Transparent"
+                       Height="25"
+                       TextWrapping="Wrap"
+                       Width="100"
+                       Opacity="0.6"/>
+
+            <TextBlock Text="Имя:" Grid.Row="0"
+                       FontFamily="Helvetica"
+                       FontWeight="Light"
+                       FontSize="18"
+                       Margin="25,30,0,50"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Foreground="White"
+                       Background="Transparent"
+                       Height="20"
+                       TextWrapping="Wrap"
+                       Width="100"
+                       Opacity="0.6"/>
+            
+            <TextBlock Text="StaffName" Grid.Row="0"
+                       Name="MoneyStaffName"
+                       FontFamily="Helvetica"
+                       FontWeight="Light"
+                       FontSize="18"
+                       Margin="125,30,0,50"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Foreground="White"
+                       Background="Transparent"
+                       Height="20"
+                       TextWrapping="Wrap"
+                       Width="150"
+                       Opacity="0.6"/>
+
+
+            <TextBlock Text="0000" Grid.Row="0" Name="HighMoneyBlock"
+                       FontFamily="Helvetica"
+                       FontWeight="Light"
+                       FontSize="18"
+                       Margin="125,50,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Foreground="White"
+                       Background="Transparent"
+                       Height="20"
+                       TextWrapping="Wrap"
+                       Width="150"
+                       Opacity="0.6"/>
+
+            <TextBlock Text="Всего сотрудников: " Grid.Row="1"
+                       FontFamily="Helvetica"
+                       FontWeight="Light"
+                       Margin="25,0,0,0"
+                       FontSize="20"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Foreground="White"
+                       Background="Transparent"
+                       Height="25"
+                       TextWrapping="Wrap"
+                       Width="170"
+                       Opacity="0.6"/>
+            
+            <TextBlock Text="0000" Grid.Row="1" Name="StaffCountBlock"
+                       FontFamily="Helvetica"
+                       FontWeight="Light"
+                       Margin="0,0,130,0"
+                       FontSize="20"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Foreground="White"
+                       Background="Transparent"
+                       Height="25"
+                       TextWrapping="Wrap"
+                       Width="50"
+                       Opacity="0.6"/>
+        </Grid>
     </Grid>
 </Page>
