@@ -22,5 +22,13 @@ namespace AstraHTML.Views.OthWindows
             InitializeComponent();
             DataContext = new DataManageVM();
         }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
     }
 }

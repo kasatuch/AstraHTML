@@ -6,22 +6,70 @@
         xmlns:local="clr-namespace:AstraHTML.Views.OthWindows"
         mc:Ignorable="d"
         Title="EditProjectWindow" Height="300" Width="300"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        MouseDown="Window_MouseDown"
+        Background="Transparent"
+        WindowStyle="None"
+        ResizeMode="NoResize"
         Name = "EditProjectWnd">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
+
+        <Border CornerRadius="10" Grid.RowSpan="2">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#383660" Offset="0.0"/>
+                    <GradientStop Color="#F083DA" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
         <StackPanel Grid.Row="0" Orientation="Vertical" Width="200"
                     HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="Title"/>
+            <TextBlock Text="Title"
+                       FontFamily="Helvetica"
+                       FontWeight="Light"
+                       FontSize="10"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       Background="Transparent"
+                       Width="100"
+                       Opacity="0.6"/>
             <TextBox x:Name="TitleBlock" Text="{Binding ProjectTitle}"/>
-            <TextBlock Text="Client"/>
+            <TextBlock Text="Client"
+                       FontFamily="Helvetica"
+                       FontWeight="Light"
+                       FontSize="10"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       Background="Transparent"
+                       Width="100"
+                       Opacity="0.6"/>
             <TextBox Text="{Binding ProjectClient}"/>
-            <TextBlock Text="Description"/>
+            <TextBlock Text="Description"
+                       FontFamily="Helvetica"
+                       FontWeight="Light"
+                       FontSize="10"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       Background="Transparent"
+                       Width="100"
+                       Opacity="0.6"/>
             <TextBox Text="{Binding ProjectDescription}"/>
         </StackPanel>
         <Button Grid.Row="1" Content="Add" Command="{Binding EditProject}"
-                CommandParameter="{Binding ElementName=EditProjectWnd}"/>
+                CommandParameter="{Binding ElementName=EditProjectWnd}"
+                Foreground="White" BorderBrush="Transparent">
+            <Button.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#383660" Offset="0.0"/>
+                    <GradientStop Color="#F083DA" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
     </Grid>
 </Window>

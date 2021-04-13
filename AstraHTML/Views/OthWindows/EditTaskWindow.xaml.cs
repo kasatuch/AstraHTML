@@ -27,5 +27,13 @@ namespace AstraHTML.Views.OthWindows
             DataManageVM.TaskDescription = taskToEdit.Description;
             DataManageVM.TaskPriority = taskToEdit.Priority;
         }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
     }
 }

@@ -28,5 +28,13 @@ namespace AstraHTML.Views.OthWindows
             DataManageVM.ProjectClient = projectToEdit.Client;
             DataManageVM.ProjectDescription = projectToEdit.Description;
         }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
     }
 }
