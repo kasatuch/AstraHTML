@@ -78,37 +78,37 @@ namespace AstraHTML.Views
                     if (StaffName == null || StaffName.Replace(" ", "").Length == 0)
                     {
                         MessageView mes = new MessageView("Вы не задали имя.");
-                        mes.Show();
+                        mes.ShowDialog();
                     }
                     else if (StaffSurname == null || StaffSurname.Replace(" ", "").Length == 0)
                     {
                         MessageView mes = new MessageView("Вы не задали фамилию.");
-                        mes.Show();
+                        mes.ShowDialog();
                     }
                     else if (StaffSpeciality == null || StaffSpeciality.Replace(" ", "").Length == 0)
                     {
                         MessageView mes = new MessageView("Вы не задали специализацию.");
-                        mes.Show();
+                        mes.ShowDialog();
                     }
                     else if (StaffPost == null || StaffPost.Replace(" ", "").Length == 0)
                     {
                         MessageView mes = new MessageView("Вы не задали должность.");
-                        mes.Show();
+                        mes.ShowDialog();
                     }
                     else if (StaffSalary == 0)
                     {
                         MessageView mes = new MessageView("Вы не правильно указали зарплату.");
-                        mes.Show();
+                        mes.ShowDialog();
                     }
                     else if (StaffLogin == null || StaffLogin.Replace(" ", "").Length == 0)
                     {
                         MessageView mes = new MessageView("Вы не задали логин.");
-                        mes.Show();
+                        mes.ShowDialog();
                     }
                     else if (StaffPassword == null || StaffPassword.Replace(" ", "").Length == 0)
                     {
                         MessageView mes = new MessageView("Вы не задали пароль.");
-                        mes.Show();
+                        mes.ShowDialog();
                     }
 
                     else
@@ -137,36 +137,36 @@ namespace AstraHTML.Views
                     if (StaffName == null || StaffName.Replace(" ", "").Length == 0) 
                     {
                         MessageView mes = new MessageView("Вы не задали имя.");
-                        mes.Show();
+                        mes.ShowDialog();
                     }
                    else if (StaffSurname == null || StaffSurname.Replace(" ", "").Length == 0) 
                     {
                         MessageView mes = new MessageView("Вы не задали фамилию.");
-                        mes.Show();
+                        mes.ShowDialog();
                     }
                     else if (StaffSpeciality == null || StaffSpeciality.Replace(" ", "").Length == 0)
                     {
                         MessageView mes = new MessageView("Вы не задали специализацию.");
-                        mes.Show();
+                        mes.ShowDialog();
                     }
                     else if (StaffPost == null || StaffPost.Replace(" ", "").Length == 0) 
                     {
                         MessageView mes = new MessageView("Вы не задали должность.");
-                        mes.Show();
+                        mes.ShowDialog();
                     }
                    else if (StaffSalary == 0) {
                         MessageView mes = new MessageView("Вы не правильно указали зарплату.");
-                        mes.Show();
+                        mes.ShowDialog();
                     }
                   else  if (StaffLogin == null || StaffLogin.Replace(" ", "").Length == 0) 
                     {
                         MessageView mes = new MessageView("Вы не задали логин.");
-                        mes.Show();
+                        mes.ShowDialog();
                     }
                   else  if (StaffPassword == null || StaffPassword.Replace(" ", "").Length == 0) 
                     {
                         MessageView mes = new MessageView("Вы не задали пароль.");
-                        mes.Show();
+                        mes.ShowDialog();
                     }
                     else
                     {
@@ -207,28 +207,28 @@ namespace AstraHTML.Views
                     if (TaskName == null || TaskName.Replace(" ", "").Length == 0)
                     {
                         MessageView mes = new MessageView("Вы не задали название.");
-                        mes.Show();
+                        mes.ShowDialog();
 
                     }
                     else if (TaskDescription == null || TaskName.Replace(" ", "").Length == 0)
                     {
                         MessageView mes = new MessageView("Вы не задали описание.");
-                        mes.Show();
+                        mes.ShowDialog();
                     }
                    else  if (TaskProject == null)
                     {
                         MessageView mes = new MessageView("Вы не указали проект.");
-                        mes.Show();
+                        mes.ShowDialog();
                     }
                     else if (TaskStaff == null)
                     {
                         MessageView mes = new MessageView("Вы не указали разработчика.");
-                        mes.Show();
+                        mes.ShowDialog();
                     }
                    else  if (TaskPriority == null)
                     {
                         MessageView mes = new MessageView("Вы не задали приоритетность.");
-                        mes.Show();
+                        mes.ShowDialog();
                     }
                     else
                     {
@@ -267,17 +267,17 @@ namespace AstraHTML.Views
                          if (ProjectTitle == null || ProjectTitle.Replace(" ","").Length == 0)
                     {
                         MessageView mes = new MessageView("Вы не указали название проекта.");
-                        mes.Show();
+                        mes.ShowDialog();
                     }
                     else if (ProjectClient == null || ProjectClient.Replace(" ", "").Length == 0)
                     {
                         MessageView mes = new MessageView("Вы не указали заказчика.");
-                        mes.Show();
+                        mes.ShowDialog();
                     }
                     else if (ProjectDescription == null || ProjectDescription.Replace(" ", "").Length == 0)
                     {
                         MessageView mes = new MessageView("Вы не указали описание проекта.");
-                        mes.Show();
+                        mes.ShowDialog();
                     }
                     else
                     {
@@ -507,45 +507,45 @@ namespace AstraHTML.Views
                 if (StaffName == null || StaffName.Replace(" ", "").Length == 0)
                 {
                     MessageView mes = new MessageView("У сотрудника всегда должно быть имя.");
-                    mes.Show();
+                    mes.ShowDialog();
                 }
                 else if (StaffSurname == null || StaffSurname.Replace(" ", "").Length == 0)
                 {
                     MessageView mes = new MessageView("У сотрудника всегда должна быть фамилия.");
-                    mes.Show();
+                    mes.ShowDialog();
                 }
                 else if (StaffSpeciality == null || StaffSpeciality.Replace(" ", "").Length == 0)
                 {
                     MessageView mes = new MessageView("У сотрудника всегда должна быть специализация.");
-                    mes.Show();
+                    mes.ShowDialog();
                 }
                 else if (StaffPost == null || StaffPost.Replace(" ", "").Length == 0)
                 {
                     MessageView mes = new MessageView("У содрудника должна быть должность.");
-                    mes.Show();
+                    mes.ShowDialog();
                 }
                 else if (StaffSalary == 0)
                 {
                     MessageView mes = new MessageView("Вы не правильно указали зарплату.");
-                    mes.Show();
+                    mes.ShowDialog();
                 }
                 else if (StaffLogin == null || StaffLogin.Replace(" ", "").Length == 0)
                 {
                         if (StaffLogin == "Admin" || StaffLogin.Replace(" ", "") == "Admin" )
                         {
                             MessageView mes = new MessageView("В системе может быть только один администратор.");
-                            mes.Show();
+                            mes.ShowDialog();
                         }
                         else
                         {
                             MessageView mes = new MessageView("Вы не задали логин.");
-                            mes.Show();
+                            mes.ShowDialog();
                         }
                 }
                 else if (StaffPassword == null || StaffPassword.Replace(" ", "").Length == 0)
                 {
                     MessageView mes = new MessageView("Вы не задали пароль.");
-                    mes.Show();
+                    mes.ShowDialog();
                 }
                 else
                 {       
@@ -574,28 +574,28 @@ namespace AstraHTML.Views
                     if (TaskName == null || TaskName.Replace(" ", "").Length == 0)
                     {
                         MessageView mes = new MessageView("Поле названия таска не может быть пустым.");
-                        mes.Show();
+                        mes.ShowDialog();
 
                     }
                     else if (TaskDescription == null || TaskName.Replace(" ", "").Length == 0)
                     {
                         MessageView mes = new MessageView("Поле описания не принято оставлять пустым.");
-                        mes.Show();
+                        mes.ShowDialog();
                     }
                     else if (TaskProject == null)
                     {
                         MessageView mes = new MessageView("Задача без проекта не может существовать.");
-                        mes.Show();
+                        mes.ShowDialog();
                     }
                     else if (TaskStaff == null)
                     {
                         MessageView mes = new MessageView("Вы не назначили сотрудника на таск.");
-                        mes.Show();
+                        mes.ShowDialog();
                     }
                     else if (TaskPriority == null)
                     {
                         MessageView mes = new MessageView("У задачи всегда должен быть приоритет.");
-                        mes.Show();
+                        mes.ShowDialog();
                     }
                     else
                     {
@@ -624,17 +624,17 @@ namespace AstraHTML.Views
                     if (ProjectTitle == null || ProjectTitle.Replace(" ", "").Length == 0)
                     {
                         MessageView mes = new MessageView("Поле названия проекта не может быть пустым.");
-                        mes.Show();
+                        mes.ShowDialog();
                     }
                     else if (ProjectClient == null || ProjectClient.Replace(" ", "").Length == 0)
                     {
                         MessageView mes = new MessageView("Поле заказчика не может быть пустым.");
-                        mes.Show();
+                        mes.ShowDialog();
                     }
                     else if (ProjectDescription == null || ProjectDescription.Replace(" ", "").Length == 0)
                     {
                         MessageView mes = new MessageView("Этичнее не оставлять поле описания пустым.");
-                        mes.Show();
+                        mes.ShowDialog();
                     }
                     else
                     {

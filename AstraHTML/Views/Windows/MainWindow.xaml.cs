@@ -1,6 +1,7 @@
 ﻿using AstraHTML.Data;
 using AstraHTML.Models;
 using AstraHTML.Views;
+using AstraHTML.Views.OthWindows;
 using AstraHTML.Views.Windows;
 using System;
 using System.Collections.Generic;
@@ -51,18 +52,19 @@ namespace AstraHTML
                 DataExchange.GetStaff(LoginTextbox.Text, PasswordTextbox.Password);
                 this.Close();
                 WorkWindow wnd = new WorkWindow();
-                wnd.Show();
+                wnd.ShowDialog();
             }
             else
             {
-                MessageBox.Show("Пользователя не существует.");
+                MessageView mess = new MessageView("Пользователя не существует");
+                mess.ShowDialog();
             }
         }
 
         private void RegBut_Click(object sender, RoutedEventArgs e)
         {
             Register wnd = new Register();
-            wnd.Show();
+            wnd.ShowDialog();
         }
 
 
