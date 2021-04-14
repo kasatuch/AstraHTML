@@ -39,6 +39,11 @@ namespace AstraHTML.Views.Windows
             e.Handled = regex.IsMatch(e.Text);
         }
 
+        private void ButtonExit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (NameBlock.Text == "")

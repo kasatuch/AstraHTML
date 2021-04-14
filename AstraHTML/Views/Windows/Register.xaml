@@ -23,12 +23,25 @@
 
     <Window.Resources>
         <ResourceDictionary>
-                <ResourceDictionary.MergedDictionaries>
-                    <ResourceDictionary Source="pack://application:,,,/Resources/Themes/ModernButtonTheme.xaml"/>
-                </ResourceDictionary.MergedDictionaries>
-            </ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Resources/Themes/ModernButtonTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Window.Resources>
     <Grid>
+        <Button x:Name="ButtonExit"
+                Content="X"
+                VerticalAlignment="Top"
+                Margin="0,5,10,0"
+                Panel.ZIndex="1"
+                Click="ButtonExit_Click"
+                HorizontalAlignment="Right"
+                Width="20"
+                Foreground="White"
+                Background="Transparent"
+                BorderBrush="Transparent"
+                >
+        </Button>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="100*"/>
