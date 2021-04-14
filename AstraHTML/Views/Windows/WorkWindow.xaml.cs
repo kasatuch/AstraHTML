@@ -27,17 +27,18 @@ namespace AstraHTML.Views.Windows
         {
             InitializeComponent();
             ActiveUserText.Text = DataExchange.ActiveUser.Login;
-            UserSpeciality.Text = DataExchange.ActiveUser.Speciality;
             
             if(DataExchange.ActiveUser.Login == "Admin")
             {
-                MainFrame.NavigationService.Navigate(new EditDataBasePage());
+                UserSpeciality.Text = "Admin Mode";
+               MainFrame.NavigationService.Navigate(new EditDataBasePage());
                 EmployeeDBBut.Visibility = Visibility.Collapsed;
                 Home.Visibility = Visibility.Collapsed;
                 
             }
             else
             {
+                UserSpeciality.Text = DataExchange.ActiveUser.Speciality;
                 MainFrame.NavigationService.Navigate(new ViewDataBasePage());
                 PayDays.Visibility = Visibility.Collapsed;
                 EditDBBut.Visibility = Visibility.Collapsed;
@@ -56,7 +57,7 @@ namespace AstraHTML.Views.Windows
             popup_uc.PlacementTarget = Home;
             popup_uc.Placement = PlacementMode.Right;
             popup_uc.IsOpen = true;
-            Header.PopupText.Text = "View DataBase";
+            Header.PopupText.Text = "Рабочая область";
             #endregion
         }
 
@@ -77,7 +78,7 @@ namespace AstraHTML.Views.Windows
             popup_uc.PlacementTarget = EditDBBut;
             popup_uc.Placement = PlacementMode.Right;
             popup_uc.IsOpen = true;
-            Header.PopupText.Text = "Edit DataBase";
+            Header.PopupText.Text = "Изменить БД";
             #endregion
         }
 
@@ -97,7 +98,7 @@ namespace AstraHTML.Views.Windows
             popup_uc.PlacementTarget = PayDays;
             popup_uc.Placement = PlacementMode.Right;
             popup_uc.IsOpen = true;
-            Header.PopupText.Text = "PayDays";
+            Header.PopupText.Text = "Сводка о ЗП";
             #endregion
         }
 
@@ -117,7 +118,7 @@ namespace AstraHTML.Views.Windows
             popup_uc.PlacementTarget = EmployeeDBBut;
             popup_uc.Placement = PlacementMode.Right;
             popup_uc.IsOpen = true;
-            Header.PopupText.Text = "Edit User";
+            Header.PopupText.Text = "Личный кабинет";
             #endregion
         }
 

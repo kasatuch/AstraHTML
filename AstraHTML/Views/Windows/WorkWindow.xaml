@@ -361,7 +361,7 @@
             </Grid.RowDefinitions>
             <Grid Width="100" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
                         HorizontalAlignment="Left"
-                        Background="#383660">
+                        Background="#383660" Name="LeftToolBar">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50*"/>
                     <RowDefinition Height="90*"/>
@@ -371,7 +371,6 @@
                     <RowDefinition Height="50*"/>
                 </Grid.RowDefinitions>
                 <Button Style="{DynamicResource HomeBtnStyle}" Grid.Row="1" x:Name="Home"
-                        Height="90"
                         Background="Transparent"
                         BorderBrush="Transparent"
                         Click="ViewDB_Click"
@@ -388,11 +387,10 @@
                     </iconPacks:PackIconMaterial>
                 </Button>
                 <Button Style="{DynamicResource ProfileBtnStyle}" x:Name="EditDBBut"
-                        Height="85"
                         Grid.Row="2"
                         Background="Transparent"
                         BorderBrush="Transparent" Click="EditDB_Click" 
-                        Margin="0,0,0,10" MouseEnter="EditDBBut_MouseEnter" MouseLeave="EditDBBut_MouseLeave">
+                        MouseEnter="EditDBBut_MouseEnter" MouseLeave="EditDBBut_MouseLeave">
                     <iconPacks:PackIconMaterial Kind="DatabaseEdit"                           
                                  VerticalAlignment="Center"
                                  HorizontalAlignment="Center"
@@ -404,11 +402,10 @@
                 </Button>
                 <Button Style="{DynamicResource SettingsBtnStyle}" x:Name="PayDays"
                         Click="PayDays_Click"
-                        Height="85"
                         Background="Transparent"
                         BorderBrush="Transparent"
                         Grid.Row="3"
-                        Margin="0,10,0,0" MouseEnter="Settings_MouseEnter" MouseLeave="Settings_MouseLeave">
+                        MouseEnter="Settings_MouseEnter" MouseLeave="Settings_MouseLeave">
                     <iconPacks:PackIconMaterial Kind="CalendarMonth"                           
                                  VerticalAlignment="Center"
                                  HorizontalAlignment="Center"
@@ -419,11 +416,10 @@
                     </iconPacks:PackIconMaterial>
                 </Button>
                 <Button Style="{DynamicResource EditEmployeeDBButStyle}" x:Name="EmployeeDBBut"
-                        Height="85"
                         Grid.Row="4"
                         Background="Transparent"
                         BorderBrush="Transparent" Click="EmployeeDBBut_Click"
-                        Margin="0,10,0,0" MouseEnter="EmployeeDBBut_MouseEnter" MouseLeave="EmployeeDBBut_MouseLeave"   >
+                        MouseEnter="EmployeeDBBut_MouseEnter" MouseLeave="EmployeeDBBut_MouseLeave"   >
                     <iconPacks:PackIconMaterial Style="{DynamicResource EditEmployeDBButStyle}" Kind="AccountChild"                           
                                  VerticalAlignment="Center"
                                  HorizontalAlignment="Center"

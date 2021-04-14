@@ -18,6 +18,19 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
+        <Button x:Name="ButtonExit"
+                Grid.Row="0" Content="X"
+                VerticalAlignment="Top"
+                Margin="0,0,5,0"
+                Panel.ZIndex="1"
+                Click="ButtonExit_Click"
+                HorizontalAlignment="Right"
+                Foreground="White"
+                Background="Transparent"
+                BorderBrush="Transparent"
+                >
+        </Button>
+
         <Border CornerRadius="10" Grid.RowSpan="2">
             <Border.Background>
                 <LinearGradientBrush>

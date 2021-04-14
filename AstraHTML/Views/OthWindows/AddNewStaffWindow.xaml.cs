@@ -37,5 +37,10 @@ namespace AstraHTML.Views.OthWindows
                 DragMove();
             }
         }
+
+        private void ButtonExit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
