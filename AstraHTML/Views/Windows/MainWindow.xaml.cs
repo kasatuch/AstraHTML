@@ -64,6 +64,25 @@ namespace AstraHTML
             Register wnd = new Register();
             wnd.Show();
         }
+
+
+        private void LoginTextbox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            var textBox = ((TextBox)sender);
+            textBox.Dispatcher.BeginInvoke(new Action(() =>
+            {
+                textBox.SelectAll();
+            }));
+        }
+
+        private void PasswordTextbox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            var textBox = ((PasswordBox)sender);
+            textBox.Dispatcher.BeginInvoke(new Action(() =>
+            {
+                textBox.SelectAll();
+            }));
+        }
     }
 
     public static class DataExchange
