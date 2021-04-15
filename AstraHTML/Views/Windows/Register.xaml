@@ -17,9 +17,7 @@
         WindowStartupLocation="CenterScreen"
         Name="AddNewStaffRegWnd"
         >
-    <Window.DataContext>
-        <vm:RegisterViewModel/>
-    </Window.DataContext>
+
 
     <Window.Resources>
         <ResourceDictionary>
